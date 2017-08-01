@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        Setting:
+            class: AppBundle\Entity\Setting
+            label: 'Settings'
+            disabled_actions: ['delete', 'new']
+            list:
+                fields:
+                    - title
+                    - body
+            show:
+                fields:
+                    - { property: 'type', css_class: 'large' }
+                    - body
+            form:
+                fields:
+                    - { property: 'title', css_class: 'large', type_options: { disabled: true } }
+                    - body

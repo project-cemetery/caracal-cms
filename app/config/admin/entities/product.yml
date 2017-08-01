@@ -2,8 +2,9 @@ easy_admin:
     entities:
         Product:
             class: AppBundle\Entity\Product
-            label: 'Products'
+            label: 'Product'
             list:
+                title: 'Products'
                 fields:
                     - id
                     - title
@@ -13,5 +14,4 @@ easy_admin:
                     - { property: 'title', css_class: 'large' }
             form:
                 fields:
-                    - { type: 'group', css_class: 'col-sm-8', label: 'Basic information', icon: 'pencil' }
                     - { property: 'title', css_class: 'large' }

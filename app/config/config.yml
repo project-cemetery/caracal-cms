@@ -42,6 +42,11 @@ twig:
 # Doctrine Configuration
 doctrine:
     dbal:
+        types:
+            enumcontacttype: AppBundle\DBAL\EnumContactType
+            enumsettingtype: AppBundle\DBAL\EnumSettingType
+        mapping_types:
+            enum: string
         driver: pdo_mysql
         host: '%database_host%'
         port: '%database_port%'
