@@ -9,3 +9,4 @@ easy_admin:
                   - { entity: 'Product', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
             - { label: 'Settings', entity: 'Setting', icon: 'cog', label: 'List', params: { sortField: 'type' }, default: true }
             - { label: 'Contacts', entity: 'Contact', icon: 'address-card', label: 'List', params: { sortField: 'type' }, default: true }
+            - { label: 'Statistics' }
