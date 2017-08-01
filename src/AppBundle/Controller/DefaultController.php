@@ -22,16 +22,19 @@ class DefaultController extends Controller
         $seoKeywords =    $settingsRepo->findOneBy(['type' => Setting::SEO_KEYWORDS_TYPE])->getBody();
         $seoDescription = $settingsRepo->findOneBy(['type' => Setting::SEO_DESCRIPTION_TYPE])->getBody();
 
+        $currentYear = date('Y');
+
         return $this->render(
             'index.html.twig',
             [
                 'companyName'    => $companyName,
                 'companyTagline' => $companyTagline,
-                'seo' => [
+                'seo'            => [
                     'title'       => $seoTitle,
                     'keywords'    => $seoKeywords,
                     'description' => $seoDescription,
                 ],
+                'year' => $currentYear,
             ]
         );
     }
