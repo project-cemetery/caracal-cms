@@ -747,9 +747,6 @@
 /* Basic */
 
 	body {
-		background-image: url("images/overlay.png"), url("images/bg.jpg");
-		background-repeat: repeat, no-repeat;
-		background-size: auto, 100% 100%;
 		font-family: 'Source Sans Pro', sans-serif;
 		font-weight: 300;
 		color: #777777;
@@ -1136,6 +1133,11 @@
 /* Desktop */
 
 	@media screen and (min-width: 737px) {
+		body {
+			background-image: url("images/overlay.png"), url("images/bg.jpg");
+			background-repeat: repeat, no-repeat;
+			background-size: auto, 100% 100%;
+		}
 
 		/* Basic */
 
@@ -1431,6 +1433,10 @@
 /* Mobile */
 
 	@media screen and (max-width: 736px) {
+
+		body {
+			background-color: #4caf50;
+		}
 
 		/* Basic */
 

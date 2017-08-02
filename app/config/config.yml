@@ -9,6 +9,7 @@ imports:
 parameters:
     locale: en
     app.path.product_images: /uploads/images/products
+    app.path.template_images: /uploads/images/template
 
 framework:
     #esi: ~
@@ -41,13 +42,15 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         product_image_path: '%app.path.product_images%'
+        template_image_path: '%app.path.template_images%'
 
 # Doctrine Configuration
 doctrine:
     dbal:
         types:
-            enumcontacttype: AppBundle\DBAL\EnumContactType
-            enumsettingtype: AppBundle\DBAL\EnumSettingType
+            enumcontacttype:       AppBundle\DBAL\EnumContactType
+            enumsettingtype:       AppBundle\DBAL\EnumSettingType
+            enumtemplateimagetype: AppBundle\DBAL\EnumTemplateImageType
         mapping_types:
             enum: string
         driver: pdo_mysql
@@ -97,3 +100,6 @@ vich_uploader:
         product_images:
             uri_prefix:         '%app.path.product_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/products'
+        template_images:
+            uri_prefix:         '%app.path.template_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/template'

@@ -10,6 +10,8 @@
 		<meta name="keywords" content="{{ seo.keywords }}" />
 		<meta name="description" content="{{ seo.description }}" />
 
+		<link rel="shortcut icon" href="{{ template_image_path ~ '/' ~ images.favicon }}" type="image/x-icon">
+
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -39,7 +41,8 @@
 					<nav id="nav">
 						<a href="#me" class="icon fa-home active"><span>Главная</span></a>
 						<a href="#work" class="icon fa-folder"><span>Каталог</span></a>
-						<a href="#contact" class="icon fa-envelope"><span>Контакты</span></a>
+						<a href="#contact" class="icon fa-phone"><span>Контакты</span></a>
+						<a href="#order" class="icon fa-envelope"><span>Заявка</span></a>
 					</nav>
 
 				<!-- Main -->
@@ -52,8 +55,8 @@
 									<p>{{ companyTagline }}</p>
 								</header>
 								<a href="#work" class="jumplink pic">
-									<span class="arrow icon fa-chevron-right"><span>See my work</span></span>
-									<img src="images/me.jpg" alt="" />
+									<span class="arrow icon fa-chevron-right"><span>Открыть каталог</span></span>
+									<img src="{{ template_image_path ~ '/' ~ images.logo }}" alt="" />
 								</a>
 							</article>
 
@@ -62,11 +65,6 @@
 								<header>
 									<h2>Каталог</h2>
 								</header>
-								<p>
-									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
-									Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-									luctus elit eget interdum.
-								</p>
 								<section>
 									<div class="row">
 										{% for product in products %}
@@ -79,9 +77,24 @@
 							</article>
 
 						<!-- Contact -->
-							<article id="contact" class="panel">
+						<article id="contact" class="panel">
+							<header>
+								<h2>Контакты</h2>
+							</header>
+							<div>
+								<p>Телефон: <strong>{{ contacts.phone }}</strong></p>
+								<p>Email: <strong>{{ contacts.email }}</strong></p>
+								<p>Адрес: <strong>{{ contacts.address }}</strong></p>
+							</div>
+							<div>
+								<img class="image fit" src="{{ template_image_path ~ '/' ~ images.map }}" alt="" />
+							</div>
+						</article>
+
+						<!-- Order -->
+							<article id="order" class="panel">
 								<header>
-									<h2>Связаться</h2>
+									<h2>Оставить заявку</h2>
 								</header>
 								<form>
 									<div>
@@ -101,9 +114,6 @@
 										</div>
 									</div>
 								</form>
-								<div>
-									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2203.8990595522814!2d84.9453243159585!3d56.46949998075104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x432694a8120cb8f9%3A0x8d7a190f3a902c24!2z0L_RgC4g0JvQtdC90LjQvdCwLCAzNiwg0KLQvtC80YHQuiwg0KLQvtC80YHQutCw0Y8g0L7QsdC7LiwgNjM0MDUw!5e0!3m2!1sru!2sru!4v1501694463741" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-								</div>
 							</article>
 
 					</div>

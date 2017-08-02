@@ -2,8 +2,10 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Contact;
 use AppBundle\Entity\Product;
 use AppBundle\Entity\Setting;
+use AppBundle\Entity\TemplateImage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -31,6 +33,18 @@ class DefaultController extends Controller
             ->getRepository(Product::class)
             ->findBy(['enabled' => true]);
 
+        $contactsRepo = $this->getDoctrine()->getRepository(Contact::class);
+
+        $phone   = $contactsRepo->findOneBy(['type' => Contact::PHONE_TYPE])->getBody();
+        $email   = $contactsRepo->findOneBy(['type' => Contact::EMAIL_TYPE])->getBody();
+        $address = $contactsRepo->findOneBy(['type' => Contact::ADDRESS_TYPE])->getBody();
+
+        $imagesRepo = $this->getDoctrine()->getRepository(TemplateImage::class);
+
+        $logo    = $imagesRepo->findOneBy(['type' => TemplateImage::LOGO_TYPE])->getImage();
+        $favicon = $imagesRepo->findOneBy(['type' => TemplateImage::FAVICON_TYPE])->getImage();
+        $map     = $imagesRepo->findOneBy(['type' => TemplateImage::MAP_TYPE])->getImage();
+
         dump($products);
 
         return $this->render(
@@ -46,6 +60,16 @@ class DefaultController extends Controller
                 'gaID'           => $gaID,
                 'year'           => $currentYear,
                 'products'       => $products,
+                'contacts'       => [
+                    'phone'   => $phone,
+                    'email'   => $email,
+                    'address' => $address,
+                ],
+                'images'         => [
+                    'logo'    => $logo,
+                    'favicon' => $favicon,
+                    'map'     => $map,
+                ],
             ]
         );
     }
