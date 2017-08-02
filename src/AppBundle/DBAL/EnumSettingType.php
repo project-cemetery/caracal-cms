@@ -14,5 +14,6 @@ class EnumSettingType extends EnumType
         Setting::SEO_TITLE_TYPE,
         Setting::SEO_KEYWORDS_TYPE,
         Setting::SEO_DESCRIPTION_TYPE,
+        Setting::GOOGLE_ANALYTICS_ID_TYPE,
     ];
 }

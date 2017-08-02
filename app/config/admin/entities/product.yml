@@ -7,11 +7,17 @@ easy_admin:
                 title: 'Products'
                 fields:
                     - id
+                    - enabled
                     - title
+                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
             show:
                 fields:
                     - id
                     - { property: 'title', css_class: 'large' }
+                    - { property: 'enabled', label: 'Published' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
             form:
                 fields:
                     - { property: 'title', css_class: 'large' }
+                    - { property: 'enabled', label: 'Published' }
+                    - { property: 'imageFile', type: 'vich_image', type_options: { required: true } }

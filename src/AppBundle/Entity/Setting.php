@@ -17,6 +17,8 @@ class Setting
     const SEO_KEYWORDS_TYPE = 'SEO keywords';
     const SEO_DESCRIPTION_TYPE = 'SEO description';
 
+    const GOOGLE_ANALYTICS_ID_TYPE = 'Google Analytics ID';
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")

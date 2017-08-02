@@ -10,3 +10,4 @@ easy_admin:
             - { label: 'Settings', entity: 'Setting', icon: 'cog', label: 'List', params: { sortField: 'type' }, default: true }
             - { label: 'Contacts', entity: 'Contact', icon: 'address-card', label: 'List', params: { sortField: 'type' }, default: true }
             - { label: 'Statistics' }
+            - { label: 'Google Analytics', url: 'https://analytics.google.com/', icon: 'line-chart', target: '_blank' }

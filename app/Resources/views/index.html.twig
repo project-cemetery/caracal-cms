@@ -37,10 +37,9 @@
 
 				<!-- Nav -->
 					<nav id="nav">
-						<a href="#me" class="icon fa-home active"><span>Home</span></a>
-						<a href="#work" class="icon fa-folder"><span>Work</span></a>
-						<a href="#contact" class="icon fa-envelope"><span>Contact</span></a>
-						<a href="#" class="icon fa-twitter"><span>Twitter</span></a>
+						<a href="#me" class="icon fa-home active"><span>Главная</span></a>
+						<a href="#work" class="icon fa-folder"><span>Каталог</span></a>
+						<a href="#contact" class="icon fa-envelope"><span>Контакты</span></a>
 					</nav>
 
 				<!-- Main -->
@@ -61,7 +60,7 @@
 						<!-- Work -->
 							<article id="work" class="panel">
 								<header>
-									<h2>Work</h2>
+									<h2>Каталог</h2>
 								</header>
 								<p>
 									Phasellus enim sapien, blandit ullamcorper elementum eu, condimentum eu elit.
@@ -70,42 +69,11 @@
 								</p>
 								<section>
 									<div class="row">
-										<div class="4u 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic01.jpg" alt=""></a>
-										</div>
-										<div class="4u 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic02.jpg" alt=""></a>
-										</div>
-										<div class="4u$ 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic03.jpg" alt=""></a>
-										</div>
-										<div class="4u 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic04.jpg" alt=""></a>
-										</div>
-										<div class="4u 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic05.jpg" alt=""></a>
-										</div>
-										<div class="4u$ 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic06.jpg" alt=""></a>
-										</div>
-										<div class="4u 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic07.jpg" alt=""></a>
-										</div>
-										<div class="4u 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic08.jpg" alt=""></a>
-										</div>
-										<div class="4u$ 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic09.jpg" alt=""></a>
-										</div>
-										<div class="4u 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic10.jpg" alt=""></a>
-										</div>
-										<div class="4u 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic11.jpg" alt=""></a>
-										</div>
-										<div class="4u$ 12u$(mobile)">
-											<a href="#" class="image fit"><img src="images/pic12.jpg" alt=""></a>
-										</div>
+										{% for product in products %}
+											<div class="4u 12u$(mobile)">
+												<a href="#" class="image fit"><img src="{{ product_image_path ~ '/' ~ product.image }}" alt=""></a>
+											</div>
+										{% endfor %}
 									</div>
 								</section>
 							</article>
@@ -133,6 +101,9 @@
 										</div>
 									</div>
 								</form>
+								<div>
+									<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2203.8990595522814!2d84.9453243159585!3d56.46949998075104!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x432694a8120cb8f9%3A0x8d7a190f3a902c24!2z0L_RgC4g0JvQtdC90LjQvdCwLCAzNiwg0KLQvtC80YHQuiwg0KLQvtC80YHQutCw0Y8g0L7QsdC7LiwgNjM0MDUw!5e0!3m2!1sru!2sru!4v1501694463741" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+								</div>
 							</article>
 
 					</div>
@@ -159,5 +130,16 @@
 			{% javascripts '@AppBundle/Resources/public/js/ie/respond.min.js' %}
 				<!--[if lte IE 8]><script src="{{ asset_url }}"></script><![endif]-->
 			{% endjavascripts %}
+
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+						(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+				ga('create', '{{ gaID }}', 'auto');
+				ga('send', 'pageview');
+
+			</script>
 	</body>
 </html>
