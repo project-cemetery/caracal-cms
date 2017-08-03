@@ -54,6 +54,9 @@
 									<h1>{{ companyName }}</h1>
 									<p>{{ companyTagline }}</p>
 								</header>
+                                {% if newTicket %}
+									<p class="ticket-info">Заявка принята, мы свяжемся с вами в ближайшее время.</p>
+                                {% endif %}
 								<a href="#work" class="jumplink pic">
 									<span class="arrow icon fa-chevron-right"><span>Открыть каталог</span></span>
 									<img src="{{ template_image_path ~ '/' ~ images.logo }}" alt="" />
@@ -96,24 +99,24 @@
 								<header>
 									<h2>Оставить заявку</h2>
 								</header>
-								<form>
+                                {{ form_start(form) }}
 									<div>
 										<div class="row">
 											<div class="6u 12u$(mobile)">
-												<input type="text" name="name" placeholder="Имя" />
+                                                {{ form_widget(form.name) }}
 											</div>
 											<div class="6u$ 12u$(mobile)">
-												<input type="text" name="email" placeholder="Email" />
+                                                {{ form_widget(form.email) }}
 											</div>
 											<div class="12u$">
-												<textarea name="message" placeholder="Сообщение" rows="8"></textarea>
+                                                {{ form_widget(form.message) }}
 											</div>
 											<div class="12u$">
-												<input type="submit" value="Отправить" />
+                                                {{ form_widget(form.submit) }}
 											</div>
 										</div>
 									</div>
-								</form>
+                                {{ form_end(form) }}
 							</article>
 
 					</div>

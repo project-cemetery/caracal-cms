@@ -1,0 +1,25 @@
+easy_admin:
+    entities:
+        Ticket:
+            class: AppBundle\Entity\Ticket
+            label: 'Ticket'
+            list:
+                fields:
+                    - id
+                    - createdAt
+                    - answered
+                    - customerName
+                    - customerEmail
+                    - customerMessage
+            show:
+                fields:
+                    - { property: 'customerName', css_class: 'large' }
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12 col-md-8', label: 'Customer information', icon: 'user' }
+                    - customerName
+                    - customerEmail
+                    - customerMessage
+                    - { type: 'group', css_class: 'col-sm-12 col-md-4', label: 'Basic information', icon: 'info' }
+                    - createdAt
+                    - answered

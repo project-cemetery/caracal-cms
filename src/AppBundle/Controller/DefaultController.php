@@ -6,8 +6,14 @@ use AppBundle\Entity\Contact;
 use AppBundle\Entity\Product;
 use AppBundle\Entity\Setting;
 use AppBundle\Entity\TemplateImage;
+use AppBundle\Entity\Ticket;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -17,6 +23,49 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        /** @var Form $form */
+        $form = $this
+            ->createFormBuilder()
+            ->setAction($this->generateUrl('homepage'))
+            ->setMethod('POST')
+            ->add('name', TextType::class, ['attr' => ['placeholder'  => 'Имя']])
+            ->add('email', EmailType::class, ['attr' => ['placeholder'  => 'Email']])
+            ->add('message', TextareaType::class,
+                [
+                    'attr' => [
+                        'placeholder'  => 'Сообщение',
+                        'rows'         => 8,
+                    ],
+                ]
+            )
+            ->add('submit', SubmitType::class, [
+                'label' => 'Отправить',
+                'attr'  => [
+                    'class' => 'send-btn',
+                ]
+            ])
+            ->getForm();
+
+        $newTicket = false;
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+
+            $ticket = (new Ticket())
+                ->setCustomerName($data['name'])
+                ->setCustomerEmail($data['email'])
+                ->setCustomerMessage($data['message']);
+
+            $em = $this->getDoctrine()->getManager();
+
+            $em->persist($ticket);
+            $em->flush();
+
+            $newTicket = true;
+        }
+
         $settingsRepo = $this->getDoctrine()->getRepository(Setting::class);
 
         $companyName =    $settingsRepo->findOneBy(['type' => Setting::COMPANY_NAME_TYPE])->getBody();
@@ -70,6 +119,8 @@ class DefaultController extends Controller
                     'favicon' => $favicon,
                     'map'     => $map,
                 ],
+                'newTicket' => $newTicket,
+                'form'    => $form->createView(),
             ]
         );
     }
