@@ -5,12 +5,12 @@ easy_admin:
             - label: 'Products'
               icon: 'shopping-basket'
               children:
-                  - { entity: 'Product', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' }, default: true }
+                  - { entity: 'Product', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' } }
                   - { entity: 'Product', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
             - { label: 'Settings', entity: 'Setting', icon: 'cog', params: { sortField: 'type' } }
             - { label: 'Template images', entity: 'TemplateImage', icon: 'image', params: { sortField: 'type' } }
             - { label: 'Contacts', entity: 'Contact', icon: 'address-card', params: { sortField: 'type' } }
             - { label: 'Clients' }
-            - { label: 'Tickets', entity: 'Ticket', icon: 'sticky-note', params: { sortField: 'createdAt' } }
+            - { label: 'Tickets', entity: 'Ticket', icon: 'sticky-note', params: { sortField: 'createdAt' }, default: true }
             - { label: 'Statistics' }
             - { label: 'Google Analytics', url: 'https://analytics.google.com/', icon: 'line-chart', target: '_blank' }
