@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<!--
+	Astral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{{ product.title }}</title>
+		<meta name="keywords" content="{{ seoKeywords }}" />
+		<meta name="description" content="{{ product.description }}" />
+
+		<link rel="shortcut icon" href="{{ template_image_path ~ '/' ~ images.favicon }}" type="image/x-icon">
+
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {% javascripts '@AppBundle/Resources/public/js/ie/html5shiv.js' %}
+			<!--[if lte IE 8]><script src="{{ asset_url }}"></script><![endif]-->
+        {% endjavascripts %}
+
+        {% stylesheets 'bundles/app/css/main.css' filter='cssrewrite' %}
+			<link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+
+        {% stylesheets 'bundles/app/css/noscript.css' filter='cssrewrite' %}
+			<noscript><link rel="stylesheet" href="{{ asset_url }}" /></noscript>
+        {% endstylesheets %}
+
+        {% stylesheets 'bundles/app/css/ie8.css' filter='cssrewrite' %}
+			<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset_url }}" /><![endif]-->
+        {% endstylesheets %}
+
+	</head>
+	<body>
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+
+				<!-- Nav -->
+					<nav id="nav">
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Me -->
+							<article id="contact" class="panel">
+								<header>
+									<h2>{{ product.title }}</h2>
+								</header>
+								<div>
+									<p>Цена: <strong>{{ product.price }}</strong> руб.</p>
+								</div>
+								<div>
+									<img class="image fit" src="{{ product_image_path ~ '/' ~ product.image }}" alt="" />
+								</div>
+								<hr/>
+								<div>
+									<p>{{ product.description }}</p>
+								</div>
+								<a href="{{ path('homepage') }}" class="button" style="text-decoration: none;">Вернуться</a>
+							</article>
+
+					</div>
+
+				<!-- Footer -->
+					<div id="footer">
+						<ul class="copyright">
+							<li>&copy; {{ companyName }} 2017 – {{ year }}.</li><li>Design: <a target="_blank" href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			{% javascripts
+				'@AppBundle/Resources/public/js/jquery.min.js'
+            	'@AppBundle/Resources/public/js/skel.min.js'
+            	'@AppBundle/Resources/public/js/skel-viewport.min.js'
+            	'@AppBundle/Resources/public/js/util.js'
+            	'@AppBundle/Resources/public/js/main.js' %}
+				<script src="{{ asset_url }}"></script>
+			{% endjavascripts %}
+
+			{% javascripts '@AppBundle/Resources/public/js/ie/respond.min.js' %}
+				<!--[if lte IE 8]><script src="{{ asset_url }}"></script><![endif]-->
+			{% endjavascripts %}
+
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+						(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+					m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+				ga('create', '{{ gaID }}', 'auto');
+				ga('send', 'pageview');
+
+			</script>
+	</body>
+</html>

@@ -72,7 +72,7 @@
 									<div class="row">
 										{% for product in products %}
 											<div class="4u 12u$(mobile)">
-												<a href="#" class="image fit"><img src="{{ product_image_path ~ '/' ~ product.image }}" alt=""></a>
+												<a href="{{ path('product', { 'id': product.id }) }}" class="image fit"><img src="{{ product_image_path ~ '/' ~ product.image }}" alt=""></a>
 											</div>
 										{% endfor %}
 									</div>
@@ -80,19 +80,19 @@
 							</article>
 
 						<!-- Contact -->
-						<article id="contact" class="panel">
-							<header>
-								<h2>Контакты</h2>
-							</header>
-							<div>
-								<p>Телефон: <strong>{{ contacts.phone }}</strong></p>
-								<p>Email: <strong>{{ contacts.email }}</strong></p>
-								<p>Адрес: <strong>{{ contacts.address }}</strong></p>
-							</div>
-							<div>
-								<img class="image fit" src="{{ template_image_path ~ '/' ~ images.map }}" alt="" />
-							</div>
-						</article>
+							<article id="contact" class="panel">
+								<header>
+									<h2>Контакты</h2>
+								</header>
+								<div>
+									<p>Телефон: <strong>{{ contacts.phone }}</strong></p>
+									<p>Email: <strong>{{ contacts.email }}</strong></p>
+									<p>Адрес: <strong>{{ contacts.address }}</strong></p>
+								</div>
+								<div>
+									<img class="image fit" src="{{ template_image_path ~ '/' ~ images.map }}" alt="" />
+								</div>
+							</article>
 
 						<!-- Order -->
 							<article id="order" class="panel">

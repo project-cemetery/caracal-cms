@@ -58,6 +58,18 @@ class Product
      */
     private $enabled;
 
+    /**
+     * @ORM\Column(type="float")
+     * @var float
+     */
+    private $price;
+
+    /**
+     * @ORM\Column(type="text")
+     * @var string
+     */
+    private $description;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -170,6 +182,44 @@ class Product
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     * @return Product
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     * @return Product
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
 
         return $this;
     }

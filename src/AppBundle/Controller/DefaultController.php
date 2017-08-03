@@ -68,10 +68,10 @@ class DefaultController extends Controller
 
         $settingsRepo = $this->getDoctrine()->getRepository(Setting::class);
 
-        $companyName =    $settingsRepo->findOneBy(['type' => Setting::COMPANY_NAME_TYPE])->getBody();
+        $companyName    = $settingsRepo->findOneBy(['type' => Setting::COMPANY_NAME_TYPE])->getBody();
         $companyTagline = $settingsRepo->findOneBy(['type' => Setting::COMPANY_TAGLINE_TYPE])->getBody();
-        $seoTitle =       $settingsRepo->findOneBy(['type' => Setting::SEO_TITLE_TYPE])->getBody();
-        $seoKeywords =    $settingsRepo->findOneBy(['type' => Setting::SEO_KEYWORDS_TYPE])->getBody();
+        $seoTitle       = $settingsRepo->findOneBy(['type' => Setting::SEO_TITLE_TYPE])->getBody();
+        $seoKeywords    = $settingsRepo->findOneBy(['type' => Setting::SEO_KEYWORDS_TYPE])->getBody();
         $seoDescription = $settingsRepo->findOneBy(['type' => Setting::SEO_DESCRIPTION_TYPE])->getBody();
         $gaID           = $settingsRepo->findOneBy(['type' => Setting::GOOGLE_ANALYTICS_ID_TYPE])->getBody();
 
@@ -121,6 +121,44 @@ class DefaultController extends Controller
                 ],
                 'newTicket' => $newTicket,
                 'form'    => $form->createView(),
+            ]
+        );
+    }
+
+    /**
+     * @Route("/product/{id}", name="product")
+     */
+    public function productAction($id)
+    {
+        $settingsRepo = $this->getDoctrine()->getRepository(Setting::class);
+
+        $companyName = $settingsRepo->findOneBy(['type' => Setting::COMPANY_NAME_TYPE])->getBody();
+        $gaID        = $settingsRepo->findOneBy(['type' => Setting::GOOGLE_ANALYTICS_ID_TYPE])->getBody();
+        $seoKeywords = $settingsRepo->findOneBy(['type' => Setting::SEO_KEYWORDS_TYPE])->getBody();
+
+        $imagesRepo = $this->getDoctrine()->getRepository(TemplateImage::class);
+
+        $logo    = $imagesRepo->findOneBy(['type' => TemplateImage::LOGO_TYPE])->getImage();
+        $favicon = $imagesRepo->findOneBy(['type' => TemplateImage::FAVICON_TYPE])->getImage();
+        $map     = $imagesRepo->findOneBy(['type' => TemplateImage::MAP_TYPE])->getImage();
+
+        $currentYear = date('Y');
+
+        $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
+
+        return $this->render(
+            'product.html.twig',
+            [
+                'product'     => $product,
+                'companyName' => $companyName,
+                'seoKeywords'    => $seoKeywords,
+                'images'      => [
+                    'logo'    => $logo,
+                    'favicon' => $favicon,
+                    'map'     => $map,
+                ],
+                'gaID'        => $gaID,
+                'year'        => $currentYear,
             ]
         );
     }
