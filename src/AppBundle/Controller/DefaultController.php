@@ -94,8 +94,6 @@ class DefaultController extends Controller
         $favicon = $imagesRepo->findOneBy(['type' => TemplateImage::FAVICON_TYPE])->getImage();
         $map     = $imagesRepo->findOneBy(['type' => TemplateImage::MAP_TYPE])->getImage();
 
-        dump($products);
-
         return $this->render(
             'index.html.twig',
             [
