@@ -59,8 +59,8 @@ class Product
     private $enabled;
 
     /**
-     * @ORM\Column(type="float")
-     * @var float
+     * @ORM\Column(type="string")
+     * @var string
      */
     private $price;
 
@@ -187,7 +187,7 @@ class Product
     }
 
     /**
-     * @return float
+     * @return string
      */
     public function getPrice()
     {
@@ -195,7 +195,7 @@ class Product
     }
 
     /**
-     * @param float $price
+     * @param string $price
      * @return Product
      */
     public function setPrice($price)
