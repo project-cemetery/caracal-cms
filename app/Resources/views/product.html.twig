@@ -57,7 +57,7 @@
 								</div>
 								<hr/>
 								<div>
-									<p>{{ product.description }}</p>
+									{{ product.description|md2html|raw }}
 								</div>
 								<a href="{{ path('homepage') }}" class="button" style="text-decoration: none;">Вернуться</a>
 							</article>
