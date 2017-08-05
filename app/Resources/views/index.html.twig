@@ -72,6 +72,7 @@
 									<div class="row">
 										{% for product in products %}
 											<div class="4u 12u$(mobile)">
+												<span>{{ product.title }}</span>
 												<a href="{{ path('product', { 'id': product.id }) }}" class="image fit"><img src="{{ product_image_path ~ '/' ~ product.image }}" alt=""></a>
 											</div>
 										{% endfor %}
