@@ -95,7 +95,7 @@ class DefaultController extends Controller
         $map     = $imagesRepo->findOneBy(['type' => TemplateImage::MAP_TYPE])->getImage();
 
         return $this->render(
-            'index.html.twig',
+            '@THEME/index.html.twig',
             [
                 'companyName'    => $companyName,
                 'companyTagline' => $companyTagline,
@@ -145,7 +145,7 @@ class DefaultController extends Controller
         $product = $this->getDoctrine()->getRepository(Product::class)->find($id);
 
         return $this->render(
-            'product.html.twig',
+            '@THEME/product.html.twig',
             [
                 'product'     => $product,
                 'companyName' => $companyName,

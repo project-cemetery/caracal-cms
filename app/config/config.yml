@@ -43,6 +43,8 @@ twig:
     globals:
         product_image_path: '%app.path.product_images%'
         template_image_path: '%app.path.template_images%'
+    paths:
+        "%kernel.root_dir%/Resources/views/%app.current_theme%": THEME
 
 # Doctrine Configuration
 doctrine:

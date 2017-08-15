@@ -17,5 +17,8 @@ parameters:
 
     locale: ru
 
+    app.current_theme: astral
+
+
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
