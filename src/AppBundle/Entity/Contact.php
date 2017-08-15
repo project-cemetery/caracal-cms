@@ -13,6 +13,7 @@ class Contact
     const PHONE_TYPE = 'Phone';
     const EMAIL_TYPE = 'Email';
     const ADDRESS_TYPE = 'Address';
+    const VK_TYPE = 'VK';
 
     /**
      * @ORM\Id

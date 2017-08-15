@@ -1,0 +1,23 @@
+easy_admin:
+    entities:
+        BottomLink:
+            class: AppBundle\Entity\BottomLink
+            label: 'BottomLink'
+            list:
+                title: 'Links'
+                fields:
+                    - id
+                    - title
+                    - link
+                    - priority
+            show:
+                fields:
+                    - id
+                    - title
+                    - link
+                    - priority
+            form:
+                fields:
+                    - { property: 'title', css_class: 'large' }
+                    - link
+                    - priority

@@ -12,5 +12,6 @@ class EnumContactType extends EnumType
         Contact::PHONE_TYPE,
         Contact::EMAIL_TYPE,
         Contact::ADDRESS_TYPE,
+        Contact::VK_TYPE,
     ];
 }
