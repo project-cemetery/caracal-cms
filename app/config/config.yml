@@ -10,6 +10,7 @@ parameters:
     locale: en
     app.path.product_images: /uploads/images/products
     app.path.template_images: /uploads/images/template
+    app.path.gallery_images: /uploads/images/gallery
 
 framework:
     #esi: ~
@@ -43,6 +44,7 @@ twig:
     globals:
         product_image_path: '%app.path.product_images%'
         template_image_path: '%app.path.template_images%'
+        gallery_image_path: '%app.path.gallery_images%'
     paths:
         "%kernel.root_dir%/Resources/views/%app.current_theme%": THEME
 
@@ -105,3 +107,6 @@ vich_uploader:
         template_images:
             uri_prefix:         '%app.path.template_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/template'
+        gallery_images:
+            uri_prefix:         '%app.path.gallery_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/gallery'

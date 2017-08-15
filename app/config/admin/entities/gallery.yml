@@ -1,0 +1,26 @@
+easy_admin:
+    entities:
+        Gallery:
+            class: AppBundle\Entity\Gallery
+            label: 'Galleries'
+            list:
+                fields:
+                    - year
+                    - general
+                    - title
+                    - description
+                    - images
+            show:
+                fields:
+                    - year
+                    - general
+                    - title
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12 col-md-4', label: 'Gallery information', icon: 'info' }
+                    - { property: 'title', css_class: 'large' }
+                    - description
+                    - year
+                    - general
+                    - { type: 'group', css_class: 'col-sm-12 col-md-8', label: 'Images', icon: 'instagram' }
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType', by_reference: false }}
