@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <title>{{ seo.title }}</title>
+    <meta name="keywords" content="{{ seo.keywords }}" />
+    <meta name="description" content="{{ seo.description }}" />
+
+    <link rel="shortcut icon" href="{{ template_image_path ~ '/' ~ images.favicon }}" type="image/x-icon">
+
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    {% stylesheets
+        'bundles/app/materialize/css/materialize.css'
+        'bundles/app/materialize/css/style.css'
+    filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+    {% endstylesheets %}
+</head>
+<body>
+    <div class="navbar-fixed">
+        <nav role="navigation">
+            <div class="nav-wrapper container">
+                <a href="/"><img src="{{ template_image_path ~ '/' ~ images.logo }}" class="brand-logo" alt="Трамплин" /></a>
+            </div>
+        </nav>
+    </div>
+
+    <div class="index-banner parallax-container valign-wrapper">
+        <div class="section no-pad-bot valign">
+            <div class="container valign">
+                <div class="row center valign">
+                    <img class="large-logo" src="/assets/template/images/logo_large_w.png" alt="Трамплин" />
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <img src="/assets/template/images/background-b.jpg" alt="background">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="section">
+
+            <!--   Icon Section   -->
+            <div class="row">
+                <div class="col s12">
+                    <div class="icon-block">
+                        <p class="light center">[[*description-icon]]</p>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center tramplin-green-text"><i class="material-icons">done_all</i></h2>
+                        <h5 class="center">Возможности</h5>
+                        <p class="light center">[[*capabilities-icon]]</p>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center tramplin-orange-text"><i class="material-icons">home</i></h2>
+                        <h5 class="center">Площадки</h5>
+                        <p class="light center">[[*space-icon]]</p>
+                    </div>
+                </div>
+                <div class="col s12 center">
+                    <a href="[[*application-link]]" target="_blank" class="btn-large" style="font-size: 1.5em">Подать заявку</a>
+                </div>
+            </div>
+            <div class="row center">
+                <div class="col s12">
+                    <h5>Мероприятия</h5>
+                    [[!Gallery?
+                    &album=`[[*gallery]]`
+                    &containerTpl=`Gallery.Album`
+                    &thumbTpl=`Gallery.Item`
+                    ]]
+                    <div id="modal-large" class="modal" style="weight: 100%;">
+                        <div class="modal-content" style="padding: 3px;">
+                            [[!Gallery?
+                            &album=`[[*gallery]]`
+                            &containerTpl=`Gallery.Album-large`
+                            &thumbTpl=`Gallery.Item-large`
+                            ]]
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <a class="waves-effect waves-light btn" href="#modal1">Другие мероприятия</a>
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <table class="striped">
+                                [[pdoMenu?
+                                &tplOuter=`@INLINE [[+wrapper]]`
+                                &tpl=`@INLINE
+                                <tr>
+                                    <td>[[+pagetitle]]</td>
+                                    <td><a href="/[[+uri]]">Открыть</a></td>
+                                </tr>`
+                                &parents=`1`
+                                &level=`1`
+                                ]]
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="index-banner parallax-container valign-wrapper">
+        <div class="section no-pad-bot valign">
+            <div class="container valign">
+                <div class="row center valign">
+                    <img class="large-logo" src="/assets/template/images/logo_large_w.png" alt="Трамплин" />
+                </div>
+            </div>
+        </div>
+        <div class="parallax"><img src="/assets/template/images/background-b.jpg" alt="background"></div>
+    </div>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h5>Контакты</h5>
+                    <p>Группа ВКонтакте: <a href="[[*vk-link]]" target="_blank">Креативный проект Трамплин | ТГУ</a></p>
+                    <p>Телефон: <a href="tel:[[*tel]]" target="_blank">[[*tel]]</a></p>
+                </div>
+                <div class="col s12 m6">
+                    <h5>Партнеры</h5>
+                    [[getImageList?
+                    &tvname=`partners`
+                    &tpl=`Partner`
+                    ]]
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                Create by <a class="grey-text text-dark-3" href="http://tamers.su" target="_blank">Tamers Team</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts-->
+    {% javascripts
+        '@AppBundle/Resources/public/materialize/js/jquery.js'
+        '@AppBundle/Resources/public/materialize/js/materialize.js'
+        '@AppBundle/Resources/public/materialize/js/init.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+</body>
+</html>
