@@ -15,19 +15,19 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {% javascripts '@AppBundle/Resources/public/js/ie/html5shiv.js' %}
+        {% javascripts '@AppBundle/Resources/public/astral/js/ie/html5shiv.js' %}
 			<!--[if lte IE 8]><script src="{{ asset_url }}"></script><![endif]-->
         {% endjavascripts %}
 
-        {% stylesheets 'bundles/app/css/main.css' filter='cssrewrite' %}
+        {% stylesheets 'bundles/app/astral/css/main.css' filter='cssrewrite' %}
 			<link rel="stylesheet" href="{{ asset_url }}" />
         {% endstylesheets %}
 
-        {% stylesheets 'bundles/app/css/noscript.css' filter='cssrewrite' %}
+        {% stylesheets 'bundles/app/astral/css/noscript.css' filter='cssrewrite' %}
 			<noscript><link rel="stylesheet" href="{{ asset_url }}" /></noscript>
         {% endstylesheets %}
 
-        {% stylesheets 'bundles/app/css/ie8.css' filter='cssrewrite' %}
+        {% stylesheets 'bundles/app/astral/css/ie8.css' filter='cssrewrite' %}
 			<!--[if lte IE 8]><link rel="stylesheet" href="{{ asset_url }}" /><![endif]-->
         {% endstylesheets %}
 
@@ -133,15 +133,15 @@
 
 		<!-- Scripts -->
 			{% javascripts
-				'@AppBundle/Resources/public/js/jquery.min.js'
-            	'@AppBundle/Resources/public/js/skel.min.js'
-            	'@AppBundle/Resources/public/js/skel-viewport.min.js'
-            	'@AppBundle/Resources/public/js/util.js'
-            	'@AppBundle/Resources/public/js/main.js' %}
+				'@AppBundle/Resources/public/astral/js/jquery.min.js'
+            	'@AppBundle/Resources/public/astral/js/skel.min.js'
+            	'@AppBundle/Resources/public/astral/js/skel-viewport.min.js'
+            	'@AppBundle/Resources/public/astral/js/util.js'
+            	'@AppBundle/Resources/public/astral/js/main.js' %}
 				<script src="{{ asset_url }}"></script>
 			{% endjavascripts %}
 
-			{% javascripts '@AppBundle/Resources/public/js/ie/respond.min.js' %}
+			{% javascripts '@AppBundle/Resources/public/astral/js/ie/respond.min.js' %}
 				<!--[if lte IE 8]><script src="{{ asset_url }}"></script><![endif]-->
 			{% endjavascripts %}
 
