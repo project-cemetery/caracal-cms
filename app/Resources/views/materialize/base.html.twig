@@ -73,18 +73,21 @@
             <div class="row center">
                 <div class="col s12">
                     <h5>Мероприятия</h5>
-                    [[!Gallery?
-                    &album=`[[*gallery]]`
-                    &containerTpl=`Gallery.Album`
-                    &thumbTpl=`Gallery.Item`
-                    ]]
+                    <a class="waves-effect waves-light btn-flat" href="#modal-large">в полном размере</a>
+                    <div class="carousel">
+                        {% for photo in photos %}
+                            <a class="carousel-item" href="#{{ photo.id }}!"><img src="{{ gallery_image_path ~ '/' ~ photo.image }}"></a>
+                        {% endfor %}
+                    </div>
                     <div id="modal-large" class="modal" style="weight: 100%;">
                         <div class="modal-content" style="padding: 3px;">
-                            [[!Gallery?
-                            &album=`[[*gallery]]`
-                            &containerTpl=`Gallery.Album-large`
-                            &thumbTpl=`Gallery.Item-large`
-                            ]]
+                            <div class="row" style="margin: 0px; padding: 3px;">
+                                {% for photo in photos %}
+                                    <div class="col s6 m4 l3" style="margin: 0px; padding: 3px;">
+                                        <img class="materialboxed responsive-img" src="{{ gallery_image_path ~ '/' ~ photo.image }}">
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
