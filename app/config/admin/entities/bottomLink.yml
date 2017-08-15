@@ -6,16 +6,14 @@ easy_admin:
             list:
                 title: 'Links'
                 fields:
-                    - id
+                    - priority
                     - title
                     - link
-                    - priority
             show:
                 fields:
-                    - id
+                    - priority
                     - title
                     - link
-                    - priority
             form:
                 fields:
                     - { property: 'title', css_class: 'large' }
