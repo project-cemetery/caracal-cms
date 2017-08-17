@@ -33,12 +33,16 @@
         <div class="section no-pad-bot valign">
             <div class="container valign">
                 <div class="row center valign">
-                    <img class="large-logo" src="/assets/template/images/logo_large_w.png" alt="Трамплин" />
+                    {% image '@AppBundle/Resources/public/materialize/images/logo_large_w.png' %}
+                        <img class="large-logo" src="{{ asset_url }}" alt="Трамплин" />
+                    {% endimage %}
                 </div>
             </div>
         </div>
         <div class="parallax">
-            <img src="/assets/template/images/background-b.jpg" alt="background">
+            {% image '@AppBundle/Resources/public/materialize/images/background-b.jpg' %}
+                <img src="{{ asset_url }}" alt="background" />
+            {% endimage %}
         </div>
     </div>
 
@@ -56,18 +60,31 @@
                     <div class="icon-block">
                         <h2 class="center tramplin-green-text"><i class="material-icons">done_all</i></h2>
                         <h5 class="center">Возможности</h5>
-                        <p class="light center">[[*capabilities-icon]]</p>
+                        <p class="light center">
+                            Пространство<br>
+                            Оборудование<br>
+                            Дизайн и размещение афиши<br>
+                            Продвижение в социальных сетях<br>
+                            Услуги специалистов: звукоопрератор и фотограф
+                        </p>
                     </div>
                 </div>
                 <div class="col s12 m6">
                     <div class="icon-block">
                         <h2 class="center tramplin-orange-text"><i class="material-icons">home</i></h2>
                         <h5 class="center">Площадки</h5>
-                        <p class="light center">[[*space-icon]]</p>
+                        <p class="light center">
+                            Концертный зал ЦК ТГУ<br>
+                            Танцевальный зал ЦК ТГУ<br>
+                            Холл второго этажа ЦК ТГУ<br>
+                            Холл девятого этажа общежития "Парус" ТГУ<br>
+                            Холл двенадцатого этажа общежития "Парус" ТГУ<br>
+                            Коворкинг УСМП
+                        </p>
                     </div>
                 </div>
                 <div class="col s12 center">
-                    <a href="[[*application-link]]" target="_blank" class="btn-large" style="font-size: 1.5em">Подать заявку</a>
+                    <a href="https://goo.gl/forms/7hAS56tfl0PS6ElT2" target="_blank" class="btn-large" style="font-size: 1.5em">Подать заявку</a>
                 </div>
             </div>
             <div class="row center">
@@ -96,16 +113,12 @@
                     <div id="modal1" class="modal">
                         <div class="modal-content">
                             <table class="striped">
-                                [[pdoMenu?
-                                &tplOuter=`@INLINE [[+wrapper]]`
-                                &tpl=`@INLINE
-                                <tr>
-                                    <td>[[+pagetitle]]</td>
-                                    <td><a href="/[[+uri]]">Открыть</a></td>
-                                </tr>`
-                                &parents=`1`
-                                &level=`1`
-                                ]]
+                                {% for gallery in galleries %}
+                                    <tr>
+                                        <td>{{ gallery.title }}</td>
+                                        <td><a href="{{ path('gallery', { 'id': gallery.id }) }}">Открыть</a></td>
+                                    </tr>
+                                {% endfor %}
                             </table>
                         </div>
                     </div>
@@ -118,11 +131,17 @@
         <div class="section no-pad-bot valign">
             <div class="container valign">
                 <div class="row center valign">
-                    <img class="large-logo" src="/assets/template/images/logo_large_w.png" alt="Трамплин" />
+                    {% image '@AppBundle/Resources/public/materialize/images/logo_large_w.png' %}
+                        <img class="large-logo" src="{{ asset_url }}" alt="Трамплин" />
+                    {% endimage %}
                 </div>
             </div>
         </div>
-        <div class="parallax"><img src="/assets/template/images/background-b.jpg" alt="background"></div>
+        <div class="parallax">
+            {% image '@AppBundle/Resources/public/materialize/images/background-b.jpg' %}
+                <img src="{{ asset_url }}" alt="background" />
+            {% endimage %}
+        </div>
     </div>
 
     <footer class="page-footer">

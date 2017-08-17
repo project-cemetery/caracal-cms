@@ -76,6 +76,11 @@ class DefaultController extends Controller
             ->getRepository(Gallery::class)
             ->findGeneral();
 
+        $galleries = $this
+            ->getDoctrine()
+            ->getRepository(Gallery::class)
+            ->findAll();
+
         return $this->render(
             '@THEME/index.html.twig',
             [
@@ -83,6 +88,20 @@ class DefaultController extends Controller
                 'newTicket' => $newTicket,
                 'form'      => $form->createView(),
                 'photos'    => $photos,
+                'galleries' => $galleries,
+            ]
+        );
+    }
+
+    /**
+     * @Route("/gallery/{id}", name="gallery")
+     */
+    public function galleryAction($id)
+    {
+        return $this->render(
+            '@THEME/gallery.html.twig',
+            [
+                'gallery' => null,
             ]
         );
     }
