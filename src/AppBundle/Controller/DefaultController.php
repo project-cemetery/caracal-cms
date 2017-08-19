@@ -98,10 +98,15 @@ class DefaultController extends Controller
      */
     public function galleryAction($id)
     {
+        $gallery = $this
+            ->getDoctrine()
+            ->getRepository(Gallery::class)
+            ->find($id);
+
         return $this->render(
             '@THEME/gallery.html.twig',
             [
-                'gallery' => null,
+                'gallery' => $gallery,
             ]
         );
     }

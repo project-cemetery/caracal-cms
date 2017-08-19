@@ -1,1 +1,16 @@
-gal
+{% extends 'materialize/base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1 class="center">{{ gallery.title }}</h1>
+        <div class="row" style="margin: 0px; padding: 3px;">
+            {% for photo in gallery.images %}
+                <div class="col s6 m4 l3" style="margin: 0px; padding: 3px;">
+                    <img class="materialboxed responsive-img" src="{{ gallery_image_path ~ '/' ~ photo.image }}">
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+        <p class="center"><a class="btn-large" href="{{ path('homepage') }}">Вернуться</a></p>
+    </div>
+{% endblock %}
