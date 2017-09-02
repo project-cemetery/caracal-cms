@@ -11,6 +11,7 @@ parameters:
     app.path.product_images: /uploads/images/products
     app.path.template_images: /uploads/images/template
     app.path.gallery_images: /uploads/images/gallery
+    app.path.advert_images: /uploads/images/advert
 
 framework:
     #esi: ~
@@ -110,3 +111,6 @@ vich_uploader:
         gallery_images:
             uri_prefix:         '%app.path.gallery_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/gallery'
+        advert_images:
+            uri_prefix:         '%app.path.advert_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/advert'

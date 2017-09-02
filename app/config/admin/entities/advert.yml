@@ -1,0 +1,26 @@
+easy_admin:
+    entities:
+        Advert:
+            class: AppBundle\Entity\Advert
+            label: 'Advert'
+            list:
+                title: 'Advert'
+                fields:
+                    - id
+                    - createdAt
+                    - { property: 'enabled', label: 'Published' }
+                    - title
+                    - { property: 'image', type: 'image', base_path: '%app.path.advert_images%' }
+            show:
+                fields:
+                    - id
+                    - { property: 'title', css_class: 'large' }
+                    - { property: 'enabled', label: 'Published' }
+                    - description
+                    - { property: 'image', type: 'image', base_path: '%app.path.advert_images%' }
+            form:
+                fields:
+                    - { property: 'title', css_class: 'large' }
+                    - { property: 'enabled', label: 'Published' }
+                    - description
+                    - { property: 'imageFile', type: 'vich_image', type_options: { required: true } }
