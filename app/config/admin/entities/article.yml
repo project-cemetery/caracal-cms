@@ -9,11 +9,13 @@ easy_admin:
                     - id
                     - createdAt
                     - { property: 'enabled', label: 'Published' }
+                    - category
                     - title
                     - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
             show:
                 fields:
                     - id
+                    - category
                     - { property: 'title', css_class: 'large' }
                     - { property: 'enabled', label: 'Published' }
                     - description
@@ -22,6 +24,7 @@ easy_admin:
                 fields:
                     - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'General information', icon: 'info' }
                     - { property: 'title', css_class: 'large' }
+                    - category
                     - { property: 'enabled', label: 'Published' }
                     - description
                     - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'Attachments', icon: 'files-o' }

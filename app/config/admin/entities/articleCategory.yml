@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        ArticleCategory:
+            class: AppBundle\Entity\ArticleCategory
+            label: 'Article Category'
+            list:
+                title: 'Article Category'
+                fields:
+                    - id
+                    - title
+                    - articles
+            show:
+                fields:
+                    - id
+                    - { property: 'title', css_class: 'large' }
+            form:
+                fields:
+                    - { property: 'title', css_class: 'large' }

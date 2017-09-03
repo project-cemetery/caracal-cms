@@ -80,6 +80,14 @@ class Article
      */
     private $gallery;
 
+    /**
+     * @var ArticleCategory
+     *
+     * @ORM\ManyToOne(targetEntity="ArticleCategory", inversedBy="articles")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
@@ -251,5 +259,30 @@ class Article
         $this->gallery = $gallery;
 
         return $this;
+    }
+
+    /**
+     * @return ArticleCategory
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param ArticleCategory $category
+     *
+     * @return Article
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }

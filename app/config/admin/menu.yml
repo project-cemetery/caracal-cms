@@ -20,6 +20,7 @@ easy_admin:
             - label: 'Articles'
               icon: 'book'
               children:
+                  - { entity: 'ArticleCategory', icon: 'bookmark', label: 'Categories', params: { sortField: 'id' } }
                   - { entity: 'Article', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' } }
                   - { entity: 'Article', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
             - { label: 'Site settings' }
