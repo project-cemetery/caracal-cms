@@ -1,0 +1,30 @@
+easy_admin:
+    entities:
+        Article:
+            class: AppBundle\Entity\Article
+            label: 'Article'
+            list:
+                title: 'Article'
+                fields:
+                    - id
+                    - createdAt
+                    - { property: 'enabled', label: 'Published' }
+                    - title
+                    - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
+            show:
+                fields:
+                    - id
+                    - { property: 'title', css_class: 'large' }
+                    - { property: 'enabled', label: 'Published' }
+                    - description
+                    - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
+            form:
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'General information', icon: 'info' }
+                    - { property: 'title', css_class: 'large' }
+                    - { property: 'enabled', label: 'Published' }
+                    - description
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'Attachments', icon: 'files-o' }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - gallery
+                    - product

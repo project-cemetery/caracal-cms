@@ -17,6 +17,11 @@ easy_admin:
               children:
                   - { entity: 'Advert', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' } }
                   - { entity: 'Advert', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
+            - label: 'Articles'
+              icon: 'book'
+              children:
+                  - { entity: 'Article', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' } }
+                  - { entity: 'Article', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
             - { label: 'Site settings' }
             - { label: 'Settings', entity: 'Setting', icon: 'cog', params: { sortField: 'type' } }
             - { label: 'Links', entity: 'BottomLink', icon: 'link', params: { sortField: 'priority' } }

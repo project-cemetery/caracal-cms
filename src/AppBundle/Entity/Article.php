@@ -11,7 +11,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity
  * @Vich\Uploadable
  */
-class Product
+class Article
 {
     /**
      * @ORM\Id
@@ -46,7 +46,7 @@ class Product
      * This unmapped property stores the binary contents of the image file
      * associated with the product.
      *
-     * @Vich\UploadableField(mapping="product_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
      *
      * @var File
      */
@@ -59,16 +59,26 @@ class Product
     private $enabled;
 
     /**
-     * @ORM\Column(type="string")
-     * @var string
-     */
-    private $price;
-
-    /**
      * @ORM\Column(type="text")
      * @var string
      */
     private $description;
+
+    /**
+     * @var Product
+     *
+     * @ORM\ManyToOne(targetEntity="Product")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
+
+    /**
+     * @var Gallery
+     *
+     * @ORM\ManyToOne(targetEntity="Gallery")
+     * @ORM\JoinColumn(name="gallery_id", referencedColumnName="id")
+     */
+    private $gallery;
 
     public function __construct()
     {
@@ -93,7 +103,7 @@ class Product
 
     /**
      * @param mixed $createdAt
-     * @return Product
+     * @return Article
      */
     public function setCreatedAt($createdAt)
     {
@@ -112,7 +122,7 @@ class Product
 
     /**
      * @param string $title
-     * @return Product
+     * @return Article
      */
     public function setTitle($title)
     {
@@ -123,7 +133,7 @@ class Product
 
     /**
      * @param File $image
-     * @return Product
+     * @return Article
      */
     public function setImageFile(File $image = null)
     {
@@ -142,7 +152,7 @@ class Product
 
     /**
      * @param string $image
-     * @return Product
+     * @return Article
      */
     public function setImage($image)
     {
@@ -177,30 +187,11 @@ class Product
 
     /**
      * @param bool $enabled
-     * @return Product
+     * @return Article
      */
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * @param string $price
-     * @return Product
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
 
         return $this;
     }
@@ -215,7 +206,7 @@ class Product
 
     /**
      * @param string $description
-     * @return Product
+     * @return Article
      */
     public function setDescription($description)
     {
@@ -224,8 +215,41 @@ class Product
         return $this;
     }
 
-    public function __toString()
+    /**
+     * @return Product
+     */
+    public function getProduct()
     {
-        return $this->title;
+        return $this->product;
+    }
+
+    /**
+     * @param Product $product
+     * @return Article
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * @return Gallery
+     */
+    public function getGallery()
+    {
+        return $this->gallery;
+    }
+
+    /**
+     * @param Gallery $gallery
+     * @return Article
+     */
+    public function setGallery($gallery)
+    {
+        $this->gallery = $gallery;
+
+        return $this;
     }
 }

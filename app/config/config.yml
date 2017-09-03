@@ -8,10 +8,11 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
-    app.path.product_images: /uploads/images/products
+    app.path.product_images:  /uploads/images/products
     app.path.template_images: /uploads/images/template
-    app.path.gallery_images: /uploads/images/gallery
-    app.path.advert_images: /uploads/images/advert
+    app.path.gallery_images:  /uploads/images/gallery
+    app.path.advert_images:   /uploads/images/advert
+    app.path.article_images:  /uploads/images/article
 
 framework:
     #esi: ~
@@ -114,3 +115,6 @@ vich_uploader:
         advert_images:
             uri_prefix:         '%app.path.advert_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/advert'
+        article_images:
+            uri_prefix:         '%app.path.article_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/article'
