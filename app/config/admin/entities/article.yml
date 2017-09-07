@@ -7,16 +7,18 @@ easy_admin:
                 title: 'Article'
                 fields:
                     - id
+                    - title
                     - createdAt
                     - { property: 'enabled', label: 'Published' }
                     - category
-                    - title
+                    - tags
                     - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
             show:
                 fields:
                     - id
-                    - category
                     - { property: 'title', css_class: 'large' }
+                    - category
+                    - tags
                     - { property: 'enabled', label: 'Published' }
                     - description
                     - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
@@ -25,6 +27,7 @@ easy_admin:
                     - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'General information', icon: 'info' }
                     - { property: 'title', css_class: 'large' }
                     - category
+                    - tags
                     - { property: 'enabled', label: 'Published' }
                     - description
                     - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'Attachments', icon: 'files-o' }

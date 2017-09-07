@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -88,9 +89,21 @@ class Article
      */
     private $category;
 
+    /**
+     * @var ArrayCollection | Tag[]
+     *
+     * @ORM\ManyToMany(targetEntity="Tag", cascade={"remove", "persist"})
+     * @ORM\JoinTable(name="articles_tags",
+     *      joinColumns={@ORM\JoinColumn(name="article_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="tag_id", referencedColumnName="id", unique=false)}
+     *      )
+     */
+    private $tags;
+
     public function __construct()
     {
         $this->createdAt = new \DateTime();
+        $this->tags = new ArrayCollection();
     }
 
     /**
@@ -284,5 +297,51 @@ class Article
     public function __toString()
     {
         return $this->title;
+    }
+
+    /**
+     * @return ArrayCollection | Tag[]
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param ArrayCollection | Tag[] $tags
+     * @return $this
+     */
+    public function setTags($tags) {
+        $this->tags->clear();
+
+        foreach ($tags as $tag) {
+            $this->addTag($tag);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param Tag $tag
+     *
+     * @return $this
+     */
+    public function removeTag(Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+
+        return $this;
+    }
+
+    /**
+     * @param Tag $tag
+     *
+     * @return $this
+     */
+    public function addTag(Tag $tag)
+    {
+        $this->tags->add($tag);
+
+        return $this;
     }
 }
