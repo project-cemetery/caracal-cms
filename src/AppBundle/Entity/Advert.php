@@ -36,7 +36,7 @@ class Advert
     /**
      * It only stores the name of the image associated with the product.
      *
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */

@@ -23,4 +23,4 @@ easy_admin:
                     - { property: 'title', css_class: 'large' }
                     - { property: 'enabled', label: 'Published' }
                     - description
-                    - { property: 'imageFile', type: 'vich_image', type_options: { required: true } }
+                    - { property: 'imageFile', type: 'vich_image' }
