@@ -4,7 +4,7 @@
         <h3>{{ advert.title }}</h3>
         <p>{{ advert.description|shorten(300) }}</p>
         <ul class="actions">
-            <li><a href="{{ path('advert', { 'id': advert.id }) }}" class="button">More</a></li>
+            <li><a href="{{ path('advert', { 'id': advert.id }) }}" class="button">Подробнее</a></li>
         </ul>
     </article>
 {% endfor %}
