@@ -5,9 +5,15 @@
 <div class="mini-posts">
     {% for article in articles %}
         <article>
-            <a href="{{ path('article', { 'id': article.id }) }}" class="image">
-                <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" />
-            </a>
+            {% if article.image %}
+                <a href="{{ path('article', { 'id': article.id }) }}" class="image">
+                    <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" />
+                </a>
+            {% else %}
+                <a href="{{ path('article', { 'id': article.id }) }}" class="image">
+                    {{ article.title }}
+                </a>
+            {% endif %}
             <p>{{ article.description|shorten(160) }}</p>
         </article>
     {% endfor %}
