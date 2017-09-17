@@ -36,6 +36,11 @@
     <div id="main">
         <div class="inner">
 
+            <!-- Header -->
+            <header id="header">
+                <a href="{{ path('homepage') }}" class="logo"><strong>{{ setting_companyName }}</strong></a>
+            </header>
+
             {% block content %} {% endblock %}
 
         </div>

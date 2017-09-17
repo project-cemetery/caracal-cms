@@ -19,13 +19,28 @@ class AdvertController extends Controller
 
     /**
      * @Route("/adverts/{id}", name="advert")
+     * @param int|null $id
+     * @return null
      */
     public function advertAction(int $id = null) {
-        // TODO: doing
-        return null;
+        /** @var Advert $advert */
+        $advert = $this
+            ->getDoctrine()
+            ->getRepository(Advert::class)
+            ->find($id);
+
+        return $this->render(
+            '@THEME/advert.html.twig',
+            ['advert' => $advert]
+        );
     }
 
-    public function showLastAction($limit = null) {
+    /**
+     * @param int|null $limit
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showLastAction(int $limit = null) {
+        /** @var Advert[] $adverts */
         $adverts = $this
             ->getDoctrine()
             ->getRepository(Advert::class)

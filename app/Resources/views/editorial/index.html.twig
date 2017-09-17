@@ -1,10 +1,6 @@
 {% extends 'editorial/base.html.twig' %}
 
-{% block content %}<!-- Header -->
-    <header id="header">
-        <a href="{{ path('homepage') }}" class="logo"><strong>{{ setting_companyName }}</strong></a>
-    </header>
-
+{% block content %}
     <!-- Banner -->
     <section id="banner">
         <div class="content">
@@ -15,8 +11,8 @@
 
         </div>
         <span class="image object">
-                    <img src="{{ template_image_path ~ '/' ~ image_logo }}" alt="{{ setting_companyName }}" />
-                </span>
+            <img src="{{ template_image_path ~ '/' ~ image_logo }}" alt="{{ setting_companyName }}" />
+        </span>
     </section>
 
     <!-- Section -->

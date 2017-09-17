@@ -1,0 +1,17 @@
+{% extends 'editorial/base.html.twig' %}
+
+{% block content %}
+    <!-- Content -->
+    <section>
+        <header class="main">
+            <h1>{{ advert.title }}</h1>
+        </header>
+
+        <span class="image main">
+            <img src="{{ article_image_path ~ '/' ~ advert.image }}" alt="{{ advert.title }}" />
+        </span>
+
+        {{ advert.description|md2html|raw }}
+
+    </section>
+{% endblock %}
