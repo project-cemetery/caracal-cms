@@ -12,7 +12,6 @@ parameters:
     app.path.template_images: /uploads/images/template
     app.path.gallery_images:  /uploads/images/gallery
     app.path.article_images:  /uploads/images/article
-    app.path.advert_images:   /uploads/images/advert
 
 framework:
     #esi: ~
@@ -44,9 +43,10 @@ twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     globals:
-        product_image_path: '%app.path.product_images%'
+        product_image_path:  '%app.path.product_images%'
         template_image_path: '%app.path.template_images%'
-        gallery_image_path: '%app.path.gallery_images%'
+        gallery_image_path:  '%app.path.gallery_images%'
+        article_image_path:  '%app.path.article_images%'
     paths:
         "%kernel.root_dir%/Resources/views/%app.current_theme%": THEME
 
@@ -115,6 +115,3 @@ vich_uploader:
         article_images:
             uri_prefix:         '%app.path.article_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/article'
-        advert_images:
-            uri_prefix:         '%app.path.advert_images%'
-            upload_destination: '%kernel.root_dir%/../web/uploads/images/advert'

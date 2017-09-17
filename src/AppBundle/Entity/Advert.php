@@ -46,7 +46,7 @@ class Advert
      * This unmapped property stores the binary contents of the image file
      * associated with the product.
      *
-     * @Vich\UploadableField(mapping="advert_images", fileNameProperty="image")
+     * @Vich\UploadableField(mapping="article_images", fileNameProperty="image")
      *
      * @var File
      */
