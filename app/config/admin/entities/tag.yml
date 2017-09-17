@@ -6,7 +6,6 @@ easy_admin:
             list:
                 title: 'Tag'
                 fields:
-                    - id
                     - title
             show:
                 fields:

@@ -5,7 +5,6 @@ easy_admin:
             label: 'Ticket'
             list:
                 fields:
-                    - id
                     - createdAt
                     - answered
                     - customerName

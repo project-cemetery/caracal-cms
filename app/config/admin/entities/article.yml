@@ -6,7 +6,6 @@ easy_admin:
             list:
                 title: 'Article'
                 fields:
-                    - id
                     - title
                     - createdAt
                     - { property: 'enabled', label: 'Published' }
@@ -15,8 +14,8 @@ easy_admin:
                     - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
             show:
                 fields:
-                    - id
                     - { property: 'title', css_class: 'large' }
+                    - createdAt
                     - category
                     - tags
                     - { property: 'enabled', label: 'Published' }
@@ -26,6 +25,7 @@ easy_admin:
                 fields:
                     - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'General information', icon: 'info' }
                     - { property: 'title', css_class: 'large' }
+                    - createdAt
                     - category
                     - tags
                     - { property: 'enabled', label: 'Published' }

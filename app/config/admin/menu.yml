@@ -5,7 +5,7 @@ easy_admin:
             - label: 'Products'
               icon: 'shopping-basket'
               children:
-                  - { entity: 'Product', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' } }
+                  - { entity: 'Product', icon: 'th-list', label: 'List', params: { sortField: 'title' } }
                   - { entity: 'Product', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
             - label: 'Galleries'
               icon: 'instagram'

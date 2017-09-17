@@ -6,14 +6,12 @@ easy_admin:
             list:
                 title: 'Products'
                 fields:
-                    - id
-                    - enabled
                     - title
+                    - enabled
                     - price
                     - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
             show:
                 fields:
-                    - id
                     - { property: 'title', css_class: 'large' }
                     - { property: 'enabled', label: 'Published' }
                     - price

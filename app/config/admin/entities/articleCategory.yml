@@ -6,12 +6,10 @@ easy_admin:
             list:
                 title: 'Article Category'
                 fields:
-                    - id
                     - title
                     - articles
             show:
                 fields:
-                    - id
                     - { property: 'title', css_class: 'large' }
             form:
                 fields:

@@ -6,8 +6,8 @@ easy_admin:
             list:
                 fields:
                     - year
-                    - general
                     - title
+                    - general
                     - description
                     - images
             show:

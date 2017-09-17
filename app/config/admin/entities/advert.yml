@@ -6,21 +6,21 @@ easy_admin:
             list:
                 title: 'Advert'
                 fields:
-                    - id
-                    - createdAt
-                    - { property: 'enabled', label: 'Published' }
                     - title
+                    - { property: 'enabled', label: 'Published' }
+                    - createdAt
                     - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
             show:
                 fields:
-                    - id
                     - { property: 'title', css_class: 'large' }
+                    - createdAt
                     - { property: 'enabled', label: 'Published' }
                     - description
                     - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
             form:
                 fields:
                     - { property: 'title', css_class: 'large' }
+                    - createdAt
                     - { property: 'enabled', label: 'Published' }
                     - description
                     - { property: 'imageFile', type: 'vich_image' }
