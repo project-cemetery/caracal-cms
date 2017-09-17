@@ -25,12 +25,11 @@ class AdvertController extends Controller
         return null;
     }
 
-    public function showLastAction($limit) {
-        // TODO: получение последних объявлений
+    public function showLastAction($limit = null) {
         $adverts = $this
             ->getDoctrine()
             ->getRepository(Advert::class)
-            ->findAll();
+            ->findLast($limit);
 
         return $this->render(
             '@THEME/parts/lastAdverts.html.twig',
