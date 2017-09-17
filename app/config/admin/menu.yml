@@ -20,8 +20,8 @@ easy_admin:
             - label: 'Articles'
               icon: 'book'
               children:
-                  - { entity: 'ArticleCategory', icon: 'bookmark', label: 'Categories', params: { sortField: 'id' } }
-                  - { entity: 'Tag', icon: 'tag', label: 'Tags', params: { sortField: 'id' } }
+                  - { entity: 'ArticleCategory', icon: 'bookmark', label: 'Categories', params: { sortField: 'title' } }
+                  - { entity: 'Tag', icon: 'tag', label: 'Tags', params: { sortField: 'title' } }
                   - { entity: 'Article', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' } }
                   - { entity: 'Article', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
             - { label: 'Site settings' }
