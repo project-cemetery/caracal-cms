@@ -36,34 +36,7 @@
     <div id="main">
         <div class="inner">
 
-            <!-- Header -->
-            <header id="header">
-                <a href="{{ path('homepage') }}" class="logo"><strong>{{ setting_companyName }}</strong></a>
-            </header>
-
-            <!-- Banner -->
-            <section id="banner">
-                <div class="content">
-                    <header>
-                        <h1>{{ setting_companyName }}</h1>
-                        <p>{{ setting_companyTagline|raw }}</p>
-                    </header>
-
-                </div>
-                <span class="image object">
-                    <img src="{{ template_image_path ~ '/' ~ image_logo }}" alt="{{ setting_companyName }}" />
-                </span>
-            </section>
-
-            <!-- Section -->
-            <section>
-                <header class="major">
-                    <h2>Последние новости</h2>
-                </header>
-                <div class="posts">
-                    {{ render(controller('AppBundle:Advert:showLast', { 'limit': 2 })) }}
-                </div>
-            </section>
+            {% block content %} {% endblock %}
 
         </div>
     </div>
