@@ -9,12 +9,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AdvertController extends Controller
 {
+    // TODO: pagination
     /**
      * @Route("/adverts", name="adverts")
      */
     public function advertsAction() {
-        // TODO: doing
-        return null;
+        $adverts = $this
+            ->getDoctrine()
+            ->getRepository(Advert::class)
+            ->findBy([], ['createdAt' => 'DESC']);
+
+        return $this->render(
+            '@THEME/adverts.html.twig',
+            ['adverts' => $adverts]
+        );
     }
 
     /**
