@@ -26,9 +26,7 @@ class AdvertController extends Controller
     }
 
     /**
-     * @Route("/adverts/{id}", name="advert")
-     * @param int|null $id
-     * @return null
+     * @Route("/advert/{id}", name="advert")
      */
     public function advertAction(int $id = null) {
         /** @var Advert $advert */
@@ -43,10 +41,6 @@ class AdvertController extends Controller
         );
     }
 
-    /**
-     * @param int|null $limit
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function showLastAction(int $limit = null) {
         /** @var Advert[] $adverts */
         $adverts = $this
@@ -56,9 +50,7 @@ class AdvertController extends Controller
 
         return $this->render(
             '@THEME/parts/lastAdverts.html.twig',
-            [
-                'adverts' => $adverts,
-            ]
+            ['adverts' => $adverts]
         );
     }
 

@@ -1,0 +1,18 @@
+<header class="major">
+    <h2>Последние записи</h2>
+</header>
+
+<div class="mini-posts">
+    {% for article in articles %}
+        <article>
+            <a href="{{ path('article', { 'id': article.id }) }}" class="image">
+                <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" />
+            </a>
+            <p>{{ article.description|shorten(160) }}</p>
+        </article>
+    {% endfor %}
+</div>
+
+<ul class="actions">
+    <li><a href="{{ path('articles') }}" class="button">Все</a></li>
+</ul>
