@@ -44,10 +44,16 @@ class TwigGlobalVars
         $vkLink = $contactsRepo->findOneBy(['type' => Contact::VK_TYPE]);
         /** @var Contact $phone */
         $phone =  $contactsRepo->findOneBy(['type' => Contact::PHONE_TYPE]);
+        /** @var Contact $email */
+        $email = $contactsRepo->findOneBy(['type' => Contact::EMAIL_TYPE]);
+        /** @var Contact $address */
+        $address = $contactsRepo->findOneBy(['type' => Contact::ADDRESS_TYPE]);
 
         return [
-            'contact_vkLink' => $vkLink->getBody(),
-            'contact_phone'  => $phone->getBody(),
+            'contact_vkLink'  => $vkLink->getBody(),
+            'contact_phone'   => $phone->getBody(),
+            'contact_email'   => $email->getBody(),
+            'contact_address' => $address->getBody(),
         ];
     }
 
