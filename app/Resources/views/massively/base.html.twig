@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{{ setting_seo_title }}</title>
+    <meta name="keywords" content="{{ setting_seo_keywords }}" />
+    <meta name="description" content="{{ setting_seo_description }}" />
+
+    <link rel="shortcut icon" href="{{ template_image_path ~ '/' ~ image_favicon }}" type="image/x-icon">
+    <link rel="icon" href="{{ template_image_path ~ '/' ~ image_favicon }}" type="image/x-icon">
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
+    {% stylesheets 'bundles/app/massively/css/main.css' filter='cssrewrite' %}
+        <link rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% stylesheets 'bundles/app/massively/css/noscript.css' filter='cssrewrite' %}
+        <noscript><link rel="stylesheet" href="{{ asset_url }}" /></noscript>
+    {% endstylesheets %}
+
+</head>
+<body class="is-loading">
+
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
+
+    <!-- Intro -->
+    <div id="intro">
+        <h1>{{ setting_companyName }}</h1>
+        <p>{{ setting_companyTagline|raw }}</p>
+        <ul class="actions">
+            <li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
+        </ul>
+    </div>
+
+    {% block header %}
+        <!-- Header -->
+        <header id="header">
+            <a href="{{ path('homepage') }}" class="logo">{{ setting_companyName }}</a>
+        </header>
+    {% endblock %}
+
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="{{ path('homepage') }}">{{ setting_companyName }}</a></li>
+            <li><a href="{{ path('articles') }}">Статьи</a></li>
+        </ul>
+        <ul class="icons">
+            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <section>
+            <form method="post" action="#">
+                <div class="field">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" />
+                </div>
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" />
+                </div>
+                <div class="field">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" rows="3"></textarea>
+                </div>
+                <ul class="actions">
+                    <li><input type="submit" value="Send Message" /></li>
+                </ul>
+            </form>
+        </section>
+        <section class="split contact">
+            <section class="alt">
+                <h3>Address</h3>
+                <p>1234 Somewhere Road #87257<br />
+                    Nashville, TN 00000-0000</p>
+            </section>
+            <section>
+                <h3>Phone</h3>
+                <p><a href="#">(000) 000-0000</a></p>
+            </section>
+            <section>
+                <h3>Email</h3>
+                <p><a href="#">info@untitled.tld</a></p>
+            </section>
+            <section>
+                <h3>Social</h3>
+                <ul class="icons alt">
+                    <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                </ul>
+            </section>
+        </section>
+    </footer>
+
+    <!-- Copyright -->
+    <div id="copyright">
+        <ul>
+            <li>&copy; {{ setting_companyName }}</li>
+            <li>Created by Caracal CMS</li>
+        </ul>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+{% javascripts
+    '@AppBundle/Resources/public/massively/js/jquery.min.js'
+    '@AppBundle/Resources/public/massively/js/jquery.scrollex.min.js'
+    '@AppBundle/Resources/public/massively/js/jquery.scrolly.min.js'
+    '@AppBundle/Resources/public/massively/js/skel.min.js'
+    '@AppBundle/Resources/public/massively/js/util.js'
+    '@AppBundle/Resources/public/massively/js/main.js' %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+</body>
+</html>
