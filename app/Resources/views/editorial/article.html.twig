@@ -6,9 +6,11 @@
         <header class="major">
             <h2>{{ article.title }}</h2>
         </header>
-        <span class="image main">
-            <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" />
-        </span>
+        {% if article.image %}
+            <span class="image main">
+                <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" />
+            </span>
+        {% endif %}
 
         {{ article.description|md2html|raw }}
     </section>
