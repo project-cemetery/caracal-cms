@@ -9,9 +9,11 @@
         <div class="posts">
             {% for advert in adverts %}
                 <article>
-                    <a href="{{ path('advert', { 'id': advert.id }) }}" class="image">
-                        <img src="{{ article_image_path ~ '/' ~ advert.image }}" alt="{{ advert.title }}" />
-                    </a>
+                    {% if advert.image %}
+                        <a href="{{ path('advert', { 'id': advert.id }) }}" class="image">
+                            <img src="{{ article_image_path ~ '/' ~ advert.image }}" alt="{{ advert.title }}" />
+                        </a>
+                    {% endif %}
                     <h3>{{ advert.title }}</h3>
                     <p>{{ advert.description|shorten(300) }}</p>
                     <ul class="actions">

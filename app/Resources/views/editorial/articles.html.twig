@@ -15,9 +15,11 @@
         <div class="posts">
             {% for article in articles %}
                 <article>
-                    <a href="{{ path('article', { 'id': article.id }) }}" class="image">
-                        <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" />
-                    </a>
+                    {% if article.image %}
+                        <a href="{{ path('article', { 'id': article.id }) }}" class="image">
+                            <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" />
+                        </a>
+                    {% endif %}
                     <h3>{{ article.title }}</h3>
                     <p>{{ article.description|shorten(300) }}</p>
                     <ul class="actions">
