@@ -4,27 +4,58 @@ namespace AppBundle\Controller;
 
 
 use AppBundle\Entity\Article;
+use AppBundle\Entity\ArticleCategory;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller
 {
     // TODO: pagination
-    // TODO: doing
     /**
-     * @Route("/articles", name="articles")
+     * @Route("/articles/{id}", name="articles")
      */
-    public function articlesAction() {
+    public function articlesAction(int $id = null) {
+        $articlesRepo = $this->getDoctrine()->getRepository(Article::class);
 
-        return null;
+        $category = null;
+
+        if ($id) {
+            $category = $this
+                ->getDoctrine()
+                ->getRepository(ArticleCategory::class)
+                ->find($id);
+
+            $articles = $articlesRepo
+                ->findBy(
+                    ['category' => $id],
+                    ['createdAt' => 'DESC']
+                );
+        } else {
+            $articles = $articlesRepo->findBy([], ['createdAt' => 'DESC']);
+        }
+
+        return $this->render(
+            '@THEME/articles.html.twig',
+            [
+                'articles' => $articles,
+                'category' => $category,
+            ]
+        );
     }
 
-    // TODO: doing
     /**
      * @Route("/article/{id}", name="article")
      */
     public function articleAction($id = null) {
-        return null;
+        $article = $this
+            ->getDoctrine()
+            ->getRepository(Article::class)
+            ->find($id);
+
+        return $this->render(
+            '@THEME/article.html.twig',
+            ['article' => $article]
+        );
     }
 
     public function showLastAction(int $limit = null) {
