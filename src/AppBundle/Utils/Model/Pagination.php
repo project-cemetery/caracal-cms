@@ -11,8 +11,13 @@ class Pagination
     /** @var int[] */
     private $pages;
 
-    public function __construct(array $pages, int $currentPage)
+    public function __construct(int $pagesCount, int $currentPage)
     {
+        $pages = [];
+        for ($i = 1; $i <= $pagesCount; $i ++) {
+            $pages[] = $i;
+        }
+
         $this->pages = $pages;
         $this->currentPage = $currentPage;
     }

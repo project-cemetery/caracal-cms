@@ -35,15 +35,11 @@ class ArticleController extends Controller
 
         $articles = $articlesRepo->findFilteredByPage($filters, $page);
 
-        $pages = [];
-        for (
-            $i = 1;
-            $i <= ceil($articlesRepo->getFilteredCount($filters) / ArticleRepository::DEFAULT_ENTITIES_PER_PAGE);
-            $i ++
-        ) {
-            $pages[] = $i;
-        }
-        $pagination = new Pagination($pages, $page);
+
+        $pagination = new Pagination(
+            ceil($articlesRepo->getFilteredCount($filters) / ArticleRepository::DEFAULT_ENTITIES_PER_PAGE),
+            $page
+        );
 
         return $this->render(
             '@THEME/articles.html.twig',
