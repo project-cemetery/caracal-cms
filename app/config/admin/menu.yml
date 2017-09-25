@@ -29,6 +29,7 @@ easy_admin:
             - { label: 'Links', entity: 'BottomLink', icon: 'link', params: { sortField: 'priority' } }
             - { label: 'Template images', entity: 'TemplateImage', icon: 'image', params: { sortField: 'type' } }
             - { label: 'Contacts', entity: 'Contact', icon: 'address-card', params: { sortField: 'type' } }
+            - { label: 'Social Links', entity: 'SocialLink', icon: 'address-card', params: { sortField: 'url' } }
             - { label: 'Clients' }
             - { label: 'Tickets', entity: 'Ticket', icon: 'sticky-note', params: { sortField: 'createdAt' }, default: true }
             - { label: 'Statistics' }

@@ -1,0 +1,21 @@
+easy_admin:
+    entities:
+        SocialLink:
+            class: AppBundle\Entity\SocialLink
+            label: 'Social Link'
+            list:
+                title: 'Social Link'
+                fields:
+                    - url
+                    - faIcon
+                    - title
+            show:
+                fields:
+                    - url
+                    - faIcon
+                    - title
+            form:
+                fields:
+                    - url
+                    - faIcon
+                    - title
