@@ -13,4 +13,11 @@ class AdvertRepository extends AbstractCustomRepository
 
         return $adverts;
     }
+
+    public function getFilterQueryBuilder(array $query)
+    {
+        $qb = $this->createQueryBuilder(self::ENTITY_ALIAS);
+
+        return $qb;
+    }
 }

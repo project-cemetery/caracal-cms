@@ -58,7 +58,13 @@ class Article
      * @ORM\Column(type="boolean")
      * @var boolean
      */
-    private $enabled;
+    private $enabled = false;
+
+    /**
+     * @ORM\Column(type="boolean")
+     * @var boolean
+     */
+    private $hero = false;
 
     /**
      * @ORM\Column(type="text")
@@ -200,20 +206,24 @@ class Article
     }
 
     /**
-     * @return bool
-     */
-    public function getEnabled()
-    {
-        return $this->enabled;
-    }
-
-    /**
      * @param bool $enabled
      * @return Article
      */
     public function setEnabled($enabled)
     {
         $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    public function isHero(): bool
+    {
+        return $this->hero;
+    }
+
+    public function setHero(bool $hero): Article
+    {
+        $this->hero = $hero;
 
         return $this;
     }

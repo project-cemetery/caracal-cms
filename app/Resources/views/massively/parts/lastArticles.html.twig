@@ -1,0 +1,18 @@
+<!-- Posts -->
+<section class="posts">
+    {% for article in articles %}
+        <article>
+            <header>
+                <span class="date">{{ article.createdAt|date('d.m.Y') }}</span>
+                <h2><a href="{{ path('article', {id: article.id}) }}">{{ article.title }}</a></h2>
+            </header>
+            <a href="{{ path('article', {id: article.id}) }}" class="image fit">
+                <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" />
+            </a>
+            <p>{{ article.description|shorten(160) }}</p>
+            <ul class="actions">
+                <li><a href="{{ path('article', {id: article.id}) }}" class="button">Читать дальше</a></li>
+            </ul>
+        </article>
+    {% endfor %}
+</section>

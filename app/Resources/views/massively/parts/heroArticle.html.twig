@@ -1,0 +1,13 @@
+<!-- Featured Post -->
+<article class="post featured">
+    <header class="major">
+        <span class="date">{{ article.createdAt|date('d.m.Y') }}</span>
+        <h2><a href="{{ path('article', {id: article.id}) }}">{{ article.title }}</a></h2>
+        <p>{{ article.description|shorten(450) }}</p>
+    </header>
+    <a href="{{ path('article', {id: article.id}) }}" class="image main">
+    <img src="{{ article_image_path ~ '/' ~ article.image }}" alt="{{ article.title }}" /></a>
+    <ul class="actions">
+        <li><a href="{{ path('article', {id: article.id}) }}" class="button big">Читать полностью</a></li>
+    </ul>
+</article>

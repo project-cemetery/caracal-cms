@@ -5,19 +5,24 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Article;
 use AppBundle\Entity\ArticleCategory;
+use AppBundle\Repositories\ArticleRepository;
+use AppBundle\Utils\Model\Pagination;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller
 {
-    // TODO: pagination
     /**
-     * @Route("/articles/{id}", name="articles")
+     * @Route("/articles/{id}/{page}", name="articles")
      */
-    public function articlesAction(int $id = null) {
+    public function articlesAction(int $id = null, int $page = 1) {
+        /** @var ArticleRepository $articlesRepo */
         $articlesRepo = $this->getDoctrine()->getRepository(Article::class);
 
         $category = null;
+
+        $filters = [];
+        $filters['enabled'] = true;
 
         if ($id) {
             $category = $this
@@ -25,20 +30,27 @@ class ArticleController extends Controller
                 ->getRepository(ArticleCategory::class)
                 ->find($id);
 
-            $articles = $articlesRepo
-                ->findBy(
-                    ['category' => $id],
-                    ['createdAt' => 'DESC']
-                );
-        } else {
-            $articles = $articlesRepo->findBy([], ['createdAt' => 'DESC']);
+            $filters['category'] = $category;
         }
+
+        $articles = $articlesRepo->findFilteredByPage($filters, $page);
+
+        $pages = [];
+        for (
+            $i = 1;
+            $i <= ceil($articlesRepo->getFilteredCount($filters) / ArticleRepository::DEFAULT_ENTITIES_PER_PAGE);
+            $i ++
+        ) {
+            $pages[] = $i;
+        }
+        $pagination = new Pagination($pages, $page);
 
         return $this->render(
             '@THEME/articles.html.twig',
             [
-                'articles' => $articles,
-                'category' => $category,
+                'articles'   => $articles,
+                'category'   => $category,
+                'pagination' => $pagination,
             ]
         );
     }
@@ -71,4 +83,15 @@ class ArticleController extends Controller
         );
     }
 
+    public function showHeroAction() {
+        $article = $this
+            ->getDoctrine()
+            ->getRepository(Article::class)
+            ->findOneHero();
+
+        return $this->render(
+            '@THEME/parts/heroArticle.html.twig',
+            ['article' => $article]
+        );
+    }
 }
