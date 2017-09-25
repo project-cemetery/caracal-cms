@@ -43,7 +43,8 @@ abstract class AbstractCustomRepository extends EntityRepository
         int $offset = 0,
         int $entitiesPerPage = self::DEFAULT_ENTITIES_PER_PAGE
     ): array {
-        return $this->getFilterQueryBuilder($query)
+        return $this
+            ->getFilterQueryBuilder($query)
             ->setFirstResult($offset)
             ->setMaxResults($entitiesPerPage)
             ->getQuery()

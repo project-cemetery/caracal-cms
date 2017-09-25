@@ -32,6 +32,8 @@ class ArticleRepository extends AbstractCustomRepository
                 ->setParameter('category', $query['category']);
         }
 
+        $qb->orderBy(self::ENTITY_ALIAS . '.createdAt', 'DESC');
+
         return $qb;
     }
 }
