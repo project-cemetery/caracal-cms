@@ -5,7 +5,7 @@ namespace AppBundle\Repositories;
 use Doctrine\ORM\EntityRepository;
 
 
-class AbstartCustomRepository extends EntityRepository
+abstract class AbstractCustomRepository extends EntityRepository
 {
     const DEFAULT_LAST_LIMIT = 2;
 
