@@ -5,5 +5,4 @@ easy_admin:
         color_scheme: 'light'
         brand_color: '#9c27b0'
         assets:
-            css:
-                - '/bundles/app/css/admin.css'
+            favicon: '/bundles/app/admin/favicon.png'
