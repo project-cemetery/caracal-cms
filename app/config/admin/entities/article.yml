@@ -10,30 +10,16 @@ easy_admin:
                     - createdAt
                     - { property: 'enabled', label: 'Published' }
                     - category
-                    - tags
                     - hero
-                    - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
-            show:
-                fields:
-                    - { property: 'title', css_class: 'large' }
-                    - createdAt
-                    - category
-                    - tags
-                    - { property: 'enabled', label: 'Published' }
-                    - description
-                    - hero
-                    - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
             form:
                 fields:
                     - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'General information', icon: 'info' }
                     - { property: 'title', css_class: 'large' }
                     - createdAt
-                    - category
                     - tags
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'Additional information', icon: 'info' }
                     - hero
                     - { property: 'enabled', label: 'Published' }
-                    - description
-                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'Attachments', icon: 'files-o' }
                     - { property: 'imageFile', type: 'vich_image' }
-                    - gallery
-                    - product
+                    - { type: 'group', css_class: 'col-sm-12', label: 'Content', icon: 'book' }
+                    - description

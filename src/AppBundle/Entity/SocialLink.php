@@ -38,12 +38,12 @@ class SocialLink
      */
     private $title;
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getFaIcon(): ?string
+    public function getFaIcon()
     {
         return $this->faIcon;
     }
@@ -55,7 +55,7 @@ class SocialLink
         return $this;
     }
 
-    public function getUrl(): ?string
+    public function getUrl()
     {
         return $this->url;
     }
@@ -67,7 +67,7 @@ class SocialLink
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitle()
     {
         return $this->title;
     }
