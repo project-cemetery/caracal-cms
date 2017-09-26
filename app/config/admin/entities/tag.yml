@@ -7,10 +7,7 @@ easy_admin:
                 title: 'Tag'
                 fields:
                     - title
-            show:
-                fields:
-                    - id
-                    - { property: 'title', css_class: 'large' }
             form:
                 fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: 'General information', icon: 'info' }
                     - { property: 'title', css_class: 'large' }

@@ -1,0 +1,19 @@
+{{ form_start(form) }}
+    <div class="field">
+        {{ form_label(form.customerName) }}
+        {{ form_widget(form.customerName) }}
+    </div>
+    <div class="field">
+        {{ form_label(form.customerEmail) }}
+        {{ form_widget(form.customerEmail) }}
+    </div>
+    <div class="field">
+        {{ form_label(form.customerMessage) }}
+        {{ form_widget(form.customerMessage) }}
+    </div>
+    <ul class="actions">
+        <li>
+            {{ form_widget(form.submit) }}
+        </li>
+    </ul>
+{{ form_end(form) }}

@@ -2,34 +2,13 @@ easy_admin:
     design:
         menu:
             - { label: 'Site content' }
-            - label: 'Products'
-              icon: 'shopping-basket'
-              children:
-                  - { entity: 'Product', icon: 'th-list', label: 'List', params: { sortField: 'title' } }
-                  - { entity: 'Product', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
-            - label: 'Galleries'
-              icon: 'instagram'
-              children:
-                  - { entity: 'Gallery', icon: 'th-list', label: 'List', params: { sortField: 'year' } }
-                  - { entity: 'Gallery', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
-            - label: 'Adverts'
-              icon: 'newspaper-o'
-              children:
-                  - { entity: 'Advert', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' } }
-                  - { entity: 'Advert', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
-            - label: 'Articles'
-              icon: 'book'
-              children:
-                  - { entity: 'ArticleCategory', icon: 'bookmark', label: 'Categories', params: { sortField: 'title' } }
-                  - { entity: 'Tag', icon: 'tag', label: 'Tags', params: { sortField: 'title' } }
-                  - { entity: 'Article', icon: 'th-list', label: 'List', params: { sortField: 'createdAt' } }
-                  - { entity: 'Article', icon: 'plus-circle', label: 'Add', params: { action: 'new' } }
+            - { entity: 'Tag', icon: 'tag', label: 'Tags', params: { sortField: 'title' } }
+            - { entity: 'Article', icon: 'book', label: 'Articles', params: { sortField: 'createdAt' } }
             - { label: 'Site settings' }
             - { label: 'Settings', entity: 'Setting', icon: 'cog', params: { sortField: 'type' } }
-            - { label: 'Links', entity: 'BottomLink', icon: 'link', params: { sortField: 'priority' } }
             - { label: 'Template images', entity: 'TemplateImage', icon: 'image', params: { sortField: 'type' } }
             - { label: 'Contacts', entity: 'Contact', icon: 'address-card', params: { sortField: 'type' } }
-            - { label: 'Social Links', entity: 'SocialLink', icon: 'address-card', params: { sortField: 'url' } }
+            - { label: 'Social Links', entity: 'SocialLink', icon: 'group', params: { sortField: 'title' } }
             - { label: 'Clients' }
             - { label: 'Tickets', entity: 'Ticket', icon: 'sticky-note', params: { sortField: 'createdAt' }, default: true }
             - { label: 'Statistics' }

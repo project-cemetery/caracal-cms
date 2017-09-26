@@ -22,7 +22,7 @@ class Pagination
         $this->currentPage = $currentPage;
     }
 
-    public function getCurrentPage() : ?int
+    public function getCurrentPage()
     {
         return $this->currentPage;
     }
@@ -35,7 +35,7 @@ class Pagination
     }
 
     // TODO: refactor
-    public function getNextPage() : ?int
+    public function getNextPage()
     {
         foreach ($this->pages as $page) {
             if ($page == ($this->currentPage + 1)) {
@@ -47,7 +47,7 @@ class Pagination
     }
 
     // TODO: refactor
-    public function getPrevPage() : ?int
+    public function getPrevPage()
     {
         foreach ($this->pages as $page) {
             if ($page == ($this->currentPage - 1)) {
@@ -58,12 +58,12 @@ class Pagination
         return null;
     }
 
-    public function getPagesCount() : int
+    public function getPagesCount()
     {
         return count($this->pages);
     }
 
-    public function getPages() : ?array
+    public function getPages()
     {
         $pages = $this->pages;
         sort($pages);
