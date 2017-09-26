@@ -6,16 +6,12 @@ easy_admin:
             list:
                 title: 'Social Link'
                 fields:
+                    - title
                     - url
                     - faIcon
-                    - title
-            show:
-                fields:
-                    - url
-                    - faIcon
-                    - title
             form:
                 fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: 'General information', icon: 'info' }
+                    - title
                     - url
                     - faIcon
-                    - title
