@@ -7,6 +7,7 @@ use AppBundle\Entity\Product;
 use AppBundle\Entity\Setting;
 use AppBundle\Entity\TemplateImage;
 use AppBundle\Entity\Ticket;
+use AppBundle\Form\TicketType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -94,6 +95,50 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/ticket", name="ticket")
+     */
+    public function ticketAction(Request $request)
+    {
+        $success = false;
+
+        $form = $this->createForm(TicketType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $ticket = $form->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($ticket);
+            $em->flush();
+
+            $success = true;
+        }
+
+        return $this->render(
+            '@THEME/ticket.html.twig',
+            ['success' => $success]
+        );
+    }
+
+    public function showContactFormAction()
+    {
+        $ticket = new Ticket();
+
+        $form = $this->createForm(
+            TicketType::class,
+            $ticket,
+            ['action' => $this->generateUrl('ticket'), 'method' => 'POST']
+        );
+
+        return $this->render(
+            '@THEME/parts/contactForm.html.twig',
+            ['form' => $form->createView()]
+        );
+    }
+
+    // TODO: MOVE
+    /**
      * @Route("/gallery/{id}", name="gallery")
      */
     public function galleryAction($id)
@@ -111,6 +156,7 @@ class DefaultController extends Controller
         );
     }
 
+    // TODO: MOVE
     /**
      * @Route("/product/{id}", name="product")
      */
