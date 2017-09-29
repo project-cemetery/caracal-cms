@@ -1,18 +1,37 @@
 menu.clients: Клиенты
 menu.statistics: Статистика
+menu.content: Контент сайта
 
 form.general: Основная информация
 form.customer: Информация о клиенте
+form.additional: Дополнительная информация
+form.body: Содержимое
 
 entity.ticket.title: Заявка
 entity.ticket.list: Заявки
 entity.ticket.form: Редактирование заявки
 Ticket: Заявка
-Created at: Создано
 Answered: Отвечено
 Customer name: Имя клиента
 Customer email: Email клиента
 Customer message: Сообщение клиента
+
+entity.tag.title: Тег
+entity.tag.list: Теги
+entity.tag.form: Редактирование тега
+Tag: Тег
+
+entity.article.title: Статья
+entity.article.list: Статьи
+entity.article.form: Редактирование статьи
+Article: Статья
+Published: Опубликовано
+Tags: Теги
+Hero: Основная
+Description: Описание
+
+Title: Название
+Created at: Создано
 
 action.search: Искать
 action.new: Создать

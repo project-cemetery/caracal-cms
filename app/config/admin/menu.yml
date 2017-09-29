@@ -1,9 +1,9 @@
 easy_admin:
     design:
         menu:
-            - { label: 'Site content' }
-            - { entity: 'Tag', icon: 'tag', label: 'Tags', params: { sortField: 'title' } }
-            - { entity: 'Article', icon: 'book', label: 'Articles', params: { sortField: 'createdAt' } }
+            - { label: menu.content }
+            - { entity: 'Tag', icon: 'tag', label: entity.tag.list }
+            - { entity: 'Article', icon: 'book', label: entity.article.list }
             - { label: 'Site settings' }
             - { label: 'Settings', entity: 'Setting', icon: 'cog', params: { sortField: 'type' } }
             - { label: 'Template images', entity: 'TemplateImage', icon: 'image', params: { sortField: 'type' } }

@@ -5,21 +5,22 @@ easy_admin:
             label: 'Article'
             list:
                 title: 'Article'
+                sort: createdAt
                 fields:
                     - title
                     - createdAt
                     - { property: 'enabled', label: 'Published' }
-                    - category
+                    - tags
                     - hero
             form:
                 fields:
-                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'General information', icon: 'info' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.general, icon: 'info' }
                     - { property: 'title', css_class: 'large' }
                     - createdAt
                     - tags
-                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: 'Additional information', icon: 'info' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.additional, icon: 'info' }
                     - hero
                     - { property: 'enabled', label: 'Published' }
                     - { property: 'imageFile', type: 'vich_image' }
-                    - { type: 'group', css_class: 'col-sm-12', label: 'Content', icon: 'book' }
+                    - { type: 'group', css_class: 'col-sm-12', label: form.body, icon: 'book' }
                     - description
