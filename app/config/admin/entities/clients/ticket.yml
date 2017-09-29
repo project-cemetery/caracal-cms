@@ -15,10 +15,10 @@ easy_admin:
             form:
                 title: entity.ticket.form
                 fields:
-                    - { type: 'group', css_class: 'col-sm-12 col-md-8', label: 'Customer information', icon: 'user' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-8', label: form.customer, icon: 'user' }
                     - customerName
                     - customerEmail
                     - customerMessage
-                    - { type: 'group', css_class: 'col-sm-12 col-md-4', label: 'Basic information', icon: 'info' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-4', label: form.general, icon: 'info' }
                     - createdAt
                     - answered

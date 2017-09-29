@@ -1,6 +1,9 @@
 menu.clients: Клиенты
 menu.statistics: Статистика
 
+form.general: Основная информация
+form.customer: Информация о клиенте
+
 entity.ticket.title: Заявка
 entity.ticket.list: Заявки
 entity.ticket.form: Редактирование заявки
