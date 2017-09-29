@@ -2,6 +2,16 @@ menu.clients: Клиенты
 menu.statistics: Статистика
 menu.content: Контент сайта
 
+action.search: Искать
+action.new: Создать
+action.save: Сохранить
+action.list: К списку
+action.edit: Редактировать
+action.delete: Удалить
+action.cancel: Отмена
+
+link.GA: Google Analytics
+
 form.general: Основная информация
 form.customer: Информация о клиенте
 form.additional: Дополнительная информация
@@ -32,11 +42,3 @@ Description: Описание
 
 Title: Название
 Created at: Создано
-
-action.search: Искать
-action.new: Создать
-action.save: Сохранить
-action.list: К списку
-action.edit: Редактировать
-action.delete: Удалить
-action.cancel: Отмена

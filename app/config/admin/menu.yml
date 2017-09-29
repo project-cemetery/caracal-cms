@@ -12,4 +12,4 @@ easy_admin:
             - { label: menu.clients }
             - { entity: 'Ticket', icon: 'sticky-note', label: entity.ticket.list, default: true }
             - { label: menu.statistics }
-            - { label: 'Google Analytics', url: 'https://analytics.google.com/', icon: 'line-chart', target: '_blank' }
+            - { label: link.GA, url: 'https://analytics.google.com/', icon: 'line-chart', target: '_blank' }
