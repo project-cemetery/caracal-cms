@@ -1,0 +1,19 @@
+menu.clients: Клиенты
+
+entity.ticket.title: Заявка
+entity.ticket.list: Заявки
+entity.ticket.form: Редактирование заявки
+Ticket: Заявка
+Created at: Создано
+Answered: Отвечено
+Customer name: Имя клиента
+Customer email: Email клиента
+Customer message: Сообщение клиента
+
+action.search: Искать
+action.new: Создать
+action.save: Сохранить
+action.list: К списку
+action.edit: Редактировать
+action.delete: Удалить
+action.cancel: Отмена

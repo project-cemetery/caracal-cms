@@ -9,7 +9,7 @@ easy_admin:
             - { label: 'Template images', entity: 'TemplateImage', icon: 'image', params: { sortField: 'type' } }
             - { label: 'Contacts', entity: 'Contact', icon: 'address-card', params: { sortField: 'type' } }
             - { label: 'Social Links', entity: 'SocialLink', icon: 'group', params: { sortField: 'title' } }
-            - { label: 'Clients' }
-            - { label: 'Tickets', entity: 'Ticket', icon: 'sticky-note', params: { sortField: 'createdAt' }, default: true }
+            - { label: menu.clients }
+            - { entity: 'Ticket', icon: 'sticky-note', label: entity.ticket.list, default: true }
             - { label: 'Statistics' }
             - { label: 'Google Analytics', url: 'https://analytics.google.com/', icon: 'line-chart', target: '_blank' }
