@@ -2,9 +2,9 @@ easy_admin:
     entities:
         Article:
             class: AppBundle\Entity\Article
-            label: 'Article'
+            label: entity.article.title
             list:
-                title: 'Article'
+                title: entity.article.list
                 sort: createdAt
                 fields:
                     - title
@@ -13,6 +13,7 @@ easy_admin:
                     - tags
                     - hero
             form:
+                title: entity.article.form
                 fields:
                     - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.general, icon: 'info' }
                     - { property: 'title', css_class: 'large' }
