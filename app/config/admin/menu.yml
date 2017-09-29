@@ -11,5 +11,5 @@ easy_admin:
             - { label: 'Social Links', entity: 'SocialLink', icon: 'group', params: { sortField: 'title' } }
             - { label: menu.clients }
             - { entity: 'Ticket', icon: 'sticky-note', label: entity.ticket.list, default: true }
-            - { label: 'Statistics' }
+            - { label: menu.statistics }
             - { label: 'Google Analytics', url: 'https://analytics.google.com/', icon: 'line-chart', target: '_blank' }
