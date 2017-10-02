@@ -4,11 +4,11 @@ easy_admin:
             - { label: menu.content }
             - { entity: 'Tag', icon: 'tag', label: entity.tag.list }
             - { entity: 'Article', icon: 'book', label: entity.article.list }
-            - { label: 'Site settings' }
-            - { label: 'Settings', entity: 'Setting', icon: 'cog', params: { sortField: 'type' } }
-            - { label: 'Template images', entity: 'TemplateImage', icon: 'image', params: { sortField: 'type' } }
-            - { label: 'Contacts', entity: 'Contact', icon: 'address-card', params: { sortField: 'type' } }
-            - { label: 'Social Links', entity: 'SocialLink', icon: 'group', params: { sortField: 'title' } }
+            - { label: menu.settings }
+            - { entity: 'Setting', icon: 'cog', label: entity.setting.list }
+            - { entity: 'TemplateImage', icon: 'image', label: entity.templateImage.list }
+            - { entity: 'Contact', icon: 'address-card', label: entity.contact.list }
+            - { entity: 'SocialLink', icon: 'group', label: entity.socialLink.list }
             - { label: menu.clients }
             - { entity: 'Ticket', icon: 'sticky-note', label: entity.ticket.list, default: true }
             - { label: menu.statistics }

@@ -2,14 +2,16 @@ easy_admin:
     entities:
         SocialLink:
             class: AppBundle\Entity\SocialLink
-            label: 'Social Link'
+            label: entity.socialLink.title
             list:
-                title: 'Social Link'
+                title: entity.socialLink.list
+                sort: title
                 fields:
                     - title
                     - url
                     - faIcon
             form:
+                title: entity.socialLink.form
                 fields:
                     - { type: 'group', css_class: 'col-sm-12', label: 'General information', icon: 'info' }
                     - title

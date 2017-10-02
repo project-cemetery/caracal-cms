@@ -1,6 +1,7 @@
 menu.clients: Клиенты
 menu.statistics: Статистика
 menu.content: Контент сайта
+menu.settings: Настройки сайта
 
 action.search: Искать
 action.new: Создать
@@ -40,5 +41,29 @@ Tags: Теги
 Hero: Основная
 Description: Описание
 
+entity.setting.title: Настройка
+entity.setting.list: Настройки
+entity.setting.form: Редактирование настройки
+Setting: Настройка
+
+entity.templateImage.title: Изображение для шаблона
+entity.templateImage.list: Изображения для шаблона
+entity.templateImage.form: Редактирование изображения для шаблона
+TemplateImage: Изображение для шаблона
+
+entity.contact.title: Контакты
+entity.contact.list: Контакты
+entity.contact.form: Редактирование контакта
+Contact: Контакт
+
+entity.socialLink.title: Ссылка но соцсеть
+entity.socialLink.list: Ссылки на соцсети
+entity.socialLink.form: Редактирование ссылки на соцсеть
+SocialLink: Ссылка на соцсеть
+Url: URL
+Fa icon: Иконка Font Awesome
+
 Title: Название
 Created at: Создано
+Body: Содержимое
+Image: Изображение
