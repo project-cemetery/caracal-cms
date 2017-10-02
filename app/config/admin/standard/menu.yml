@@ -9,6 +9,10 @@ easy_admin:
                   - { entity: 'Article', icon: 'book', label: entity.article.list }
                   - { entity: 'Tag', icon: 'tag', label: entity.tag.list }
                   - { entity: 'ArticleCategory', icon: 'bookmark', label: entity.category.list }
+            - label: menu.shop
+              icon: 'shopping-basket'
+              children:
+                  - { entity: 'Product', icon: 'shopping-bag', label: entity.product.list }
             - { entity: 'Gallery', icon: 'instagram', label: entity.gallery.list }
             - { label: menu.settings }
             - { entity: 'Setting', icon: 'cog', label: entity.setting.list }

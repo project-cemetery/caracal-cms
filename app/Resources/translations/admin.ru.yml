@@ -3,6 +3,7 @@ menu.statistics: Статистика
 menu.content: Контент сайта
 menu.settings: Настройки сайта
 menu.lib: Библиотека
+menu.shop: Магазин
 
 action.search: Искать
 action.new: Создать
@@ -85,6 +86,12 @@ Gallery: Гелерея
 Year: Год
 General: Главная
 Images: Изображения
+
+entity.product.title: Товар
+entity.product.list: Товары
+entity.product.form: Редактирование товара
+Product: Товар
+Price: Цена
 
 Title: Название
 Created at: Создано

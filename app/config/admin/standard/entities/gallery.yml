@@ -14,5 +14,10 @@ easy_admin:
             form:
                 title: entity.gallery.form
                 fields:
-                    - { type: 'group', css_class: 'col-sm-12', label: form.general, icon: 'info' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.general, icon: 'info' }
                     - title
+                    - year
+                    - general
+                    - description
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: Images, icon: 'instagram' }
+                    - { property: 'images', type: 'collection', type_options: { entry_type: 'AppBundle\Form\ImageType', by_reference: false }}
