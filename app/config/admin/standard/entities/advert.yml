@@ -1,0 +1,24 @@
+easy_admin:
+    entities:
+        Advert:
+            class: AppBundle\Entity\Advert
+            label: entity.advert.title
+            list:
+                title: entity.advert.list
+                sort: createdAt
+                fields:
+                    - title
+                    - createdAt
+                    - { property: 'enabled', label: 'Published' }
+                    - { property: 'image', type: 'image', base_path: '%app.path.article_images%' }
+            form:
+                title: entity.advert.form
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.general, icon: 'info' }
+                    - title
+                    - createdAt
+                    - { property: 'enabled', label: 'Published' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.additional, icon: 'info' }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { type: 'group', css_class: 'col-sm-12', label: form.body, icon: 'book' }
+                    - description

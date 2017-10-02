@@ -13,7 +13,8 @@ easy_admin:
             form:
                 title: entity.socialLink.form
                 fields:
-                    - { type: 'group', css_class: 'col-sm-12', label: 'General information', icon: 'info' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.general, icon: 'info' }
                     - title
                     - url
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.additional, icon: 'info' }
                     - faIcon

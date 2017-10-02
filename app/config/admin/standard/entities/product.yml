@@ -1,0 +1,24 @@
+easy_admin:
+    entities:
+        Product:
+            class: AppBundle\Entity\Product
+            label: entity.product.title
+            list:
+                title: entity.product.list
+                sort: title
+                fields:
+                    - title
+                    - { property: 'enabled', label: 'Published' }
+                    - price
+                    - { property: 'image', type: 'image', base_path: '%app.path.product_images%' }
+            form:
+                title: entity.product.form
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.general, icon: 'info' }
+                    - title
+                    - { property: 'enabled', label: 'Published' }
+                    - price
+                    - { type: 'group', css_class: 'col-sm-12 col-md-6', label: form.additional, icon: 'info' }
+                    - { property: 'imageFile', type: 'vich_image', type_options: { required: true } }
+                    - { type: 'group', css_class: 'col-sm-12', label: form.body, icon: 'book' }
+                    - description
