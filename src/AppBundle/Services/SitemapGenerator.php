@@ -59,10 +59,7 @@ class SitemapGenerator implements GeneratorInterface
         return $entries;
     }
 
-    private function generateEntities(
-        string $className,
-        callable $generateRoute
-    ): array {
+    private function generateEntities(string $className, callable $generateRoute): array {
         $entries = [];
 
         $entities = $this->em->getRepository($className)->findAll();
