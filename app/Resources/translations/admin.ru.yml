@@ -93,6 +93,13 @@ entity.product.form: Редактирование товара
 Product: Товар
 Price: Цена
 
+entity.pageMetaInfo.title: Мета-информация
+entity.pageMetaInfo.list: Мета-информация
+entity.pageMetaInfo.form: Редактирвоание мета-информации
+PageMetaInfo: Мета-информация
+Path: Путь
+Keywords: Ключевые слова
+
 Title: Название
 Created at: Создано
 Body: Содержимое

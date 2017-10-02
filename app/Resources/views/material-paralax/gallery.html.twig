@@ -1,4 +1,6 @@
-{% extends 'material-paralax/base.html.twig' %}
+{% extends 'material-paralax/_base.html.twig' %}
+
+{% block title %}{{ custom_seo_title|default(gallery.title ~ ' | ' ~ parent()) }}{% endblock %}
 
 {% block body %}
     <div class="container">

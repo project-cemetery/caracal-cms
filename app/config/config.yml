@@ -115,3 +115,10 @@ vich_uploader:
         article_images:
             uri_prefix:         '%app.path.article_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/article'
+
+dpn_xml_sitemap:
+    http_cache: ~
+    max_per_sitemap: 50000
+    defaults:
+        priority:   ~
+        changefreq: ~

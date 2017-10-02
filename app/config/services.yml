@@ -16,11 +16,26 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
-    twig_global_vars:
+    app.twig_global_vars:
         class: AppBundle\Services\Listeners\TwigGlobalVars
         arguments:
             - '@doctrine.orm.entity_manager'
             - '@twig'
+        tags:
+            -
+                name: kernel.event_listener
+                event: kernel.request
+                method: onKernelRequest
+
+    app.sitemap_generator:
+        class: AppBundle\Services\SitemapGenerator
+        arguments: ['@doctrine.orm.entity_manager', '@router']
+        tags:
+            - { name: dpn_xml_sitemap.generator }
+
+    custom_page_meta_info:
+        class: AppBundle\Services\Listeners\CustomPageMetaInfo
+        arguments: ['@doctrine.orm.entity_manager', '@twig']
         tags:
             -
                 name: kernel.event_listener
