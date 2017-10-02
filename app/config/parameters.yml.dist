@@ -18,6 +18,7 @@ parameters:
     locale: ru
 
     app.current_theme: astral
+    app.admin_version: lite
 
 
     # A secret key that's used to generate certain security-related tokens
