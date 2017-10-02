@@ -1,5 +1,7 @@
 {% extends 'material-paralax/_base.html.twig' %}
 
+{% block title %}{{ custom_seo_title|default(parent()) }}{% endblock %}
+
 {% block body %}
     <div class="index-banner parallax-container valign-wrapper">
         <div class="section no-pad-bot valign">
