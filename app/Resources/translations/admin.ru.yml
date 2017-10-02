@@ -56,7 +56,7 @@ entity.contact.list: Контакты
 entity.contact.form: Редактирование контакта
 Contact: Контакт
 
-entity.socialLink.title: Ссылка но соцсеть
+entity.socialLink.title: Ссылка нa соцсеть
 entity.socialLink.list: Ссылки на соцсети
 entity.socialLink.form: Редактирование ссылки на соцсеть
 SocialLink: Ссылка на соцсеть
