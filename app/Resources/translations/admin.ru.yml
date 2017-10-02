@@ -1,0 +1,69 @@
+menu.clients: Клиенты
+menu.statistics: Статистика
+menu.content: Контент сайта
+menu.settings: Настройки сайта
+
+action.search: Искать
+action.new: Создать
+action.save: Сохранить
+action.list: К списку
+action.edit: Редактировать
+action.delete: Удалить
+action.cancel: Отмена
+
+link.GA: Google Analytics
+
+form.general: Основная информация
+form.customer: Информация о клиенте
+form.additional: Дополнительная информация
+form.body: Содержимое
+
+entity.ticket.title: Заявка
+entity.ticket.list: Заявки
+entity.ticket.form: Редактирование заявки
+Ticket: Заявка
+Answered: Отвечено
+Customer name: Имя клиента
+Customer email: Email клиента
+Customer message: Сообщение клиента
+
+entity.tag.title: Тег
+entity.tag.list: Теги
+entity.tag.form: Редактирование тега
+Tag: Тег
+
+entity.article.title: Статья
+entity.article.list: Статьи
+entity.article.form: Редактирование статьи
+Article: Статья
+Published: Опубликовано
+Tags: Теги
+Hero: Основная
+Description: Описание
+
+entity.setting.title: Настройка
+entity.setting.list: Настройки
+entity.setting.form: Редактирование настройки
+Setting: Настройка
+
+entity.templateImage.title: Изображение для шаблона
+entity.templateImage.list: Изображения для шаблона
+entity.templateImage.form: Редактирование изображения для шаблона
+TemplateImage: Изображение для шаблона
+
+entity.contact.title: Контакты
+entity.contact.list: Контакты
+entity.contact.form: Редактирование контакта
+Contact: Контакт
+
+entity.socialLink.title: Ссылка но соцсеть
+entity.socialLink.list: Ссылки на соцсети
+entity.socialLink.form: Редактирование ссылки на соцсеть
+SocialLink: Ссылка на соцсеть
+Url: URL
+Fa icon: Иконка Font Awesome
+
+Title: Название
+Created at: Создано
+Body: Содержимое
+Image: Изображение

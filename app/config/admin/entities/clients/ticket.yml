@@ -2,23 +2,23 @@ easy_admin:
     entities:
         Ticket:
             class: AppBundle\Entity\Ticket
-            label: 'Ticket'
+            label: entity.ticket.title
             list:
+                title: entity.ticket.list
+                sort: 'createdAt'
                 fields:
                     - createdAt
                     - answered
                     - customerName
                     - customerEmail
                     - customerMessage
-            show:
-                fields:
-                    - { property: 'customerName', css_class: 'large' }
             form:
+                title: entity.ticket.form
                 fields:
-                    - { type: 'group', css_class: 'col-sm-12 col-md-8', label: 'Customer information', icon: 'user' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-8', label: form.customer, icon: 'user' }
                     - customerName
                     - customerEmail
                     - customerMessage
-                    - { type: 'group', css_class: 'col-sm-12 col-md-4', label: 'Basic information', icon: 'info' }
+                    - { type: 'group', css_class: 'col-sm-12 col-md-4', label: form.general, icon: 'info' }
                     - createdAt
                     - answered

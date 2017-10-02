@@ -2,12 +2,14 @@ easy_admin:
     entities:
         Tag:
             class: AppBundle\Entity\Tag
-            label: 'Tag'
+            label: entity.tag.title
             list:
-                title: 'Tag'
+                title: entity.tag.list
+                sort: title
                 fields:
                     - title
             form:
+                title: entity.tag.form
                 fields:
-                    - { type: 'group', css_class: 'col-sm-12', label: 'General information', icon: 'info' }
+                    - { type: 'group', css_class: 'col-sm-12', label: form.general, icon: 'info' }
                     - { property: 'title', css_class: 'large' }

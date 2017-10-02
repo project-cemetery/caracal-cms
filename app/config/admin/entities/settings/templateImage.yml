@@ -2,13 +2,16 @@ easy_admin:
     entities:
         TemplateImage:
             class: AppBundle\Entity\TemplateImage
-            label: 'Template image'
+            label: entity.templateImage.title
             disabled_actions: ['delete', 'new']
             list:
+                title: entity.templateImage.list
+                sort: type
                 fields:
                     - title
                     - { property: 'image', type: 'image', base_path: '%app.path.template_images%' }
             form:
+                title: entity.templateImage.form
                 fields:
                     - { property: 'title', css_class: 'large', type: text, type_options: { disabled: true } }
                     - { property: 'imageFile', type: 'vich_image', type_options: { required: true } }
