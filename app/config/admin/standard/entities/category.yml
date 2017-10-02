@@ -1,0 +1,16 @@
+easy_admin:
+    entities:
+        ArticleCategory:
+            class: AppBundle\Entity\ArticleCategory
+            label: entity.category.title
+            list:
+                title: entity.category.list
+                sort: title
+                fields:
+                    - title
+                    - articles
+            form:
+                title: entity.category.form
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: form.general, icon: 'info' }
+                    - title

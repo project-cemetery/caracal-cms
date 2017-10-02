@@ -1,0 +1,15 @@
+easy_admin:
+    entities:
+        Tag:
+            class: AppBundle\Entity\Tag
+            label: entity.tag.title
+            list:
+                title: entity.tag.list
+                sort: title
+                fields:
+                    - title
+            form:
+                title: entity.tag.form
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: form.general, icon: 'info' }
+                    - title

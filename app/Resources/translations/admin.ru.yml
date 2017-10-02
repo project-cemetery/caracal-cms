@@ -2,6 +2,7 @@ menu.clients: Клиенты
 menu.statistics: Статистика
 menu.content: Контент сайта
 menu.settings: Настройки сайта
+menu.lib: Библиотека
 
 action.search: Искать
 action.new: Создать
@@ -40,6 +41,15 @@ Published: Опубликовано
 Tags: Теги
 Hero: Основная
 Description: Описание
+Category: Категория
+Product: Товар
+Gallery: Геллерея
+
+entity.category.title: Категория
+entity.category.list: Категории
+entity.category.form: Редактирование категории
+ArticleCategory: Категория
+Articles: Статьи
 
 entity.setting.title: Настройка
 entity.setting.list: Настройки
@@ -62,6 +72,19 @@ entity.socialLink.form: Редактирование ссылки на соцс�
 SocialLink: Ссылка на соцсеть
 Url: URL
 Fa icon: Иконка Font Awesome
+
+entity.advert.title: Объявление
+entity.advert.list: Объявления
+entity.advert.form: Редактирование объявления
+Advert: Объявление
+
+entity.gallery.title: Гелерея
+entity.gallery.list: Гелереи
+entity.gallery.form: Редактирование галереи
+Gallery: Гелерея
+Year: Год
+General: Главная
+Images: Изображения
 
 Title: Название
 Created at: Создано

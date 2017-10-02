@@ -1,0 +1,18 @@
+easy_admin:
+    entities:
+        Gallery:
+            class: AppBundle\Entity\Gallery
+            label: entity.gallery.title
+            list:
+                title: entity.gallery.list
+                sort: year
+                fields:
+                    - year
+                    - title
+                    - general
+                    - images
+            form:
+                title: entity.gallery.form
+                fields:
+                    - { type: 'group', css_class: 'col-sm-12', label: form.general, icon: 'info' }
+                    - title
