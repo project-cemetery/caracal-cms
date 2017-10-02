@@ -8,7 +8,9 @@ use AppBundle\Entity\Setting;
 class EnumSettingType extends EnumType
 {
     protected $name = 'enumsettingtype';
-    protected $values = [
+    protected $values = self::VALUES;
+
+    const VALUES = [
         Setting::COMPANY_NAME_TYPE,
         Setting::COMPANY_TAGLINE_TYPE,
         Setting::SEO_TITLE_TYPE,

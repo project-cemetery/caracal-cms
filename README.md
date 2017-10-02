@@ -12,6 +12,7 @@ composer install
 php bin/console doctrine:migrations:migrate
 php bin/console cache:clear --env=prod --no-debug --no-warmup
 php bin/console assetic:dump --env=prod --no-debug
+php bin/console app:deploy
 ```
 
 ### Параметры:
