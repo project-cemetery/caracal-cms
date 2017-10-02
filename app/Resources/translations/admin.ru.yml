@@ -51,7 +51,7 @@ entity.templateImage.list: Изображения для шаблона
 entity.templateImage.form: Редактирование изображения для шаблона
 TemplateImage: Изображение для шаблона
 
-entity.contact.title: Контакты
+entity.contact.title: Контакт
 entity.contact.list: Контакты
 entity.contact.form: Редактирование контакта
 Contact: Контакт
