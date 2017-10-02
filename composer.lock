@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7b79aeb2d96961e93a81632baa607668",
-    "content-hash": "29ebb049be2662f42fd0fdf87fb3c33d",
+    "hash": "8757521b86c2ca791f512a6e829f4d31",
+    "content-hash": "03b386987176c8eb411e3b86a907b814",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -969,6 +969,68 @@
                 "orm"
             ],
             "time": "2016-12-18 15:42:34"
+        },
+        {
+            "name": "dpn/xml-sitemap-bundle",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bjo3rnf/DpnXmlSitemapBundle.git",
+                "reference": "881d46dea7f67b1aae348327769b8e038a485113"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bjo3rnf/DpnXmlSitemapBundle/zipball/881d46dea7f67b1aae348327769b8e038a485113",
+                "reference": "881d46dea7f67b1aae348327769b8e038a485113",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/asset": "^2.7|^3.0",
+                "symfony/dependency-injection": "^2.7|^3.0",
+                "symfony/framework-bundle": "^2.7|^3.0",
+                "symfony/templating": "^2.7|^3.0",
+                "symfony/twig-bundle": "^2.7|^3.0"
+            },
+            "require-dev": {
+                "matthiasnoback/symfony-dependency-injection-test": "^0.7.4",
+                "mockery/mockery": "^0.9",
+                "symfony/browser-kit": "^2.7|^3.0",
+                "symfony/console": "^2.7|^3.0",
+                "symfony/finder": "^2.7|^3.0",
+                "symfony/yaml": "^2.7|^3.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dpn\\XmlSitemapBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Björn Fromme",
+                    "email": "fromme@dreipunktnull.com",
+                    "homepage": "http://www.dreipunktnull.com"
+                },
+                {
+                    "name": "Kevin Bond",
+                    "email": "kevinbond@gmail.com",
+                    "homepage": "http://zenstruck.com"
+                }
+            ],
+            "description": "Generates XML sitemaps for your favourite search engine by extracting sitemap information out of the site's routes.",
+            "keywords": [
+                "Sitemap"
+            ],
+            "time": "2017-02-06 15:05:55"
         },
         {
             "name": "erusev/parsedown",
