@@ -12,4 +12,4 @@ easy_admin:
                 title: entity.tag.form
                 fields:
                     - { type: 'group', css_class: 'col-sm-12', label: form.general, icon: 'info' }
-                    - { property: 'title', css_class: 'large' }
+                    - title
