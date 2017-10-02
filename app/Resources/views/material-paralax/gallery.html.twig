@@ -1,5 +1,7 @@
 {% extends 'material-paralax/_base.html.twig' %}
 
+{% block title %}{{ gallery.title }} | {{ parent() }}{% endblock %}
+
 {% block body %}
     <div class="container">
         <h1 class="center">{{ gallery.title }}</h1>
