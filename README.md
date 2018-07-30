@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/igorkamyshev/caracal-cms.svg?branch=master)](https://travis-ci.org/igorkamyshev/caracal-cms)
+
 # Caracal CMS
 
 Oversimplified CMS, provide API and admin-interface
