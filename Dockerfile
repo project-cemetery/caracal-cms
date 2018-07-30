@@ -1,4 +1,5 @@
-FROM igorkamyshev/php-base
+FROM igorkamyshev/php-base:latest
+LABEL maintainer="Igor Kamyshev"
 
 ENV APP_ENV=prod
 ENV APP_DEBUG=0
