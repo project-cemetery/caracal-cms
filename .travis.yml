@@ -6,8 +6,8 @@ php:
 jobs:
   include:
     - stage: lint
-      before-script: composer install -o
+      install: composer install -o
       script: php vendor/bin/ecs check src
     - stage: test
-      before-script: composer install -o
+      install: composer install -o
       script: php bin/phpunit
