@@ -92,6 +92,28 @@ class Library
         $child->orphan();
     }
 
+    public function addArticle(Article $article): void
+    {
+        if ($this->articles->contains($article)) {
+            return;
+        }
+
+        $this->articles->add($article);
+
+        $article->moveToLibrary($this);
+    }
+
+    public function removeArticle(Article $article): void
+    {
+        if (!$this->articles->contains($article)) {
+            return;
+        }
+
+        $this->articles->removeElement($article);
+
+        $article->removeFromLibrary();
+    }
+
     // Data
 
     public function getId(): string
@@ -119,11 +141,17 @@ class Library
         return $this->parent;
     }
 
+    public function getArticles(): ?array
+    {
+        return $this->articles->toArray();
+    }
+
     // Internal
 
     public function __construct()
     {
         $this->children = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     /**
@@ -154,4 +182,9 @@ class Library
      * @ORM\OneToMany(targetEntity="Library", mappedBy="parent")
      */
     private $children;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="library")
+     */
+    private $articles;
 }

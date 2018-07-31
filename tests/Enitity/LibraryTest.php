@@ -3,6 +3,7 @@
 namespace App\Tests\Enitity;
 
 
+use App\Entity\Article;
 use App\Entity\Library;
 use PHPUnit\Framework\TestCase;
 
@@ -140,5 +141,45 @@ class LibraryTest extends TestCase
 
         $this->assertNull($child->getParent());
         $this->assertCount(0, $lib->getChildren());
+    }
+
+    public function testAddOrphanArticle()
+    {
+        $lib = Library::createEmpty();
+
+        $article = Article::createEmpty();
+
+        $lib->addArticle($article);
+
+        $this->assertCount(1, $lib->getArticles());
+        $this->assertEquals($lib, $article->getLibrary());
+    }
+
+    public function testAddArticleFromOtherLibrary()
+    {
+        $lib = Library::createEmpty();
+
+        $oldLibrary = Library::createEmpty();
+        $article = Article::createEmpty();
+        $oldLibrary->addArticle($article);
+
+        $lib->addArticle($article);
+
+        $this->assertCount(1, $lib->getArticles());
+        $this->assertEquals($lib, $article->getLibrary());
+        $this->assertCount(0, $oldLibrary->getArticles());
+    }
+
+    public function testRemoveArticle()
+    {
+        $lib = Library::createEmpty();
+
+        $article = Article::createEmpty();
+        $lib->addArticle($article);
+
+        $lib->removeArticle($article);
+
+        $this->assertNull($article->getLibrary());
+        $this->assertCount(0, $lib->getArticles());
     }
 }
