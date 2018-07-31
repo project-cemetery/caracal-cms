@@ -46,7 +46,6 @@ class Article
     public function changeBody(string $newBody): void
     {
         $this->body = $newBody;
-
     }
 
     public function changeDescription(string $newDescription): void
