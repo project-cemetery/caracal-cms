@@ -115,9 +115,7 @@ class Article
 
     public function __construct()
     {
-        if (!$this->createdAt) {
-            $this->createdAt = new \DateTimeImmutable();
-        }
+        $this->defineCreatedAtValue();
     }
 
     /**
@@ -157,6 +155,8 @@ class Article
      */
     private function defineCreatedAtValue()
     {
-        $this->createdAt = new \DateTimeImmutable();
+        if (!$this->createdAt) {
+            $this->createdAt = new \DateTimeImmutable();
+        }
     }
 }
