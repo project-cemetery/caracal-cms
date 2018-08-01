@@ -2,7 +2,6 @@
 
 namespace App\Tests\Library;
 
-
 use App\Library\Article;
 use App\Library\Library;
 use PHPUnit\Framework\TestCase;
@@ -47,7 +46,7 @@ class LibraryTest extends TestCase
         $lib = Library::create('old name');
 
         $lib->rename('new name');
-        
+
         $this->assertEquals('new name', $lib->getName());
         $this->assertNull($lib->getDescription());
     }

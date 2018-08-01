@@ -2,7 +2,6 @@
 
 namespace App\Tests\Sale;
 
-
 use App\Sale\Ad;
 use PHPUnit\Framework\TestCase;
 

@@ -2,7 +2,6 @@
 
 namespace App\Tests\Gallery;
 
-
 use App\Gallery\Gallery;
 use App\Gallery\Photo;
 use PHPUnit\Framework\TestCase;
