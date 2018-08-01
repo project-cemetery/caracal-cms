@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Tests\Enitity;
+namespace App\Tests\Library;
 
 
-use App\Entity\Article;
-use App\Entity\Library;
+use App\Library\Article;
+use App\Library\Library;
 use PHPUnit\Framework\TestCase;
 
 class LibraryTest extends TestCase

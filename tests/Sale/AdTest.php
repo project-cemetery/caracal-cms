@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Enitity;
+namespace App\Tests\Sale;
 
 
 use App\Entity\Ad;

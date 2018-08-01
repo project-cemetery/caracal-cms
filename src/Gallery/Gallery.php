@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Entity;
+namespace App\Gallery;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Util\NanoId;
 
@@ -9,7 +10,7 @@ use App\Util\NanoId;
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Article
+class Gallery
 {
     // Constructors
 
@@ -22,15 +23,11 @@ class Article
         return $instance;
     }
 
-    public static function create(
-        string $name,
-        string $body,
-        ?string $description = null
-    ): self {
+    public static function create(string $name, string $description): self
+    {
         $instance = self::createEmpty();
 
         $instance->name = $name;
-        $instance->body = $body;
         $instance->description = $description;
 
         return $instance;
@@ -43,40 +40,31 @@ class Article
         $this->name = $newName;
     }
 
-    public function changeBody(string $newBody): void
-    {
-        $this->body = $newBody;
-    }
-
     public function changeDescription(string $newDescription): void
     {
         $this->description = $newDescription;
     }
 
-    public function moveToLibrary(Library $library): void
+    public function addPhoto(Photo $photo): void
     {
-        if ($this->library === $library) {
+        if ($this->photos->contains($photo)) {
             return;
         }
 
-        if ($this->library) {
-            $this->library->removeArticle($this);
-        }
+        $this->photos->add($photo);
 
-        $this->library = $library;
-
-        $this->library->addArticle($this);
+        $photo->moveToGallery($this);
     }
 
-    public function removeFromLibrary(): void
+    public function removePhoto(Photo $photo): void
     {
-        if (!$this->library) {
+        if (!$this->photos->contains($photo)) {
             return;
         }
 
-        $this->library->removeArticle($this);
+        $this->photos->removeElement($photo);
 
-        $this->library = null;
+        $photo->removeFromGallery();
     }
 
     // Data
@@ -91,19 +79,14 @@ class Article
         return $this->name;
     }
 
-    public function getBody(): ?string
-    {
-        return $this->body;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    public function getLibrary(): ?Library
+    public function getPhotos(): array
     {
-        return $this->library;
+        return $this->photos->toArray();
     }
 
     public function getCreatedAt(): \DateTimeImmutable
@@ -115,6 +98,8 @@ class Article
 
     public function __construct()
     {
+        $this->photos = new ArrayCollection();
+        
         $this->defineCreatedAtValue();
     }
 
@@ -135,15 +120,9 @@ class Article
     private $description;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery")
      */
-    private $body;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Library", inversedBy="articles")
-     * @ORM\JoinColumn(name="library_id", referencedColumnName="id")
-     */
-    private $library;
+    private $photos;
 
     /**
      * @ORM\Column(type="datetime", nullable=false)
