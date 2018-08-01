@@ -99,7 +99,7 @@ class Gallery
     public function __construct()
     {
         $this->photos = new ArrayCollection();
-        
+
         $this->defineCreatedAtValue();
     }
 

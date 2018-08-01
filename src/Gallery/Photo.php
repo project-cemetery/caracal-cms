@@ -44,7 +44,7 @@ class Photo
         $this->description = $newDescription;
     }
 
-    public function  moveToGallery(Gallery $gallery): void
+    public function moveToGallery(Gallery $gallery): void
     {
         if ($this->gallery === $gallery) {
             return;
