@@ -3,7 +3,7 @@
 namespace App\Tests\Sale;
 
 
-use App\Entity\Ad;
+use App\Sale\Ad;
 use PHPUnit\Framework\TestCase;
 
 class AdTest extends TestCase

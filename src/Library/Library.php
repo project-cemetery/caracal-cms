@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Sale;
+namespace App\Library;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
