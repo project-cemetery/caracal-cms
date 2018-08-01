@@ -6,10 +6,12 @@ use Hidehalo\Nanoid\Client;
 
 class NanoId
 {
+    private const ID_LENGTH = 21;
+
     public static function get(): string
     {
         $client = new Client();
 
-        return $client->generateId(21);
+        return $client->generateId(self::ID_LENGTH);
     }
 }
