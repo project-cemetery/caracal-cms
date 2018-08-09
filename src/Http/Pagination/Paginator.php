@@ -22,8 +22,8 @@ class Paginator
         $offset = ($page - 1) * $perPage;
 
         return $this->em->createQueryBuilder()
-            ->select('g')
-            ->from($className, 'g')
+            ->select('e')
+            ->from($className, 'e')
             ->setFirstResult($offset)
             ->setMaxResults($perPage)
             ->getQuery()
@@ -33,8 +33,8 @@ class Paginator
     public function getCount(string $className): int
     {
         return (int) $this->em->createQueryBuilder()
-            ->select('count(g)')
-            ->from($className, 'g')
+            ->select('count(e)')
+            ->from($className, 'e')
             ->getQuery()
             ->getSingleScalarResult();
     }

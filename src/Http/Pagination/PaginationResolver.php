@@ -9,7 +9,7 @@ use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 class PaginationResolver implements ArgumentValueResolverInterface
 {
     private const DEFAULT_PER_PAGE = 10;
-    
+
     public function supports(Request $request, ArgumentMetadata $argument)
     {
         return Pagination::class === $argument->getType();

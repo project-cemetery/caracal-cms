@@ -4,15 +4,13 @@ namespace App\Http\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use App\Gallery\GalleryRepository;
-use Symfony\Component\HttpFoundation\Request;
 use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;
 use App\Gallery\Gallery;
 
 /**
  * @Route("/api/gallery")
-*/
+ */
 class GalleryController
 {
     /**
@@ -29,21 +27,17 @@ class GalleryController
 
     public function get()
     {
-
     }
 
     public function post()
     {
-        
     }
 
     public function put()
     {
-
     }
 
     public function delete()
     {
-
     }
 }
