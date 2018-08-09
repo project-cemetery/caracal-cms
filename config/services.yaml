@@ -9,3 +9,11 @@ services:
     App\:
         resource: '../src/*'
         exclude: '../src/{Migrations,Util,Kernel.php}'
+
+    App\Http\Controller\:
+        resource: '../src/Http/Controller'
+        tags: ['controller.service_arguments']
+
+    _instanceof:
+        Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface:
+            tags: ['controller.argument_value_resolver']
