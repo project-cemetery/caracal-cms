@@ -6,7 +6,6 @@ use App\Http\ResponseFormalizer\ResponseFormalizerInterface;
 use App\Http\ResponseFormalizer\ResponseMetadata;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class PageFormalizer implements ResponseFormalizerInterface
 {
     public function supports($page, ResponseMetadata $meta): bool

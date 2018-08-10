@@ -3,7 +3,6 @@
 namespace App\Http\Controller;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
 use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;
 use App\Gallery\Gallery;
@@ -17,7 +16,7 @@ class GalleryController
     /**
      * @Route("/")
      */
-    public function getList(Pagination $pagination, Paginator $paginator)
+    public function getList(Pagination $pagination, Paginator $paginator): Page
     {
         $g = $paginator->find(Gallery::class, $pagination);
 
