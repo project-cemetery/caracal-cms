@@ -92,6 +92,9 @@
     "kamyshev/array_find": {
         "version": "v1.0"
     },
+    "kamyshev/responder-bundle": {
+        "version": "dev-master"
+    },
     "nette/finder": {
         "version": "v2.4.2"
     },

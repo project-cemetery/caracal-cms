@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d406de580c3bb900ddb9bde13fdcecb7",
+    "content-hash": "e2eac6e05c0745fd0e2679c1db075b9d",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1316,6 +1316,48 @@
                 "find"
             ],
             "time": "2018-02-15T12:36:11+00:00"
+        },
+        {
+            "name": "kamyshev/responder-bundle",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/igorkamyshev/ResponderBundle.git",
+                "reference": "939a256846aa31d4a0bb3fed85933c9c15236f21"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/igorkamyshev/ResponderBundle/zipball/939a256846aa31d4a0bb3fed85933c9c15236f21",
+                "reference": "939a256846aa31d4a0bb3fed85933c9c15236f21",
+                "shasum": ""
+            },
+            "require": {
+                "kamyshev/array_find": "^1.0",
+                "php": "^7.1",
+                "symfony/framework-bundle": "^4.1",
+                "symfony/http-foundation": "^4.1"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.0",
+                "symplify/easy-coding-standard": "^4.6"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "Kamyshev\\ResponderBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Symfony Bundle to easy handling returning any type from controllers and transforming it to Response",
+            "keywords": [
+                "middleware",
+                "response",
+                "symfony"
+            ],
+            "time": "2018-08-10T14:52:45+00:00"
         },
         {
             "name": "ocramius/package-versions",
