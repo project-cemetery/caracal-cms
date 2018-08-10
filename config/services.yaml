@@ -14,6 +14,11 @@ services:
         resource: '../src/Http/Controller'
         tags: ['controller.service_arguments']
 
+    App\Http\ResponseFormalizer\ResponseFormalizerSubscriber:
+        arguments: [!tagged app.response_formalizer]
+
     _instanceof:
         Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface:
             tags: ['controller.argument_value_resolver']
+        App\Http\ResponseFormalizer\ResponseFormalizerInterface:
+            tags: ['app.response_formalizer']

@@ -89,6 +89,9 @@
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
+    "kamyshev/array_find": {
+        "version": "v1.0"
+    },
     "nette/finder": {
         "version": "v2.4.2"
     },
