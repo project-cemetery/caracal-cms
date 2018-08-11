@@ -26,9 +26,12 @@ class Page
         return $this->totalCount;
     }
 
+    /** @var iterable */
     private $items;
 
+    /** @var Pagination */
     private $pagination;
 
+    /** @var int */
     private $totalCount;
 }

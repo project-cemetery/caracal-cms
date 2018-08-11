@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class Paginator
 {
-    /** @var EntityManagerInterface $em */
+    /** @var EntityManagerInterface */
     private $em;
 
     public function __construct(EntityManagerInterface $em)

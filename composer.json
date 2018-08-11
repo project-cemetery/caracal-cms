@@ -19,7 +19,8 @@
         "symfony/dotenv": "^4.1",
         "symfony/phpunit-bridge": "^4.1",
         "symfony/web-server-bundle": "^4.1",
-        "symplify/easy-coding-standard": "^4.5"
+        "symplify/easy-coding-standard": "^4.5",
+        "vimeo/psalm": "^2.0"
     },
     "config": {
         "preferred-install": {

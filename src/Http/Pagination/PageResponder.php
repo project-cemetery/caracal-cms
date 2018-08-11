@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class PageResponder implements ResponderInterface
 {
-    /** @var SerializerInterface $serializer */
+    /** @var SerializerInterface */
     private $serializer;
 
     public function __construct(SerializerInterface $serializer)
@@ -17,22 +17,15 @@ class PageResponder implements ResponderInterface
         $this->serializer = $serializer;
     }
 
+    /** @psalm-suppress MissingParamType */
     public function supports($page, ResultMetadata $meta): bool
     {
         return Page::class === $meta->getType();
     }
 
+    /** @psalm-suppress MissingParamType */
     public function make($page, ResultMetadata $meta): Response
     {
-        $page = $this->pageHinted($page);
-
-        $serialized = $this->serializer->serialize($page, 'json');
-
-        return new JsonResponse($serialized);
-    }
-
-    private function pageHinted($page): Page
-    {
-        return $page;
+        return new Response(42);
     }
 }

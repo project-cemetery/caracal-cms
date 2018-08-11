@@ -20,6 +20,9 @@ class Pagination
         return $this->perPage;
     }
 
+    /** @var int */
     private $page;
+
+    /** @var int */
     private $perPage;
 }

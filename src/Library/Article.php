@@ -153,7 +153,7 @@ class Article
     /**
      * @ORM\PrePersist
      */
-    private function defineCreatedAtValue()
+    private function defineCreatedAtValue(): void
     {
         if (!$this->createdAt) {
             $this->createdAt = new \DateTimeImmutable();
