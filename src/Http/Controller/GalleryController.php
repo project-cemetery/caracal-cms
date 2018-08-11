@@ -18,9 +18,10 @@ class GalleryController
      */
     public function getList(Pagination $pagination, Paginator $paginator): Page
     {
-        $g = $paginator->find(Gallery::class, $pagination);
+        $gallery = $paginator->find(Gallery::class, $pagination);
+        $totalGallery = $paginator->getCount(Gallery::class);
 
-        return new Page($g, $pagination);
+        return new Page($gallery, $pagination, $totalGallery);
     }
 
     public function get()
