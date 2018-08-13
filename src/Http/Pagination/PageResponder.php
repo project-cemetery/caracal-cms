@@ -26,6 +26,15 @@ class PageResponder implements ResponderInterface
     /** @psalm-suppress MissingParamType */
     public function make($page, ResultMetadata $meta): Response
     {
-        return new Response(42);
+        /** @var Page $page */
+
+        $data = $this->serializer->serialize([
+            'items' => $page->getItems(),
+            'page' => $page->getPagination()->getPage(),
+            'perPgae' => $page->getPagination()->getPerPage(),
+            'totalItems' => $page->getTotalCount(),
+        ], 'json');
+
+        return new JsonResponse($data);
     }
 }
