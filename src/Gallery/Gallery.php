@@ -125,7 +125,7 @@ class Gallery
     private $photos;
 
     /**
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime_immutable", nullable=false)
      */
     private $createdAt;
 

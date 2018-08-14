@@ -31,10 +31,10 @@ class PageResponder implements ResponderInterface
         $data = $this->serializer->serialize([
             'items'      => $page->getItems(),
             'page'       => $page->getPagination()->getPage(),
-            'perPgae'    => $page->getPagination()->getPerPage(),
+            'perPage'    => $page->getPagination()->getPerPage(),
             'totalItems' => $page->getTotalCount(),
         ], 'json');
 
-        return new JsonResponse($data);
+        return JsonResponse::fromJsonString($data);
     }
 }

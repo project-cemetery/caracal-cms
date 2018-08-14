@@ -146,7 +146,7 @@ class Article
     private $library;
 
     /**
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime_immutable", nullable=false)
      */
     private $createdAt;
 
