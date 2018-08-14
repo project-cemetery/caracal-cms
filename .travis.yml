@@ -6,7 +6,7 @@ jobs:
   include:
     - stage: lint
       install: composer install -o
-      script: php vendor/bin/ecs check {src,test}
+      script: php vendor/bin/ecs check {src,tests}
     - stage: test
       install: composer install -o
       script: php bin/phpunit
