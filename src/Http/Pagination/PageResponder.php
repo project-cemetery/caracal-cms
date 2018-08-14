@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Pagination;
+
 use Symfony\Component\HttpFoundation\Response;
 use Kamyshev\ResponderBundle\Responder\ResponderInterface;
 use Kamyshev\ResponderBundle\Responder\ResultMetadata;
@@ -27,11 +28,10 @@ class PageResponder implements ResponderInterface
     public function make($page, ResultMetadata $meta): Response
     {
         /** @var Page $page */
-
         $data = $this->serializer->serialize([
-            'items' => $page->getItems(),
-            'page' => $page->getPagination()->getPage(),
-            'perPgae' => $page->getPagination()->getPerPage(),
+            'items'      => $page->getItems(),
+            'page'       => $page->getPagination()->getPage(),
+            'perPgae'    => $page->getPagination()->getPerPage(),
             'totalItems' => $page->getTotalCount(),
         ], 'json');
 
