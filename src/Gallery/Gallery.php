@@ -8,7 +8,6 @@ use App\Util\NanoId;
 
 /**
  * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
  */
 class Gallery
 {

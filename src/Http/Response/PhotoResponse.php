@@ -4,7 +4,7 @@ namespace App\Http\Response;
 
 use App\Gallery\Photo;
 
-class PhotoResponse
+class PhotoResponse implements ItemResponse
 {
     public static function fromEntity(Photo $photo): self
     {

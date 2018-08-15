@@ -30,4 +30,12 @@ class GalleryController
 
         return new Page($gallery, $pagination, $totalGallery);
     }
+
+    /**
+     * @Route("/{id}")
+     */
+    public function get(Gallery $gallery): GalleryResponse
+    {
+        return GalleryResponse::fromEntity($gallery);
+    }
 }

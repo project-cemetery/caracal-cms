@@ -30,4 +30,12 @@ class PhotoController
 
         return new Page($photos, $pagination, $totalPhotos);
     }
+
+    /**
+     * @Route("/{id}")
+     */
+    public function get(Photo $photo): PhotoResponse
+    {
+        return PhotoResponse::fromEntity($photo);
+    }
 }
