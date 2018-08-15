@@ -11,6 +11,9 @@ Oversimplified CMS, provide API and admin-interface
 + `php bin/console server:start`
 
 ### Check code
+
 + `php bin/phpunit` for test
 + `php vendor/bin/ecs check {src,tests} --fix` for fix code-style
 + `php vendor/bin/psalm` for static analysis
+
++ `composer check` for run all checks

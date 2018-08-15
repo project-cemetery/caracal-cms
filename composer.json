@@ -48,6 +48,7 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
+        "check": "php bin/phpunit && php vendor/bin/ecs check {src,tests} --fix && php vendor/bin/psalm",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"
