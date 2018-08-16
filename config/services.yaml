@@ -21,12 +21,11 @@ services:
             tags: ['kamyshev.responder']
 
     # Serializer
-
     datetime_normalizer:
         class: Symfony\Component\Serializer\Normalizer\DateTimeNormalizer
         tags:
-            - { name: 'serializer.normalizer', priority: 100 }
-
+            - { name: 'serializer.normalizer', priority: 2 }
     object_normalizer:
         class: Symfony\Component\Serializer\Normalizer\ObjectNormalizer
-        tags: ['serializer.normalizer']
+        tags:
+            - { name: 'serializer.normalizer', priority: 1 }
