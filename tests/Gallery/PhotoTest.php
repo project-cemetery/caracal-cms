@@ -52,7 +52,7 @@ class PhotoTest extends TestCase
     {
         $photo = Photo::createEmpty('link link');
 
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
 
         $photo->moveToGallery($gallery);
 
@@ -64,10 +64,10 @@ class PhotoTest extends TestCase
     {
         $photo = Photo::createEmpty('link link');
 
-        $oldGallery = Gallery::createEmpty();
+        $oldGallery = Gallery::createEmpty('343');
         $photo->moveToGallery($oldGallery);
 
-        $newGallery = Gallery::createEmpty();
+        $newGallery = Gallery::createEmpty('343');
 
         $photo->moveToGallery($newGallery);
 
@@ -80,7 +80,7 @@ class PhotoTest extends TestCase
     {
         $photo = Photo::createEmpty('link link');
 
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
         $photo->moveToGallery($gallery);
 
         $photo->removeFromGallery();

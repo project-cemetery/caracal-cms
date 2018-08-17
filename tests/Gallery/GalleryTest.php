@@ -10,7 +10,7 @@ class GalleryTest extends TestCase
 {
     public function testCreateEmpty()
     {
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
 
         $this->assertGreaterThan(1, mb_strlen($gallery->getId()));
         $this->assertNull($gallery->getName());
@@ -20,7 +20,7 @@ class GalleryTest extends TestCase
 
     public function testCreate()
     {
-        $gallery = Gallery::create('name', 'description');
+        $gallery = Gallery::create('343', 'name', 'description');
 
         $this->assertGreaterThan(1, mb_strlen($gallery->getId()));
         $this->assertEquals('name', $gallery->getName());
@@ -30,7 +30,7 @@ class GalleryTest extends TestCase
 
     public function testRename()
     {
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
 
         $gallery->rename('new name');
 
@@ -39,7 +39,7 @@ class GalleryTest extends TestCase
 
     public function testChangeDescription()
     {
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
 
         $gallery->changeDescription('new description');
 
@@ -48,7 +48,7 @@ class GalleryTest extends TestCase
 
     public function testAddOrphanPhoto()
     {
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
 
         $photo = Photo::createEmpty('link link');
 
@@ -60,10 +60,10 @@ class GalleryTest extends TestCase
 
     public function testAddPhotoFromOtherGallery()
     {
-        $newGallery = Gallery::createEmpty();
+        $newGallery = Gallery::createEmpty('343');
 
         $photo = Photo::createEmpty('link link');
-        $oldGallery = Gallery::createEmpty();
+        $oldGallery = Gallery::createEmpty('343');
         $oldGallery->addPhoto($photo);
 
         $newGallery->addPhoto($photo);
@@ -75,7 +75,7 @@ class GalleryTest extends TestCase
 
     public function testRemovePhoto()
     {
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
 
         $photo = Photo::createEmpty('link link');
         $gallery->addPhoto($photo);

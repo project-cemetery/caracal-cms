@@ -2,9 +2,9 @@
 
 namespace App\Gallery\Managing;
 
-use App\Command\EditCommand;
+use App\Command\CreateCommand;
 
-class GalleryEditCommand implements EditCommand
+class GalleryCreateCommand implements CreateCommand
 {
     public function __construct(
         string $id,

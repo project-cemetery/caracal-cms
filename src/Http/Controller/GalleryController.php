@@ -2,6 +2,7 @@
 
 namespace App\Http\Controller;
 
+use App\Gallery\Managing\GalleryCreateCommand;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Gallery\GalleryRepository;
@@ -44,8 +45,25 @@ class GalleryController
     ): GalleryResponse {
         $bus->dispatch($editCommand);
 
+        $id = $editCommand->getData()->getId();
+
         return GalleryResponse::fromEntity(
-            $repo->get($editCommand->getId())
+            $repo->get($id)
+        );
+    }
+
+    /** @Route("/", methods={"PUT"}) */
+    public function put(
+        GalleryCreateCommand $createCommand,
+        MessageBusInterface $bus,
+        GalleryRepository $repo
+    ): GalleryResponse {
+        $bus->dispatch($createCommand);
+
+        $id = $createCommand->getData()->getId();
+
+        return GalleryResponse::fromEntity(
+            $repo->get($id)
         );
     }
 }

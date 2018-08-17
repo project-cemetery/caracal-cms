@@ -25,6 +25,9 @@ services:
         class: Symfony\Component\Serializer\Normalizer\DateTimeNormalizer
         tags:
             - { name: 'serializer.normalizer', priority: 100 }
+    App\Command\CommandDenormalizer:
+        tags:
+            - { name: 'serializer.normalizer', priority: 3 }
     property_normalizer:
         class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
         tags:
@@ -33,3 +36,8 @@ services:
         class: Symfony\Component\Serializer\Normalizer\ObjectNormalizer
         tags:
             - { name: 'serializer.normalizer', priority: 1 }
+
+    # Id Generator
+
+    App\IdGenerator\NanoIdGenerator: ~
+    App\IdGenerator\IdGenerator: '@App\IdGenerator\NanoIdGenerator'

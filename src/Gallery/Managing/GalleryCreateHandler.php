@@ -9,31 +9,30 @@ use App\Gallery\GalleryRepository;
 use App\Gallery\Photo;
 use App\Gallery\PhotoRepository;
 
-class GalleryEditHandler implements MessageHandlerInterface
+class GalleryCreateHandler implements MessageHandlerInterface
 {
     /** @var EntityManagerInterface */
     private $em;
 
-    /** @var GalleryRepository */
-    private $galleryRepo;
     /** @var PhotoRepository */
     private $photoRepo;
 
     public function __construct(
         EntityManagerInterface $em,
-        GalleryRepository $galleryRepo,
         PhotoRepository $photoRepo
     ) {
         $this->em = $em;
 
-        $this->galleryRepo = $galleryRepo;
         $this->photoRepo = $photoRepo;
     }
 
-    public function __invoke(GalleryEditCommand $command): void
+    public function __invoke(GalleryCreateCommand $command): void
     {
         $id = $command->getData()->getId();
-        $gallery = $this->galleryRepo->get($id);
+
+        $gallery = Gallery::createEmpty($id);
+
+        $this->em->persist($gallery);
 
         $command->getData()->updateGallery($gallery, $this->photoRepo);
 
