@@ -4,9 +4,12 @@ namespace App\Http\Controller;
 
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Gallery\{GalleryRepository, Gallery};
+use App\Gallery\GalleryRepository;
+use App\Gallery\Gallery;
 use App\Gallery\Managing\GalleryEditCommand;
-use App\Http\Pagination\{Pagination, Paginator, Page};
+use App\Http\Pagination\Pagination;
+use App\Http\Pagination\Paginator;
+use App\Http\Pagination\Page;
 use App\Http\Response\GalleryResponse;
 
 /** @Route("/api/gallery") */

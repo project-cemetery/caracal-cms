@@ -5,7 +5,8 @@ namespace App\Http\Response;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Kamyshev\ResponderBundle\Responder\{ResponderInterface, ResultMetadata};
+use Kamyshev\ResponderBundle\Responder\ResponderInterface;
+use Kamyshev\ResponderBundle\Responder\ResultMetadata;
 
 class ItemResponder implements ResponderInterface
 {
