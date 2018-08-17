@@ -4,6 +4,7 @@ namespace App\Command;
 
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
+/** @psalm-suppress PropertyNotSetInConstructor */
 class CommandDenormalizer extends AbstractNormalizer
 {
     public function denormalize($data, $class, $format = null, array $context = [])

@@ -65,7 +65,7 @@ class Gallery
         $photo->removeFromGallery();
     }
 
-    public function updatePhotos(array $newPhotos): void
+    public function updatePhotos(iterable $newPhotos): void
     {
         $newPhotos = (function (Photo ...$newPhotos): array {
             return $newPhotos;

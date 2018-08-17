@@ -4,10 +4,7 @@ namespace App\Gallery\Managing;
 
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Gallery\Gallery;
 use App\Gallery\GalleryRepository;
-use App\Gallery\Photo;
-use App\Gallery\PhotoRepository;
 
 class GalleryDeleteHandler implements MessageHandlerInterface
 {

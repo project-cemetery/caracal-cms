@@ -7,12 +7,8 @@ use App\Gallery\PhotoRepository;
 
 class GalleryData
 {
-    public function __construct(
-        string $id,
-        string $name = null,
-        string $description = null,
-        array $photoIds = null
-    ) {
+    public function __construct(string $id, string $name = null, string $description = null, array $photoIds = null)
+    {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;

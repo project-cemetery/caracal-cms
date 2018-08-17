@@ -5,8 +5,6 @@ namespace App\Gallery\Managing;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Gallery\Gallery;
-use App\Gallery\GalleryRepository;
-use App\Gallery\Photo;
 use App\Gallery\PhotoRepository;
 
 class GalleryCreateHandler implements MessageHandlerInterface
@@ -17,10 +15,8 @@ class GalleryCreateHandler implements MessageHandlerInterface
     /** @var PhotoRepository */
     private $photoRepo;
 
-    public function __construct(
-        EntityManagerInterface $em,
-        PhotoRepository $photoRepo
-    ) {
+    public function __construct(EntityManagerInterface $em, PhotoRepository $photoRepo)
+    {
         $this->em = $em;
 
         $this->photoRepo = $photoRepo;

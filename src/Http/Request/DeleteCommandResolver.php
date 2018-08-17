@@ -6,7 +6,6 @@ use App\Command\DeleteCommand;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
-use Symfony\Component\Serializer\SerializerInterface;
 
 class DeleteCommandResolver implements ArgumentValueResolverInterface
 {
