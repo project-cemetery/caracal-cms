@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Gallery\Managing;
+namespace App\Gallery\Managing\Gallery;
 
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Doctrine\ORM\EntityManagerInterface;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Gallery\Managing;
+namespace App\Gallery\Managing\Gallery;
 
-use App\Command\EditCommand;
+use App\Command\CreateCommand;
 
-class GalleryEditCommand implements EditCommand
+class GalleryCreateCommand implements CreateCommand
 {
     public function __construct(string $id, string $name = null, string $description = null, array $photoIds = null)
     {

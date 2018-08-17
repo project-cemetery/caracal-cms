@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Gallery\Managing;
+namespace App\Gallery\Managing\Gallery;
 
 use App\Command\DeleteCommand;
 

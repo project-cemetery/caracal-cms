@@ -13,6 +13,18 @@ class PhotoRepository extends ServiceEntityRepository
         parent::__construct($registry, Photo::class);
     }
 
+    public function get(string $id): Photo
+    {
+        /** @var Photo|null $photo */
+        $photo = $this->find($id);
+
+        if (!$photo) {
+            throw new EntityNotFoundException(sprintf('Photo with id "%s" not found', $id));
+        }
+
+        return $photo;
+    }
+
     public function getAllByIds(array $ids): iterable
     {
         $ids = (function (string ...$ids): array {

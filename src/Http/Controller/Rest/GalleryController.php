@@ -2,14 +2,14 @@
 
 namespace App\Http\Controller\Rest;
 
-use App\Gallery\Managing\GalleryCreateCommand;
-use App\Gallery\Managing\GalleryDeleteCommand;
+use App\Gallery\Managing\Gallery\GalleryCreateCommand;
+use App\Gallery\Managing\Gallery\GalleryDeleteCommand;
 use App\Http\Response\EmptySuccessResponse;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Gallery\GalleryRepository;
 use App\Gallery\Gallery;
-use App\Gallery\Managing\GalleryEditCommand;
+use App\Gallery\Managing\Gallery\GalleryEditCommand;
 use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;
 use App\Http\Pagination\Page;
@@ -41,13 +41,13 @@ class GalleryController
 
     /** @Route("/{id}", methods={"POST"}) */
     public function post(
-        GalleryEditCommand $editCommand,
+        GalleryEditCommand $command,
         MessageBusInterface $bus,
         GalleryRepository $repo
     ): GalleryResponse {
-        $bus->dispatch($editCommand);
+        $bus->dispatch($command);
 
-        $id = $editCommand->getData()->getId();
+        $id = $command->getData()->getId();
 
         return GalleryResponse::fromEntity(
             $repo->get($id)
@@ -56,13 +56,13 @@ class GalleryController
 
     /** @Route("/", methods={"PUT"}) */
     public function put(
-        GalleryCreateCommand $createCommand,
+        GalleryCreateCommand $command,
         MessageBusInterface $bus,
         GalleryRepository $repo
     ): GalleryResponse {
-        $bus->dispatch($createCommand);
+        $bus->dispatch($command);
 
-        $id = $createCommand->getData()->getId();
+        $id = $command->getData()->getId();
 
         return GalleryResponse::fromEntity(
             $repo->get($id)
@@ -70,9 +70,9 @@ class GalleryController
     }
 
     /** @Route("/{id}", methods={"DELETE"}) */
-    public function delete(GalleryDeleteCommand $deleteCommand, MessageBusInterface $bus): EmptySuccessResponse
+    public function delete(GalleryDeleteCommand $command, MessageBusInterface $bus): EmptySuccessResponse
     {
-        $bus->dispatch($deleteCommand);
+        $bus->dispatch($command);
 
         return new EmptySuccessResponse();
     }
