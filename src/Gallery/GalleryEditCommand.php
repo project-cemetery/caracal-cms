@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Editor;
+namespace App\Gallery;
 
-use App\Gallery\Gallery;
+use App\Command\EditCommand;
 
 class GalleryEditCommand implements EditCommand
 {

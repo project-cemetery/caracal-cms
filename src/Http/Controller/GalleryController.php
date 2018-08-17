@@ -2,7 +2,7 @@
 
 namespace App\Http\Controller;
 
-use App\Editor\GalleryEditCommand;
+use App\Gallery\GalleryEditCommand;
 use App\Gallery\GalleryRepository;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;

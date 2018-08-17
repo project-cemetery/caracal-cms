@@ -19,7 +19,7 @@ services:
             tags: ['controller.argument_value_resolver']
         Kamyshev\ResponderBundle\Responder\ResponderInterface:
             tags: ['kamyshev.responder']
-        App\Editor\Editor:
+        App\Command\CommandHandler:
             tags: ['messenger.message_handler']
 
     # Serializer

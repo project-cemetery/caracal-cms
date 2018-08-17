@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Editor;
+namespace App\Gallery;
 
-use App\Gallery\Gallery;
-use App\Gallery\GalleryRepository;
-use App\Gallery\Photo;
-use App\Gallery\PhotoRepository;
+use App\Command\CommandHandler;
 use Doctrine\ORM\EntityManagerInterface;
 
-class GalleryEditor implements Editor
+class GalleryEditHandler implements CommandHandler
 {
     /** @var EntityManagerInterface */
     private $em;

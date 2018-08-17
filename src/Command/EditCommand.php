@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Editor;
+namespace App\Command;
 
-interface EditCommand
+interface EditCommand extends Command
 {
     /** @param mixed $entity */
     public function supports($entity): bool;

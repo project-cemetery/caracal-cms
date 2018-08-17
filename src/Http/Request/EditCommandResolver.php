@@ -2,7 +2,7 @@
 
 namespace App\Http\Request;
 
-use App\Editor\EditCommand;
+use App\Command\EditCommand;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
