@@ -28,21 +28,15 @@ class EditCommandResolver implements ArgumentValueResolverInterface
 
     public function resolve(Request $request, ArgumentMetadata $argument)
     {
-        try {
-            yield $this->serializer->deserialize(
-                $request->getContent(),
-                $argument->getType(),
-                'json',
-                [
-                    'default_constructor_arguments' => [
-                        $argument->getType() => ['id' => $request->get('id')],
-                    ],
-                ]
-            );
-        } catch (MissingConstructorArgumentsException $e) {
-            throw new BadRequestHttpException('Invalid fields in request', $e);
-        } catch (NotEncodableValueException $e) {
-            throw new BadRequestHttpException('Invalid JSON in request', $e);
-        }
+        yield $this->serializer->deserialize(
+            $request->getContent(),
+            $argument->getType(),
+            'json',
+            [
+                'default_constructor_arguments' => [
+                    $argument->getType() => ['id' => $request->get('id')],
+                ],
+            ]
+        );
     }
 }
