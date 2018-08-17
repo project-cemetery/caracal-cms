@@ -3,6 +3,8 @@
 namespace App\Http\Controller;
 
 use App\Gallery\Managing\GalleryCreateCommand;
+use App\Gallery\Managing\GalleryDeleteCommand;
+use App\Http\Response\EmptySuccessResponse;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Gallery\GalleryRepository;
@@ -65,5 +67,13 @@ class GalleryController
         return GalleryResponse::fromEntity(
             $repo->get($id)
         );
+    }
+
+    /** @Route("/{id}", methods={"DELETE"}) */
+    public function delete(GalleryDeleteCommand $deleteCommand, MessageBusInterface $bus): EmptySuccessResponse
+    {
+        $bus->dispatch($deleteCommand);
+
+        return new EmptySuccessResponse();
     }
 }

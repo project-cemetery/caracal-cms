@@ -135,7 +135,7 @@ class Gallery
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery")
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"remove"})
      */
     private $photos;
 
@@ -144,9 +144,6 @@ class Gallery
      */
     private $createdAt;
 
-    /**
-     * @ORM\PrePersist
-     */
     private function defineCreatedAtValue(): void
     {
         if (!$this->createdAt) {
