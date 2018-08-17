@@ -2,11 +2,11 @@
 
 namespace App\Http\Request;
 
-use App\Command\EditCommand;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 use Symfony\Component\Serializer\SerializerInterface;
+use App\Command\EditCommand;
 
 class EditCommandResolver implements ArgumentValueResolverInterface
 {

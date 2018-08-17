@@ -2,12 +2,10 @@
 
 namespace App\Http\Controller;
 
-use App\Gallery\Photo;
-use App\Http\Pagination\Page;
-use App\Http\Pagination\Pagination;
-use App\Http\Pagination\Paginator;
-use App\Http\Response\PhotoResponse;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Gallery\Photo;
+use App\Http\Pagination\{Page, Pagination, Paginator};
+use App\Http\Response\PhotoResponse;
 
 /**
  * @Route("/api/photo")

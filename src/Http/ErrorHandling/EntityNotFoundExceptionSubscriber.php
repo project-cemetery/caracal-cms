@@ -2,11 +2,11 @@
 
 namespace App\Http\ErrorHandling;
 
-use Doctrine\ORM\EntityNotFoundException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
+use Doctrine\ORM\EntityNotFoundException;
 
 class EntityNotFoundExceptionSubscriber implements EventSubscriberInterface
 {

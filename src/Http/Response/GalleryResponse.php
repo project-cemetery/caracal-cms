@@ -2,8 +2,7 @@
 
 namespace App\Http\Response;
 
-use App\Gallery\Gallery;
-use App\Gallery\Photo;
+use App\Gallery\{Gallery, Photo};
 
 class GalleryResponse implements ItemResponse
 {

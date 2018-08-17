@@ -2,14 +2,11 @@
 
 namespace App\Http\Controller;
 
-use App\Gallery\GalleryRepository;
-use App\Gallery\Managing\GalleryEditCommand;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Http\Pagination\Pagination;
-use App\Http\Pagination\Paginator;
-use App\Gallery\Gallery;
-use App\Http\Pagination\Page;
+use App\Gallery\{GalleryRepository, Gallery};
+use App\Gallery\Managing\GalleryEditCommand;
+use App\Http\Pagination\{Pagination, Paginator, Page};
 use App\Http\Response\GalleryResponse;
 
 /** @Route("/api/gallery") */

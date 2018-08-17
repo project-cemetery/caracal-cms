@@ -3,10 +3,9 @@
 namespace App\Http\Response;
 
 use Symfony\Component\HttpFoundation\Response;
-use Kamyshev\ResponderBundle\Responder\ResponderInterface;
-use Kamyshev\ResponderBundle\Responder\ResultMetadata;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Kamyshev\ResponderBundle\Responder\{ResponderInterface, ResultMetadata};
 
 class ItemResponder implements ResponderInterface
 {

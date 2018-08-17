@@ -2,9 +2,9 @@
 
 namespace App\Gallery;
 
+use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityNotFoundException;
-use Symfony\Bridge\Doctrine\RegistryInterface;
 
 class GalleryRepository extends ServiceEntityRepository
 {
