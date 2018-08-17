@@ -37,7 +37,7 @@ class GalleryResponse implements ItemResponse
         $this->description = $description;
         $this->createdAt = $createdAt;
 
-        $this->photos = (function (PhotoResponse ...$photos): iterable {
+        $this->photos = (function (PhotoResponse ...$photos): array {
             return $photos;
         })(...$photos);
     }
@@ -62,7 +62,7 @@ class GalleryResponse implements ItemResponse
         return $this->createdAt;
     }
 
-    public function getPhotos(): iterable
+    public function getPhotos(): array
     {
         return $this->photos;
     }

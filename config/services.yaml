@@ -19,10 +19,16 @@ services:
             tags: ['controller.argument_value_resolver']
         Kamyshev\ResponderBundle\Responder\ResponderInterface:
             tags: ['kamyshev.responder']
+        App\Editor\Editor:
+            tags: ['messenger.message_handler']
 
     # Serializer
     datetime_normalizer:
         class: Symfony\Component\Serializer\Normalizer\DateTimeNormalizer
+        tags:
+            - { name: 'serializer.normalizer', priority: 100 }
+    property_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
         tags:
             - { name: 'serializer.normalizer', priority: 2 }
     object_normalizer:

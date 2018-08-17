@@ -8,16 +8,19 @@ class GalleryEditCommand implements EditCommand
 {
     public function __construct(
         string $id,
-        string $name,
-        string $description,
-        \DateTimeImmutable $createdAt = null,
+        string $name = null,
+        string $description = null,
         array $photoIds = null
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
-        $this->createdAt = $createdAt;
-        $this->photoIds = $photoIds;
+
+        $this->photoIds = is_null($photoIds)
+            ? null
+            : (function (string ...$photoIds): array {
+                return $photoIds;
+            })(...$photoIds);
     }
 
     public function supports($entity): bool
@@ -30,19 +33,14 @@ class GalleryEditCommand implements EditCommand
         return $this->id;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
-    }
-
-    public function getCreateAt(): ?\DateTimeImmutable
-    {
-        return $this->createdAt;
     }
 
     public function getPhotoIds(): ?array
@@ -52,12 +50,10 @@ class GalleryEditCommand implements EditCommand
 
     /** @var string */
     private $id;
-    /** @var string */
+    /** @var string|null */
     private $name;
-    /** @var string */
+    /** @var string|null */
     private $description;
-    /** @var \DateTimeImmutable|null */
-    private $createdAt;
     /** @var array|null */
     private $photoIds;
 }

@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Util\NanoId;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Gallery\PhotoRepository")
  */
 class Photo
 {

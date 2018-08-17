@@ -3,6 +3,8 @@
 namespace App\Http\Controller;
 
 use App\Editor\GalleryEditCommand;
+use App\Gallery\GalleryRepository;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;
@@ -35,14 +37,15 @@ class GalleryController
     }
 
     /** @Route("/{id}", methods={"POST"}) */
-    public function post(GalleryEditCommand $editCommand): GalleryResponse
-    {
-        return new GalleryResponse(
-            $editCommand->getId(),
-            $editCommand->getName(),
-            $editCommand->getDescription(),
-            $editCommand->getCreateAt() ?? new \DateTimeImmutable(),
-            []
+    public function post(
+        GalleryEditCommand $editCommand,
+        MessageBusInterface $bus,
+        GalleryRepository $repo
+    ): GalleryResponse {
+        $bus->dispatch($editCommand);
+
+        return GalleryResponse::fromEntity(
+            $repo->get($editCommand->getId())
         );
     }
 }
