@@ -19,8 +19,6 @@ services:
             tags: ['controller.argument_value_resolver']
         Kamyshev\ResponderBundle\Responder\ResponderInterface:
             tags: ['kamyshev.responder']
-        App\Command\CommandHandler:
-            tags: ['messenger.message_handler']
 
     # Serializer
     datetime_normalizer:

@@ -1,11 +1,15 @@
 <?php
 
-namespace App\Gallery;
+namespace App\Gallery\Managing;
 
-use App\Command\CommandHandler;
+use App\Gallery\Gallery;
+use App\Gallery\GalleryRepository;
+use App\Gallery\Photo;
+use App\Gallery\PhotoRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 
-class GalleryEditHandler implements CommandHandler
+class GalleryEditHandler implements MessageHandlerInterface
 {
     /** @var EntityManagerInterface */
     private $em;

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controller;
 
-use App\Gallery\GalleryEditCommand;
 use App\Gallery\GalleryRepository;
+use App\Gallery\Managing\GalleryEditCommand;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Http\Pagination\Pagination;
