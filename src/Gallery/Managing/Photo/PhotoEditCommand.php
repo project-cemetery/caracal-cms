@@ -2,7 +2,6 @@
 
 namespace App\Gallery\Managing\Photo;
 
-use App\Command\CreateCommand;
 use App\Command\EditCommand;
 
 class PhotoEditCommand implements EditCommand

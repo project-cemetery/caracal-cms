@@ -5,7 +5,6 @@ namespace App\Gallery\Managing\Photo;
 use App\Gallery\PhotoRepository;
 use Symfony\Component\Messenger\Handler\MessageHandlerInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Gallery\GalleryRepository;
 
 class PhotoDeleteHandler implements MessageHandlerInterface
 {
