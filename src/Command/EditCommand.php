@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-interface EditCommand extends Command
+interface EditCommand
 {
     /** @param mixed $entity */
     public function supports($entity): bool;
