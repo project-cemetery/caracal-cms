@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controller;
+namespace App\Http\Controller\Rest;
 
 use App\Gallery\Managing\GalleryCreateCommand;
 use App\Gallery\Managing\GalleryDeleteCommand;
@@ -15,7 +15,7 @@ use App\Http\Pagination\Paginator;
 use App\Http\Pagination\Page;
 use App\Http\Response\GalleryResponse;
 
-/** @Route("/api/gallery") */
+/** @Route("/rest/gallery") */
 class GalleryController
 {
     /** @Route("/", methods={"GET"}) */

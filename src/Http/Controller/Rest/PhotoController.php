@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controller;
+namespace App\Http\Controller\Rest;
 
 use Symfony\Component\Routing\Annotation\Route;
 use App\Gallery\Photo;
@@ -10,7 +10,7 @@ use App\Http\Pagination\Paginator;
 use App\Http\Response\PhotoResponse;
 
 /**
- * @Route("/api/photo")
+ * @Route("/rest/photo")
  */
 class PhotoController
 {
