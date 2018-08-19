@@ -5,6 +5,7 @@ namespace App\Http\Controller\Rest;
 use App\Gallery\Managing\Gallery\GalleryCreateCommand;
 use App\Gallery\Managing\Gallery\GalleryDeleteCommand;
 use App\Http\Response\EmptySuccess\EmptySuccessResponse;
+use App\Http\Response\HttpCodeCreated\HttpCodeCreated;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Gallery\GalleryRepository;
@@ -54,7 +55,10 @@ class GalleryController
         );
     }
 
-    /** @Route("/", methods={"PUT"}) */
+    /**
+     * @Route("/", methods={"PUT"})
+     * @HttpCodeCreated()
+     */
     public function put(
         GalleryCreateCommand $command,
         MessageBusInterface $bus,

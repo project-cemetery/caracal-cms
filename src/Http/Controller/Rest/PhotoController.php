@@ -7,6 +7,7 @@ use App\Gallery\Managing\Photo\PhotoDeleteCommand;
 use App\Gallery\Managing\Photo\PhotoEditCommand;
 use App\Gallery\PhotoRepository;
 use App\Http\Response\EmptySuccess\EmptySuccessResponse;
+use App\Http\Response\HttpCodeCreated\HttpCodeCreated;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Gallery\Photo;
@@ -51,7 +52,10 @@ class PhotoController
         );
     }
 
-    /** @Route("/", methods={"PUT"}) */
+    /**
+     * @Route("/", methods={"PUT"})
+     * @HttpCodeCreated()
+     */
     public function put(PhotoCreateCommand $command, MessageBusInterface $bus, PhotoRepository $repo): PhotoResponse
     {
         $bus->dispatch($command);
