@@ -40,8 +40,8 @@ class GalleryController
         return GalleryResponse::fromEntity($gallery);
     }
 
-    /** @Route("/{id}", methods={"POST"}) */
-    public function post(
+    /** @Route("/{id}", methods={"PUT"}) */
+    public function put(
         GalleryEditCommand $command,
         MessageBusInterface $bus,
         GalleryRepository $repo
@@ -56,10 +56,10 @@ class GalleryController
     }
 
     /**
-     * @Route("/", methods={"PUT"})
+     * @Route("/", methods={"POST"})
      * @HttpCodeCreated()
      */
-    public function put(
+    public function post(
         GalleryCreateCommand $command,
         MessageBusInterface $bus,
         GalleryRepository $repo

@@ -40,8 +40,8 @@ class PhotoController
         return PhotoResponse::fromEntity($photo);
     }
 
-    /** @Route("/{id}", methods={"POST"}) */
-    public function post(PhotoEditCommand $command, MessageBusInterface $bus, PhotoRepository $repo): PhotoResponse
+    /** @Route("/{id}", methods={"PUT"}) */
+    public function put(PhotoEditCommand $command, MessageBusInterface $bus, PhotoRepository $repo): PhotoResponse
     {
         $bus->dispatch($command);
 
@@ -53,10 +53,10 @@ class PhotoController
     }
 
     /**
-     * @Route("/", methods={"PUT"})
+     * @Route("/", methods={"POST"})
      * @HttpCodeCreated()
      */
-    public function put(PhotoCreateCommand $command, MessageBusInterface $bus, PhotoRepository $repo): PhotoResponse
+    public function post(PhotoCreateCommand $command, MessageBusInterface $bus, PhotoRepository $repo): PhotoResponse
     {
         $bus->dispatch($command);
 
