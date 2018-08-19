@@ -4,7 +4,7 @@ namespace App\Http\Controller\Rest;
 
 use App\Gallery\Managing\Gallery\GalleryCreateCommand;
 use App\Gallery\Managing\Gallery\GalleryDeleteCommand;
-use App\Http\Response\EmptySuccessResponse;
+use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Gallery\GalleryRepository;
@@ -13,7 +13,7 @@ use App\Gallery\Managing\Gallery\GalleryEditCommand;
 use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;
 use App\Http\Pagination\Page;
-use App\Http\Response\GalleryResponse;
+use App\Http\Response\Item\GalleryResponse;
 
 /** @Route("/rest/gallery") */
 class GalleryController

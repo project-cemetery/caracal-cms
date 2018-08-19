@@ -6,14 +6,14 @@ use App\Gallery\Managing\Photo\PhotoCreateCommand;
 use App\Gallery\Managing\Photo\PhotoDeleteCommand;
 use App\Gallery\Managing\Photo\PhotoEditCommand;
 use App\Gallery\PhotoRepository;
-use App\Http\Response\EmptySuccessResponse;
+use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Gallery\Photo;
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;
-use App\Http\Response\PhotoResponse;
+use App\Http\Response\Item\PhotoResponse;
 
 /** @Route("/rest/photo") */
 class PhotoController

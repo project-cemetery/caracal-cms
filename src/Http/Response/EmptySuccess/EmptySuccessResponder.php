@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Response;
+namespace App\Http\Response\EmptySuccess;
 
 use Kamyshev\ResponderBundle\Responder\ResponderInterface;
 use Kamyshev\ResponderBundle\Responder\ResultMetadata;

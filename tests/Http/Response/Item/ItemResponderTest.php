@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Tests\Http\Response;
+namespace App\Tests\Http\Response\Item;
 
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
-use App\Http\Response\GalleryResponse;
-use App\Http\Response\ItemResponder;
-use App\Http\Response\PhotoResponse;
+use App\Http\Response\Item\GalleryResponse;
+use App\Http\Response\Item\ItemResponder;
+use App\Http\Response\Item\PhotoResponse;
 use Kamyshev\ResponderBundle\Responder\ResultMetadata;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Serializer\SerializerInterface;

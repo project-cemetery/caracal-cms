@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Response;
+namespace App\Http\Response\Item;
 
 use App\Gallery\Photo;
 
