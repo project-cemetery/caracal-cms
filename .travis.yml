@@ -10,12 +10,16 @@ jobs:
     - stage: lint back
       install: composer install -o
       script: php vendor/bin/ecs check {src,tests}
-    - stage: lint front
-      install: yarn
-      script: yarn lint
     - stage: test back
       install: composer install -o
       script: php bin/phpunit
     - stage: analysis back
       install: composer install -o
       script: php vendor/bin/psalm
+
+    - stage: lint front
+      install: yarn
+      script: yarn lint
+    - stage: check front size
+      install: yarn
+      script: yarn size

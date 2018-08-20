@@ -8,18 +8,26 @@
   "scripts": {
     "build": "parcel build assets/index.tsx --out-dir public/build",
     "watch": "parcel watch assets/index.tsx --out-dir public/build",
+    "size": "yarn build && size-limit",
     "lint": "tslint 'assets/*.{ts,tsx}'",
-    "code": "yarn lint"
+    "code": "yarn lint && yarn size"
   },
   "devDependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-preact": "^1.1.0",
     "parcel-bundler": "^1.9.7",
+    "size-limit": "^0.19.2",
     "tslint": "^5.11.0",
     "typescript": "^3.0.1"
   },
   "dependencies": {
     "preact": "^8.3.1"
-  }
+  },
+  "size-limit": [
+    {
+      "limit": "20 KB",
+      "path": "public/build/index.js"
+    }
+  ]
 }
