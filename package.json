@@ -23,11 +23,5 @@
   },
   "dependencies": {
     "preact": "^8.3.1"
-  },
-  "size-limit": [
-    {
-      "limit": "20 KB",
-      "path": "public/build/index.js"
-    }
-  ]
+  }
 }
