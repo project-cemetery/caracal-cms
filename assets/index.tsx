@@ -1,9 +1,9 @@
 import * as preact from 'preact'
 
-import './index.css'
+import styles from './index.css'
 
 preact.render((
-  <div class="root">
+  <div class={styles.root}>
     <span>Hello, world!</span>
     <button onClick={ (e) => alert('hi!') }>Click Me</button>
   </div>
