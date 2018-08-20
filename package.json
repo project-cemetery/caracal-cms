@@ -9,20 +9,24 @@
     "build": "parcel build assets/index.tsx --out-dir public/build --no-source-maps",
     "watch": "parcel watch assets/index.tsx --out-dir public/build",
     "size": "yarn build && size-limit",
-    "lint": "tslint 'assets/*.{ts,tsx}'",
+    "lint": "tslint 'assets/**/*.{ts,tsx}' && stylelint 'assets/**/*.css'",
     "code": "yarn lint && yarn size"
   },
   "devDependencies": {
+    "autoprefixer": "^9.1.2",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-preact": "^1.1.0",
     "parcel-bundler": "^1.9.7",
+    "postcss": "^7.0.2",
+    "postcss-preset-env": "^5.3.0",
     "size-limit": "^0.19.2",
+    "stylelint": "^9.5.0",
+    "stylelint-config-recommended": "^2.1.0",
     "tslint": "^5.11.0",
     "typescript": "^3.0.1"
   },
   "dependencies": {
-    "emotion": "^9.2.6",
     "preact": "^8.3.1"
   }
 }

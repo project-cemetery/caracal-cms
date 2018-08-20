@@ -1,17 +1,9 @@
 import * as preact from 'preact'
 
-import { css } from 'emotion'
-
-const root = css({
-  color: 'red',
-})
-
-const f = () => {
-    return 'ok'
-}
+import './index.css'
 
 preact.render((
-  <div class={root}>
+  <div class="root">
     <span>Hello, world!</span>
     <button onClick={ (e) => alert('hi!') }>Click Me</button>
   </div>
