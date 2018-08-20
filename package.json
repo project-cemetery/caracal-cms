@@ -1,0 +1,22 @@
+{
+  "name": "caracal-cms",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:igorkamyshev/caracal-cms.git",
+  "author": "Igor Kamyshev <igor@kamyshev.me>",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build assets/index.tsx --out-dir public/build",
+    "watch": "parcel watch assets/index.tsx --out-dir public/build"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-preact": "^1.1.0",
+    "parcel-bundler": "^1.9.7",
+    "typescript": "^3.0.1"
+  },
+  "dependencies": {
+    "preact": "^8.3.1"
+  }
+}
