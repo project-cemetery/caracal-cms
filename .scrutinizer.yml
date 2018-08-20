@@ -1,2 +1,7 @@
 tools:
   php_cs_fixer: false
+
+build:
+  environment:
+    node: v10.8.0
+    php: 7.2.8
