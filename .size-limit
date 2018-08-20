@@ -1,6 +1,7 @@
 [
   {
   "limit": "20 KB",
+  "webpack": false,
   "path": "public/build/index.js"
   }
 ]
