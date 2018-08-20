@@ -7,13 +7,25 @@ Oversimplified CMS, provide API and admin-interface
 
 ## Development
 
++ `composer install`
 + `php bin/console doctrine:database:create`
++ `php bin/console doctrine:migrations:migrate`
++ `yarn install`
++ `yarn watch`
 + `php bin/console server:start`
 
 ### Check code
+
+#### Backend
 
 + `php bin/phpunit` for test
 + `php vendor/bin/ecs check {src,tests} --fix` for fix code-style
 + `php vendor/bin/psalm` for static analysis
 
-+ `composer check` for run all checks
++ `composer code` for run all checks
+
+#### Frontend
+
++ `yarn lint --fix` for fix code-style
+
++ `yarn code` for run all checks

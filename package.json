@@ -7,13 +7,16 @@
   "license": "MIT",
   "scripts": {
     "build": "parcel build assets/index.tsx --out-dir public/build",
-    "watch": "parcel watch assets/index.tsx --out-dir public/build"
+    "watch": "parcel watch assets/index.tsx --out-dir public/build",
+    "lint": "tslint 'assets/*.{ts,tsx}'",
+    "code": "yarn lint"
   },
   "devDependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-preact": "^1.1.0",
     "parcel-bundler": "^1.9.7",
+    "tslint": "^5.11.0",
     "typescript": "^3.0.1"
   },
   "dependencies": {
