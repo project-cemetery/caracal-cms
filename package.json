@@ -11,7 +11,7 @@
     "size": "yarn build && size-limit",
     "lint-code": "tslint 'assets/**/*.{ts,tsx}'",
     "lint-styles": "stylelint 'assets/**/*.css'",
-    "lint": "yarn lint-code && yarm lint-styles",
+    "lint": "yarn lint-code && yarn lint-styles",
     "code": "yarn lint && yarn size"
   },
   "devDependencies": {
