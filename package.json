@@ -22,6 +22,7 @@
     "typescript": "^3.0.1"
   },
   "dependencies": {
+    "emotion": "^9.2.6",
     "preact": "^8.3.1"
   }
 }
