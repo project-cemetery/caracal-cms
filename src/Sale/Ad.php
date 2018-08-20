@@ -32,7 +32,7 @@ class Ad
         $instance->name = $name;
         $instance->body = $body;
 
-        $instance->images = (function (string ...$images) {
+        $instance->images = (function (string ...$images): array {
             return $images;
         })(...$images);
 
@@ -64,9 +64,12 @@ class Ad
 
     public function removeImage(string $image): void
     {
-        $this->images = array_filter($this->images, function (string $i) use (&$image) {
-            return $i !== $image;
-        });
+        $this->images = array_filter(
+            $this->images,
+            function (string $i) use (&$image): bool {
+                return $i !== $image;
+            }
+        );
     }
 
     public function changeExpireDate(\DateTimeImmutable $newExpireDate): void
@@ -146,7 +149,7 @@ class Ad
     private $images = [];
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $expireAt;
 

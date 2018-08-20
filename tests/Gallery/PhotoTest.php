@@ -10,7 +10,7 @@ class PhotoTest extends TestCase
 {
     public function testCreateEmpty()
     {
-        $photo = Photo::createEmpty('my fav link');
+        $photo = Photo::createEmpty('10', 'my fav link');
 
         $this->assertGreaterThan(1, mb_strlen($photo->getId()));
         $this->assertEquals('my fav link', $photo->toLink());
@@ -21,7 +21,7 @@ class PhotoTest extends TestCase
 
     public function testCreate()
     {
-        $photo = Photo::create('link link', 'name name', 'description description');
+        $photo = Photo::create('10', 'link link', 'name name', 'description description');
 
         $this->assertGreaterThan(1, mb_strlen($photo->getId()));
         $this->assertEquals('link link', $photo->toLink());
@@ -32,7 +32,7 @@ class PhotoTest extends TestCase
 
     public function testRename()
     {
-        $photo = Photo::createEmpty('link link');
+        $photo = Photo::createEmpty('10', 'link link');
 
         $photo->rename('new name');
 
@@ -41,7 +41,7 @@ class PhotoTest extends TestCase
 
     public function testChangeDescription()
     {
-        $photo = Photo::createEmpty('link link');
+        $photo = Photo::createEmpty('10', 'link link');
 
         $photo->changeDescription('new description');
 
@@ -50,9 +50,9 @@ class PhotoTest extends TestCase
 
     public function testMoveOrphanToGallery()
     {
-        $photo = Photo::createEmpty('link link');
+        $photo = Photo::createEmpty('10', 'link link');
 
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
 
         $photo->moveToGallery($gallery);
 
@@ -62,12 +62,12 @@ class PhotoTest extends TestCase
 
     public function testMoveFromOneToAnotherGallery()
     {
-        $photo = Photo::createEmpty('link link');
+        $photo = Photo::createEmpty('10', 'link link');
 
-        $oldGallery = Gallery::createEmpty();
+        $oldGallery = Gallery::createEmpty('343');
         $photo->moveToGallery($oldGallery);
 
-        $newGallery = Gallery::createEmpty();
+        $newGallery = Gallery::createEmpty('343');
 
         $photo->moveToGallery($newGallery);
 
@@ -78,9 +78,9 @@ class PhotoTest extends TestCase
 
     public function testRemoveFromGallery()
     {
-        $photo = Photo::createEmpty('link link');
+        $photo = Photo::createEmpty('10', 'link link');
 
-        $gallery = Gallery::createEmpty();
+        $gallery = Gallery::createEmpty('343');
         $photo->moveToGallery($gallery);
 
         $photo->removeFromGallery();

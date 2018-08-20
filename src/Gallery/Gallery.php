@@ -4,28 +4,26 @@ namespace App\Gallery;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Util\NanoId;
 
 /**
- * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="App\Gallery\GalleryRepository")
  */
 class Gallery
 {
     // Constructors
 
-    public static function createEmpty(): self
+    public static function createEmpty(string $id): self
     {
         $instance = new self();
 
-        $instance->id = NanoId::get();
+        $instance->id = $id;
 
         return $instance;
     }
 
-    public static function create(string $name, string $description): self
+    public static function create(string $id, string $name, string $description): self
     {
-        $instance = self::createEmpty();
+        $instance = self::createEmpty($id);
 
         $instance->name = $name;
         $instance->description = $description;
@@ -65,6 +63,23 @@ class Gallery
         $this->photos->removeElement($photo);
 
         $photo->removeFromGallery();
+    }
+
+    public function updatePhotos(iterable $newPhotos): void
+    {
+        $newPhotos = (function (Photo ...$newPhotos): array {
+            return $newPhotos;
+        })(...$newPhotos);
+
+        $oldPhotos = $this->getPhotos();
+
+        foreach ($oldPhotos as $photo) {
+            $this->removePhoto($photo);
+        }
+
+        foreach ($newPhotos as $photo) {
+            $this->addPhoto($photo);
+        }
     }
 
     // Data
@@ -120,19 +135,16 @@ class Gallery
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery")
+     * @ORM\OneToMany(targetEntity="Photo", mappedBy="gallery", cascade={"remove"})
      */
     private $photos;
 
     /**
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime_immutable", nullable=false)
      */
     private $createdAt;
 
-    /**
-     * @ORM\PrePersist
-     */
-    private function defineCreatedAtValue()
+    private function defineCreatedAtValue(): void
     {
         if (!$this->createdAt) {
             $this->createdAt = new \DateTimeImmutable();

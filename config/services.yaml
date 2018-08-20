@@ -9,3 +9,35 @@ services:
     App\:
         resource: '../src/*'
         exclude: '../src/{Migrations,Util,Kernel.php}'
+
+    App\Http\Controller\:
+        resource: '../src/Http/Controller'
+        tags: ['controller.service_arguments']
+
+    _instanceof:
+        Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface:
+            tags: ['controller.argument_value_resolver']
+        Kamyshev\ResponderBundle\Responder\ResponderInterface:
+            tags: ['kamyshev.responder']
+
+    # Serializer
+    datetime_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\DateTimeNormalizer
+        tags:
+            - { name: 'serializer.normalizer', priority: 100 }
+    App\Command\CommandDenormalizer:
+        tags:
+            - { name: 'serializer.normalizer', priority: 3 }
+    property_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\PropertyNormalizer
+        tags:
+            - { name: 'serializer.normalizer', priority: 2 }
+    object_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\ObjectNormalizer
+        tags:
+            - { name: 'serializer.normalizer', priority: 1 }
+
+    # Id Generator
+
+    App\IdGenerator\NanoIdGenerator: ~
+    App\IdGenerator\IdGenerator: '@App\IdGenerator\NanoIdGenerator'

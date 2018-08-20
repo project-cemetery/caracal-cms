@@ -3,28 +3,27 @@
 namespace App\Gallery;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Util\NanoId;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Gallery\PhotoRepository")
  */
 class Photo
 {
     // Constructors
 
-    public static function createEmpty(string $link): self
+    public static function createEmpty(string $id, string $link): self
     {
         $instance = new self();
 
-        $instance->id = NanoId::get();
+        $instance->id = $id;
         $instance->link = $link;
 
         return $instance;
     }
 
-    public static function create(string $link, string $name, string $description): self
+    public static function create(string $id, string $link, string $name, string $description): self
     {
-        $instance = self::createEmpty($link);
+        $instance = self::createEmpty($id, $link);
 
         $instance->name = $name;
         $instance->description = $description;
@@ -42,6 +41,11 @@ class Photo
     public function changeDescription(string $newDescription): void
     {
         $this->description = $newDescription;
+    }
+
+    public function changeLink(string $newLink): void
+    {
+        $this->link = $newLink;
     }
 
     public function moveToGallery(Gallery $gallery): void

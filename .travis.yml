@@ -6,7 +6,10 @@ jobs:
   include:
     - stage: lint
       install: composer install -o
-      script: php vendor/bin/ecs check src
+      script: php vendor/bin/ecs check {src,tests}
     - stage: test
       install: composer install -o
       script: php bin/phpunit
+    - stage: analysis
+      install: composer install -o
+      script: php vendor/bin/psalm

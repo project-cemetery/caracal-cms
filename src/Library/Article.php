@@ -146,14 +146,14 @@ class Article
     private $library;
 
     /**
-     * @ORM\Column(type="datetime", nullable=false)
+     * @ORM\Column(type="datetime_immutable", nullable=false)
      */
     private $createdAt;
 
     /**
      * @ORM\PrePersist
      */
-    private function defineCreatedAtValue()
+    private function defineCreatedAtValue(): void
     {
         if (!$this->createdAt) {
             $this->createdAt = new \DateTimeImmutable();
