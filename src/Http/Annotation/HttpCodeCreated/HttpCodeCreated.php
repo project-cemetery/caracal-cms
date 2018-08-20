@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Response\HttpCodeCreated;
+namespace App\Http\Annotation\HttpCodeCreated;
 
 /** @Annotation */
 class HttpCodeCreated

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Response\HttpCodeCreated;
+namespace App\Http\Annotation\HttpCodeCreated;
 
-use Doctrine\Common\Annotations\Reader;
+use App\Http\Annotation\AnnotationProcessor;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,39 +12,26 @@ use Symfony\Component\HttpKernel\KernelEvents;
 
 class HttpCodeCreatedAnnotationSubscriber implements EventSubscriberInterface
 {
-    /** @var Reader */
-    private $reader;
+    /** @var AnnotationProcessor */
+    private $annotationProcessor;
 
     /** @var array */
     private $annotated = [];
 
-    /** @var string */
-    private const ANNOTATION = HttpCodeCreated::class;
-
-    public function __construct(Reader $reader)
+    public function __construct(AnnotationProcessor $annotationProcessor)
     {
-        $this->reader = $reader;
+        $this->annotationProcessor = $annotationProcessor;
     }
 
     public function onController(FilterControllerEvent $event): void
     {
-        $controller = $event->getController();
-
-        if (!is_array($controller)) {
-            return;
-        }
-
-        list($controllerObject, $methodName) = $controller;
-
-        $controllerReflectionObject = new \ReflectionObject($controllerObject);
-
-        $methodAnnotation = $this->reader->getMethodAnnotation(
-            $controllerReflectionObject->getMethod($methodName),
-            self::ANNOTATION
+        $annotation = $this->annotationProcessor->getMethodAnnotation(
+            $event->getController(),
+            HttpCodeCreated::class
         );
 
         $requestIdentity = $this->requestIdentityString($event->getRequest());
-        $this->annotated[$requestIdentity] = (bool) $methodAnnotation;
+        $this->annotated[$requestIdentity] = (bool) $annotation;
     }
 
     public function onResponse(FilterResponseEvent $event): void
