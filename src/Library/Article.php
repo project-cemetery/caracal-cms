@@ -6,8 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use App\Util\NanoId;
 
 /**
- * @ORM\Entity
- * @ORM\HasLifecycleCallbacks
+ * @ORM\Entity(repositoryClass="App\Library\ArticleRepository")
  */
 class Article
 {
@@ -150,9 +149,6 @@ class Article
      */
     private $createdAt;
 
-    /**
-     * @ORM\PrePersist
-     */
     private function defineCreatedAtValue(): void
     {
         if (!$this->createdAt) {
