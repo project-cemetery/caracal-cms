@@ -9,7 +9,9 @@
     "build": "parcel build assets/index.tsx --out-dir public/build --no-source-maps",
     "watch": "parcel watch assets/index.tsx --out-dir public/build",
     "size": "yarn build && size-limit",
-    "lint": "tslint 'assets/**/*.{ts,tsx}' && stylelint 'assets/**/*.css'",
+    "lint-code": "tslint 'assets/**/*.{ts,tsx}'",
+    "lint-styles": "stylelint 'assets/**/*.css'",
+    "lint": "yarn lint-code && yarm lint-styles",
     "code": "yarn lint && yarn size"
   },
   "devDependencies": {

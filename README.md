@@ -26,7 +26,8 @@ Oversimplified CMS, provide API and admin-interface
 
 #### Frontend
 
-+ `yarn lint --fix` for fix code-style
++ `yarn lint-code --fix` for fix code-style
++ `yarn lint-styles` for check style-style
 + `yarn size` for check bundle size
 
 + `yarn code` for run all checks
