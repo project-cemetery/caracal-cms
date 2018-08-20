@@ -8,6 +8,7 @@
         "hidehalo/nanoid-php": "^1.1",
         "kamyshev/responder-bundle": "^1.0",
         "sensio/framework-extra-bundle": "^5.2",
+        "symfony/asset": "^4.1",
         "symfony/console": "^4.1",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.1",
@@ -16,6 +17,7 @@
         "symfony/orm-pack": "^1.0",
         "symfony/property-access": "^4.1",
         "symfony/serializer": "^4.1",
+        "symfony/twig-bundle": "^4.1",
         "symfony/yaml": "^4.1"
     },
     "require-dev": {
@@ -49,7 +51,7 @@
         "symfony/polyfill-php56": "*"
     },
     "scripts": {
-        "check": "php bin/phpunit && php vendor/bin/ecs check {src,tests} --fix && php vendor/bin/psalm",
+        "code": "php bin/phpunit && php vendor/bin/ecs check {src,tests} --fix && php vendor/bin/psalm",
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
             "assets:install %PUBLIC_DIR%": "symfony-cmd"

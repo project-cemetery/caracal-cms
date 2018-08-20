@@ -2,6 +2,7 @@
 ###> symfony/framework-bundle ###
 /.env
 /public/bundles/
+/public/build/
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
@@ -18,3 +19,7 @@
 ###> symfony/web-server-bundle ###
 /.web-server-pid
 ###< symfony/web-server-bundle ###
+
+### admin frontend
+.cache
+node_modules

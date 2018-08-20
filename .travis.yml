@@ -2,14 +2,24 @@ language: php
 php:
   - '7.2'
 
+before_install:
+  - npm install -g yarn
+
 jobs:
   include:
-    - stage: lint
+    - stage: lint back
       install: composer install -o
       script: php vendor/bin/ecs check {src,tests}
-    - stage: test
+    - stage: test back
       install: composer install -o
       script: php bin/phpunit
-    - stage: analysis
+    - stage: analysis back
       install: composer install -o
       script: php vendor/bin/psalm
+
+    - stage: lint front
+      install: yarn
+      script: yarn lint
+    - stage: check front size
+      install: yarn
+      script: yarn size
