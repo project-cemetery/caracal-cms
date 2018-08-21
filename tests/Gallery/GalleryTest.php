@@ -132,4 +132,14 @@ class GalleryTest extends TestCase
         $this->assertEquals('1', array_shift($resultPhotos)->getId());
         $this->assertEquals('2', array_shift($resultPhotos)->getId());
     }
+
+    public function testGetCreatedAt()
+    {
+        $gallery = Gallery::createEmpty('1');
+        $now = new \DateTimeImmutable();
+
+        $diff = $gallery->getCreatedAt()->getTimestamp() - $now->getTimestamp();
+        $this->assertGreaterThanOrEqual(0, $diff);
+        $this->assertLessThanOrEqual(1000, $diff);
+    }
 }

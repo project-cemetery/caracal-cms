@@ -48,6 +48,15 @@ class PhotoTest extends TestCase
         $this->assertEquals('new description', $photo->getDescription());
     }
 
+    public function testChangeLink()
+    {
+        $photo = Photo::createEmpty('10', 'old link');
+
+        $photo->changeLink('new link');
+
+        $this->assertEquals('new link', $photo->toLink());
+    }
+
     public function testMoveOrphanToGallery()
     {
         $photo = Photo::createEmpty('10', 'link link');
@@ -86,5 +95,13 @@ class PhotoTest extends TestCase
         $photo->removeFromGallery();
         $this->assertNull($photo->getGallery());
         $this->assertCount(0, $gallery->getPhotos());
+    }
+
+    public function testRemoveWithoutGalleryFromGallery()
+    {
+        $photo = Photo::createEmpty('10', 'link link');
+
+        $photo->removeFromGallery();
+        $this->assertNull($photo->getGallery());
     }
 }

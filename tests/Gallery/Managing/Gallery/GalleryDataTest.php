@@ -12,6 +12,13 @@ use PHPUnit\Framework\TestCase;
 
 class GalleryDataTest extends TestCase
 {
+    public function testGetId()
+    {
+        $galleryData = new GalleryData('1');
+
+        $this->assertEquals('1', $galleryData->getId());
+    }
+
     public function testUpdateGalleryWithoutData()
     {
         $galleryData = new GalleryData('1');
