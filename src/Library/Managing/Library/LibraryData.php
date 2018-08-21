@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Library\Managing\Library;
-
 
 use App\Library\ArticleRepository;
 use App\Library\Library;

@@ -85,4 +85,51 @@ class GalleryTest extends TestCase
         $this->assertNull($photo->getGallery());
         $this->assertCount(0, $gallery->getPhotos());
     }
+
+    public function testUpdatePhotosToNew()
+    {
+        $gallery = Gallery::createEmpty('343');
+
+        $oldPhotos = [
+            Photo::createEmpty('1', 'one'),
+            Photo::createEmpty('2', 'two'),
+        ];
+
+        foreach ($oldPhotos as $photo) {
+            $gallery->addPhoto($photo);
+        }
+
+        $newPhotos = [
+            Photo::createEmpty('3', 'three'),
+        ];
+
+        $gallery->updatePhotos($newPhotos);
+
+        $this->assertCount(1, $gallery->getPhotos());
+
+        $resultPhotos = $gallery->getPhotos();
+        $this->assertEquals('3', array_shift($resultPhotos)->getId());
+    }
+
+    public function testUpdatePhotosToSame()
+    {
+        $gallery = Gallery::createEmpty('343');
+
+        $oldPhotos = [
+            Photo::createEmpty('1', 'one'),
+            Photo::createEmpty('2', 'two'),
+        ];
+
+        foreach ($oldPhotos as $photo) {
+            $gallery->addPhoto($photo);
+        }
+
+        $gallery->updatePhotos($oldPhotos);
+
+        $this->assertCount(2, $gallery->getPhotos());
+
+        $resultPhotos = $gallery->getPhotos();
+        $this->assertEquals('1', array_shift($resultPhotos)->getId());
+        $this->assertEquals('2', array_shift($resultPhotos)->getId());
+    }
 }

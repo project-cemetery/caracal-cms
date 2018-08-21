@@ -21,8 +21,10 @@
         "symfony/yaml": "^4.1"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
         "symfony/dotenv": "^4.1",
         "symfony/phpunit-bridge": "^4.1",
+        "symfony/test-pack": "^1.0",
         "symfony/web-server-bundle": "^4.1",
         "symplify/easy-coding-standard": "^4.5",
         "vimeo/psalm": "^2.0"

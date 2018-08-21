@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Library\Managing\Article;
-
 
 use App\Library\Article;
 use App\Library\LibraryRepository;
@@ -13,7 +11,7 @@ class ArticleData
         string $id,
         string $name = null,
         string $body = null,
-        string $description =  null,
+        string $description = null,
         string $libraryId = null
     ) {
         $this->id = $id;
