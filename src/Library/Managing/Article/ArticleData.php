@@ -10,14 +10,14 @@ class ArticleData
     public function __construct(
         string $id,
         string $name = null,
-        string $body = null,
         string $description = null,
+        string $body = null,
         string $libraryId = null
     ) {
         $this->id = $id;
         $this->name = $name;
-        $this->body = $body;
         $this->description = $description;
+        $this->body = $body;
         $this->libraryId = $libraryId;
     }
 

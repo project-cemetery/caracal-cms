@@ -10,7 +10,7 @@ class ArticleTest extends TestCase
 {
     public function testCreateEmpty()
     {
-        $article = Article::createEmpty();
+        $article = Article::createEmpty('id1');
 
         $this->assertGreaterThan(1, mb_strlen($article->getId()));
         $this->assertNull($article->getName());
@@ -21,7 +21,7 @@ class ArticleTest extends TestCase
 
     public function testCreateWithDescription()
     {
-        $article = Article::create('name', 'body', 'description');
+        $article = Article::create('id1', 'name', 'body', 'description');
 
         $this->assertGreaterThan(1, mb_strlen($article->getId()));
         $this->assertEquals('name', $article->getName());
@@ -32,7 +32,7 @@ class ArticleTest extends TestCase
 
     public function testCreateWithoutDescription()
     {
-        $article = Article::create('name', 'body');
+        $article = Article::create('id1', 'name', 'body');
 
         $this->assertGreaterThan(1, mb_strlen($article->getId()));
         $this->assertEquals('name', $article->getName());
@@ -43,7 +43,7 @@ class ArticleTest extends TestCase
 
     public function testRename()
     {
-        $article = Article::create('old name', 'old body');
+        $article = Article::create('id1', 'old name', 'old body');
 
         $article->rename('new name');
 
@@ -52,7 +52,7 @@ class ArticleTest extends TestCase
 
     public function testChangeBody()
     {
-        $article = Article::create('old name', 'old body', 'old description');
+        $article = Article::create('id1', 'old name', 'old body', 'old description');
 
         $article->changeBody('new body');
 
@@ -62,7 +62,7 @@ class ArticleTest extends TestCase
 
     public function testChangeDescription()
     {
-        $article = Article::create('old name', 'old body', 'old description');
+        $article = Article::create('id1', 'old name', 'old body', 'old description');
 
         $article->changeDescription('new description');
 
@@ -72,7 +72,7 @@ class ArticleTest extends TestCase
 
     public function testMoveOrphanToLibrary()
     {
-        $article = Article::createEmpty();
+        $article = Article::createEmpty('id1');
 
         $lib = Library::createEmpty();
 
@@ -84,7 +84,7 @@ class ArticleTest extends TestCase
 
     public function testMoveFromOneLibraryToAnother()
     {
-        $article = Article::createEmpty();
+        $article = Article::createEmpty('id1');
 
         $oldLib = Library::createEmpty();
         $article->moveToLibrary($oldLib);
@@ -100,7 +100,7 @@ class ArticleTest extends TestCase
 
     public function testRemoveFromLibrary()
     {
-        $article = Article::createEmpty();
+        $article = Article::createEmpty('id1');
 
         $lib = Library::createEmpty();
         $article->moveToLibrary($lib);

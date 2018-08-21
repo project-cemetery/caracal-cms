@@ -3,7 +3,6 @@
 namespace App\Library;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Util\NanoId;
 
 /**
  * @ORM\Entity(repositoryClass="App\Library\ArticleRepository")
@@ -12,21 +11,22 @@ class Article
 {
     // Constructors
 
-    public static function createEmpty(): self
+    public static function createEmpty(string $id): self
     {
         $instance = new self();
 
-        $instance->id = NanoId::get();
+        $instance->id = $id;
 
         return $instance;
     }
 
     public static function create(
+        string $id,
         string $name,
         string $body,
         ?string $description = null
     ): self {
-        $instance = self::createEmpty();
+        $instance = self::createEmpty($id);
 
         $instance->name = $name;
         $instance->body = $body;
