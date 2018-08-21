@@ -10,7 +10,7 @@ class LibraryTest extends TestCase
 {
     public function testCreateEmpty()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
         $this->assertGreaterThan(1, mb_strlen($lib->getId()));
         $this->assertNull($lib->getName());
@@ -21,7 +21,7 @@ class LibraryTest extends TestCase
 
     public function testCreateWithDescription()
     {
-        $lib = Library::create('name', 'description');
+        $lib = Library::create('idLib', 'name', 'description');
 
         $this->assertGreaterThan(1, mb_strlen($lib->getId()));
         $this->assertEquals('name', $lib->getName());
@@ -32,7 +32,7 @@ class LibraryTest extends TestCase
 
     public function testCreateWithoutDescription()
     {
-        $lib = Library::create('name');
+        $lib = Library::create('idLib', 'name');
 
         $this->assertGreaterThan(1, mb_strlen($lib->getId()));
         $this->assertEquals('name', $lib->getName());
@@ -43,7 +43,7 @@ class LibraryTest extends TestCase
 
     public function testRename()
     {
-        $lib = Library::create('old name');
+        $lib = Library::create('idLib', 'old name');
 
         $lib->rename('new name');
 
@@ -53,7 +53,7 @@ class LibraryTest extends TestCase
 
     public function testChangeDescription()
     {
-        $lib = Library::create('old name', 'old description');
+        $lib = Library::create('idLib', 'old name', 'old description');
 
         $lib->changeDescription('new description');
 
@@ -63,9 +63,9 @@ class LibraryTest extends TestCase
 
     public function testChangeParentFromNull()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
-        $parent = Library::createEmpty();
+        $parent = Library::createEmpty('idLib');
 
         $lib->changeParent($parent);
 
@@ -75,12 +75,12 @@ class LibraryTest extends TestCase
 
     public function testChangeParentFromExist()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
-        $oldParent = Library::createEmpty();
+        $oldParent = Library::createEmpty('idLib');
         $lib->changeParent($oldParent);
 
-        $newParent = Library::createEmpty();
+        $newParent = Library::createEmpty('idLib');
 
         $lib->changeParent($newParent);
 
@@ -91,9 +91,9 @@ class LibraryTest extends TestCase
 
     public function testOrphan()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
-        $parent = Library::createEmpty();
+        $parent = Library::createEmpty('idLib');
         $lib->changeParent($parent);
 
         $lib->orphan();
@@ -104,9 +104,9 @@ class LibraryTest extends TestCase
 
     public function testAddOrphanChild()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
-        $child = Library::createEmpty();
+        $child = Library::createEmpty('idLib');
 
         $lib->addChild($child);
 
@@ -116,10 +116,10 @@ class LibraryTest extends TestCase
 
     public function testAddChildWithExistParent()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
-        $child = Library::createEmpty();
-        $oldParent = Library::createEmpty();
+        $child = Library::createEmpty('idLib');
+        $oldParent = Library::createEmpty('idLib');
         $child->changeParent($oldParent);
 
         $lib->addChild($child);
@@ -131,9 +131,9 @@ class LibraryTest extends TestCase
 
     public function testRemoveChild()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
-        $child = Library::createEmpty();
+        $child = Library::createEmpty('idLib');
         $lib->addChild($child);
 
         $lib->removeChild($child);
@@ -144,7 +144,7 @@ class LibraryTest extends TestCase
 
     public function testAddOrphanArticle()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
         $article = Article::createEmpty('id1');
 
@@ -156,9 +156,9 @@ class LibraryTest extends TestCase
 
     public function testAddArticleFromOtherLibrary()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
-        $oldLibrary = Library::createEmpty();
+        $oldLibrary = Library::createEmpty('idLib');
         $article = Article::createEmpty('id1');
         $oldLibrary->addArticle($article);
 
@@ -171,7 +171,7 @@ class LibraryTest extends TestCase
 
     public function testRemoveArticle()
     {
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
         $article = Article::createEmpty('id1');
         $lib->addArticle($article);

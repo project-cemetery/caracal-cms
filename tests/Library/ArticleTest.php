@@ -74,7 +74,7 @@ class ArticleTest extends TestCase
     {
         $article = Article::createEmpty('id1');
 
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
 
         $article->moveToLibrary($lib);
 
@@ -86,10 +86,10 @@ class ArticleTest extends TestCase
     {
         $article = Article::createEmpty('id1');
 
-        $oldLib = Library::createEmpty();
+        $oldLib = Library::createEmpty('idLib');
         $article->moveToLibrary($oldLib);
 
-        $newLib = Library::createEmpty();
+        $newLib = Library::createEmpty('idLib');
 
         $article->moveToLibrary($newLib);
 
@@ -102,7 +102,7 @@ class ArticleTest extends TestCase
     {
         $article = Article::createEmpty('id1');
 
-        $lib = Library::createEmpty();
+        $lib = Library::createEmpty('idLib');
         $article->moveToLibrary($lib);
 
         $article->removeFromLibrary();

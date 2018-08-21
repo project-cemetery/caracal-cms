@@ -4,7 +4,6 @@ namespace App\Library;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use App\Util\NanoId;
 
 /**
  * @ORM\Entity(repositoryClass="App\Library\LibraryRepository")
@@ -13,18 +12,18 @@ class Library
 {
     // Constructors
 
-    public static function createEmpty(): self
+    public static function createEmpty(string $id): self
     {
         $instance = new self();
 
-        $instance->id = NanoId::get();
+        $instance->id = $id;
 
         return $instance;
     }
 
-    public static function create(string $name, ?string $description = null): self
+    public static function create(string $id, string $name, ?string $description = null): self
     {
-        $instance = self::createEmpty();
+        $instance = self::createEmpty($id);
 
         $instance->name = $name;
         $instance->description = $description;
@@ -213,12 +212,12 @@ class Library
     private $parent;
 
     /**
-     * @ORM\OneToMany(targetEntity="Library", mappedBy="parent")
+     * @ORM\OneToMany(targetEntity="Library", mappedBy="parent", cascade={"remove"})
      */
     private $children;
 
     /**
-     * @ORM\OneToMany(targetEntity="Article", mappedBy="library")
+     * @ORM\OneToMany(targetEntity="Article", mappedBy="library", cascade={"remove"})
      */
     private $articles;
 }
