@@ -137,7 +137,7 @@ class Library
             return $newArticles;
         })(...$newArticles);
 
-        $oldArticles = $this->getArticles();
+        $oldArticles = $this->getArticles() ?? [];
 
         foreach ($oldArticles as $article) {
             $this->removeArticle($article);

@@ -1,15 +1,12 @@
 <?php
 
-
 namespace App\Tests\Gallery\Managing\Gallery;
-
 
 use App\Gallery\Managing\Gallery\GalleryCreateCommand;
 use App\Gallery\Managing\Gallery\GalleryCreateHandler;
 use App\Gallery\Managing\Gallery\GalleryData;
 use App\Gallery\PhotoRepository;
 use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use PHPUnit\Framework\TestCase;
 
 class GalleryCreateHandlerTest extends TestCase

@@ -29,7 +29,8 @@ abstract class BaseRepositoryTest extends KernelTestCase
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
+     *
      * @group legacy
      */
     protected function setUp()
@@ -67,7 +68,7 @@ abstract class BaseRepositoryTest extends KernelTestCase
         return $this->entityManager->getRepository($class);
     }
 
-    /** {@inheritDoc} */
+    /** {@inheritdoc} */
     protected function tearDown()
     {
         parent::tearDown();

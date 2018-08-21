@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Service\IdGenerator;
-
 
 use App\Service\IdGenerator\NanoIdGenerator;
 use PHPUnit\Framework\TestCase;
@@ -14,7 +12,7 @@ class NanoIdGeneratorTest extends TestCase
         $generator = new NanoIdGenerator();
 
         $ids = [];
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 20; ++$i) {
             $ids[] = $generator->generate();
         }
 

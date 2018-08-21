@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Gallery\Managing\Gallery;
-
 
 use App\Gallery\Gallery;
 use App\Gallery\Managing\Gallery\GalleryData;

@@ -54,12 +54,12 @@ class LibraryData
         return $this->parentId;
     }
 
-    public function getChildIds(): array
+    public function getChildIds(): ?array
     {
         return $this->childIds;
     }
 
-    public function getArticleIds(): array
+    public function getArticleIds(): ?array
     {
         return $this->articleIds;
     }
@@ -98,10 +98,16 @@ class LibraryData
         }
     }
 
+    /** @var string */
     private $id;
+    /** @var string|null */
     private $name;
+    /** @var string|null */
     private $description;
+    /** @var string|null */
     private $parentId;
+    /** @var array|null */
     private $childIds;
+    /** @var array|null */
     private $articleIds;
 }

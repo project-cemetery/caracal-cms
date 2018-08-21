@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Gallery;
-
 
 use App\DataFixtures\PhotoFixture;
 use App\Gallery\Photo;
