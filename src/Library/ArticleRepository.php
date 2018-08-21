@@ -24,4 +24,19 @@ class ArticleRepository extends ServiceEntityRepository
 
         return $article;
     }
+
+    public function getAllByIds(array $ids): iterable
+    {
+        $ids = (function (string ...$ids): array {
+            return $ids;
+        })(...$ids);
+
+        $articles = $this->findBy(['id' => $ids]);
+
+        if (count($articles) !== count($ids)) {
+            throw new EntityNotFoundException('One or more article from the list are not found');
+        }
+
+        return $articles;
+    }
 }

@@ -92,6 +92,23 @@ class Library
         $child->orphan();
     }
 
+    public function updateChildren(iterable $newChildren): void
+    {
+        $newChildren = (function (Library ...$newChildren): array {
+            return $newChildren;
+        })(...$newChildren);
+
+        $oldChildren = $this->getChildren();
+
+        foreach ($oldChildren as $child) {
+            $this->removeChild($child);
+        }
+
+        foreach ($newChildren as $child) {
+            $this->addChild($child);
+        }
+    }
+
     public function addArticle(Article $article): void
     {
         if ($this->articles->contains($article)) {
@@ -112,6 +129,23 @@ class Library
         $this->articles->removeElement($article);
 
         $article->removeFromLibrary();
+    }
+
+    public function updateArticles(iterable $newArticles): void
+    {
+        $newArticles = (function (Article ...$newArticles): array {
+            return $newArticles;
+        })(...$newArticles);
+
+        $oldArticles = $this->getArticles();
+
+        foreach ($oldArticles as $article) {
+            $this->removeArticle($article);
+        }
+
+        foreach ($newArticles as $article) {
+            $this->addArticle($article);
+        }
     }
 
     // Data

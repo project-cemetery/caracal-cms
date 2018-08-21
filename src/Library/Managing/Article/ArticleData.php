@@ -50,7 +50,26 @@ class ArticleData
 
     public function updateArticle(Article $article, LibraryRepository $libraryRepo): void
     {
-        // TODO: update
+        $newName = $this->getName();
+        if (!is_null($newName)) {
+            $article->rename($newName);
+        }
+
+        $newDescription = $this->getDescription();
+        if (!is_null($newDescription)) {
+            $article->changeDescription($newDescription);
+        }
+
+        $newBody = $this->getBody();
+        if (!is_null($newBody)) {
+            $article->changeBody($newBody);
+        }
+
+        $newLibraryId = $this->getLibraryId();
+        if (!is_null($newLibraryId)) {
+            $newLibrary = $libraryRepo->get($newLibraryId);
+            $article->moveToLibrary($newLibrary);
+        }
     }
 
     /** @var string */

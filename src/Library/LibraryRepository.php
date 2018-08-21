@@ -24,4 +24,19 @@ class LibraryRepository extends ServiceEntityRepository
 
         return $library;
     }
+
+    public function getAllByIds(array $ids): iterable
+    {
+        $ids = (function (string ...$ids): array {
+            return $ids;
+        })(...$ids);
+
+        $libraries = $this->findBy(['id' => $ids]);
+
+        if (count($libraries) !== count($ids)) {
+            throw new EntityNotFoundException('One or more library from the list are not found');
+        }
+
+        return $libraries;
+    }
 }
