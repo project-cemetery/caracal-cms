@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Command;
-
 
 use App\Command\CommandDenormalizer;
 use App\Command\NotImplementedException;
@@ -26,7 +24,7 @@ class CommandDenormalizerTest extends TestCase
             [
                 'default_constructor_arguments' => [
                     GalleryEditCommand::class => [
-                        'id' => '1'
+                        'id' => '1',
                     ],
                 ],
             ]
