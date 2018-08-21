@@ -2,7 +2,7 @@
 
 namespace App\Command;
 
-interface DeleteCommand
+interface DeleteCommand extends Command
 {
     public function getId(): string;
 }
