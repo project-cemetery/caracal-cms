@@ -11,9 +11,10 @@ class LibraryEditCommand implements EditCommand
         string $name = null,
         string $description = null,
         string $parentId = null,
-        array $articleIds = null
+        array $articleIds = null,
+        array $childIds = null
     ) {
-        $this->data = new LibraryData($id, $name, $description, $parentId, $articleIds);
+        $this->data = new LibraryData($id, $name, $description, $parentId, $articleIds, $childIds);
     }
 
     public function getData(): LibraryData

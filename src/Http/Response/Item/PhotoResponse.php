@@ -8,11 +8,16 @@ class PhotoResponse implements ItemResponse
 {
     public static function fromEntity(Photo $photo): self
     {
+        $galleryId = $photo->getGallery()
+            ? $photo->getGallery()->getId()
+            : null;
+
         return new self(
             $photo->getId(),
             $photo->getName() ?? '',
             $photo->getDescription() ?? '',
-            $photo->toLink()
+            $photo->toLink(),
+            $galleryId
         );
     }
 
@@ -20,12 +25,14 @@ class PhotoResponse implements ItemResponse
         string $id,
         string $name,
         string $description,
-        string $link
+        string $link,
+        ?string $galleryId = null
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->link = $link;
+        $this->galleryId = $galleryId;
     }
 
     /** @var string */
@@ -39,4 +46,7 @@ class PhotoResponse implements ItemResponse
 
     /** @var string */
     private $link;
+
+    /** @var string|null */
+    private $galleryId;
 }

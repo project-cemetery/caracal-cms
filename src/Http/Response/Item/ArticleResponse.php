@@ -8,12 +8,17 @@ class ArticleResponse implements ItemResponse
 {
     public static function fromEntity(Article $article): self
     {
+        $galleryId = $article->getLibrary()
+            ? $article->getLibrary()->getId()
+            : null;
+
         return new self(
             $article->getId(),
             $article->getName() ?? '',
             $article->getDescription() ?? '',
             $article->getBody() ?? '',
-            $article->getCreatedAt()
+            $article->getCreatedAt(),
+            $galleryId
         );
     }
 
@@ -22,13 +27,15 @@ class ArticleResponse implements ItemResponse
         string $name,
         string $description,
         string $body,
-        \DateTimeImmutable $createdAt
+        \DateTimeImmutable $createdAt,
+        ?string $libraryId = null
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->body = $body;
         $this->createdAt = $createdAt;
+        $this->libraryId = $libraryId;
     }
 
     public function getId(): string
@@ -56,6 +63,11 @@ class ArticleResponse implements ItemResponse
         return $this->createdAt;
     }
 
+    public function getLibraryId(): ?string
+    {
+        return $this->libraryId;
+    }
+
     /** @var string */
     private $id;
     /** @var string */
@@ -66,4 +78,6 @@ class ArticleResponse implements ItemResponse
     private $body;
     /** @var \DateTimeImmutable */
     private $createdAt;
+    /** @var string|null */
+    private $libraryId;
 }

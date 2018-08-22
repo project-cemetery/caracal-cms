@@ -174,7 +174,7 @@ class Library
         return $this->parent;
     }
 
-    public function getArticles(): ?array
+    public function getArticles(): array
     {
         return $this->articles->toArray();
     }

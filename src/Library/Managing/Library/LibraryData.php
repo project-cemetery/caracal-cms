@@ -13,7 +13,8 @@ class LibraryData
         string $name = null,
         string $description = null,
         string $parentId = null,
-        iterable $articleIds = null
+        iterable $articleIds = null,
+        iterable $childIds = null
     ) {
         $this->id = $id;
         $this->name = $name;
@@ -25,6 +26,12 @@ class LibraryData
             : (function (string ...$articleIds): array {
                 return $articleIds;
             })(...$articleIds);
+
+        $this->childIds = is_null($childIds)
+            ? null
+            : (function (string ...$childIds): array {
+                return $childIds;
+            })(...$childIds);
     }
 
     public function getId(): string
@@ -50,6 +57,11 @@ class LibraryData
     public function getArticleIds(): ?array
     {
         return $this->articleIds;
+    }
+
+    public function getChildIds(): ?array
+    {
+        return $this->childIds;
     }
 
     public function updateLibrary(
@@ -78,6 +90,12 @@ class LibraryData
             $newArticles = $articleRepo->getAllByIds($newArticleIds);
             $library->updateArticles($newArticles);
         }
+
+        $newChildIds = $this->getChildIds();
+        if (!is_null($newChildIds)) {
+            $newChildren = $libraryRepo->getAllByIds($newChildIds);
+            $library->updateChildren($newChildren);
+        }
     }
 
     /** @var string */
@@ -90,4 +108,6 @@ class LibraryData
     private $parentId;
     /** @var array|null */
     private $articleIds;
+    /** @var array|null */
+    private $childIds;
 }

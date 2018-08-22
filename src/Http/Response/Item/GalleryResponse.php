@@ -9,9 +9,9 @@ class GalleryResponse implements ItemResponse
 {
     public static function fromEntity(Gallery $gallery): self
     {
-        $photoResponses = array_map(
-            function (Photo $photo): PhotoResponse {
-                return PhotoResponse::fromEntity($photo);
+        $photoIds = array_map(
+            function (Photo $photo): string {
+                return $photo->getId();
             },
             $gallery->getPhotos()
         );
@@ -21,7 +21,7 @@ class GalleryResponse implements ItemResponse
             $gallery->getName() ?? '',
             $gallery->getDescription() ?? '',
             $gallery->getCreatedAt(),
-            $photoResponses
+            $photoIds
         );
     }
 
@@ -30,16 +30,16 @@ class GalleryResponse implements ItemResponse
         string $name,
         string $description,
         \DateTimeImmutable $createdAt,
-        iterable $photos
+        iterable $photoIds
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->createdAt = $createdAt;
 
-        $this->photos = (function (PhotoResponse ...$photos): array {
-            return $photos;
-        })(...$photos);
+        $this->photoIds = (function (string ...$photoIds): array {
+            return $photoIds;
+        })(...$photoIds);
     }
 
     public function getId(): string
@@ -62,9 +62,9 @@ class GalleryResponse implements ItemResponse
         return $this->createdAt;
     }
 
-    public function getPhotos(): array
+    public function getPhotoIds(): array
     {
-        return $this->photos;
+        return $this->photoIds;
     }
 
     /** @var string */
@@ -79,6 +79,6 @@ class GalleryResponse implements ItemResponse
     /** @var \DateTimeImmutable */
     private $createdAt;
 
-    /** @var PhotoResponse[] */
-    private $photos;
+    /** @var string[] */
+    private $photoIds;
 }

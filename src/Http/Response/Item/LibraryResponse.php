@@ -9,26 +9,31 @@ class LibraryResponse implements ItemResponse
 {
     public static function fromEntity(Library $library): self
     {
-        $children = array_map(
-            function (Library $library): LibraryResponse {
-                return self::fromEntity($library);
+        $childIds = array_map(
+            function (Library $library): string {
+                return $library->getId();
             },
             $library->getChildren()
         );
 
-        $articles = array_map(
-            function (Article $article): ArticleResponse {
-                return ArticleResponse::fromEntity($article);
+        $articleIds = array_map(
+            function (Article $article): string {
+                return $article ->getId();
             },
-            $library->getArticles() ?? []
+            $library->getArticles()
         );
+
+        $parentId = $library->getParent()
+            ? $library->getParent()->getId()
+            : null;
 
         return new self(
             $library->getId(),
             $library->getName() ?? '',
             $library->getDescription() ?? '',
-            $children,
-            $articles
+            $childIds,
+            $articleIds,
+            $parentId
         );
     }
 
@@ -36,20 +41,23 @@ class LibraryResponse implements ItemResponse
         string $id,
         string $name,
         string $description,
-        iterable $children,
-        iterable $articles
+        iterable $childIds,
+        iterable $articleIds,
+        ?string $parentId = null
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
 
-        $this->children = (function (LibraryResponse ...$children): array {
+        $this->childIds = (function (string ...$children): array {
             return $children;
-        })(...$children);
+        })(...$childIds);
 
-        $this->articles = (function (ArticleResponse ...$articles): array {
+        $this->articleIds = (function (string ...$articles): array {
             return $articles;
-        })(...$articles);
+        })(...$articleIds);
+
+        $this->parentId = $parentId;
     }
 
     public function getId(): string
@@ -67,14 +75,19 @@ class LibraryResponse implements ItemResponse
         return $this->description;
     }
 
-    public function getChildren(): array
+    public function getParent(): ?string
     {
-        return $this->children;
+        return $this->parentId;
     }
 
-    public function getArticles(): array
+    public function getChildIds(): array
     {
-        return $this->articles;
+        return $this->childIds;
+    }
+
+    public function getArticleIds(): array
+    {
+        return $this->articleIds;
     }
 
     /** @var string */
@@ -83,8 +96,10 @@ class LibraryResponse implements ItemResponse
     private $name;
     /** @var string */
     private $description;
-    /** @var self[] */
-    private $children;
-    /** @var ArticleResponse[] */
-    private $articles;
+    /** @var string|null */
+    private $parentId;
+    /** @var string[] */
+    private $childIds;
+    /** @var string[] */
+    private $articleIds;
 }
