@@ -4,9 +4,9 @@ namespace App\Tests\Command;
 
 use App\Command\CommandDenormalizer;
 use App\Command\NotImplementedException;
-use App\Gallery\Managing\Gallery\GalleryCreateCommand;
-use App\Gallery\Managing\Gallery\GalleryEditCommand;
-use App\Gallery\Managing\Photo\PhotoDeleteCommand;
+use App\Business\Gallery\Managing\Gallery\GalleryCreateCommand;
+use App\Business\Gallery\Managing\Gallery\GalleryEditCommand;
+use App\Business\Gallery\Managing\Photo\PhotoDeleteCommand;
 use PHPUnit\Framework\TestCase;
 
 class CommandDenormalizerTest extends TestCase

@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Gallery\Photo;
+use App\Business\Gallery\Photo;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 

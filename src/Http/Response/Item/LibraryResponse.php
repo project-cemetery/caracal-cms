@@ -2,8 +2,8 @@
 
 namespace App\Http\Response\Item;
 
-use App\Library\Article;
-use App\Library\Library;
+use App\Business\Library\Article;
+use App\Business\Library\Library;
 
 class LibraryResponse implements ItemResponse
 {
@@ -18,14 +18,13 @@ class LibraryResponse implements ItemResponse
 
         $articleIds = array_map(
             function (Article $article): string {
-                return $article ->getId();
+                return $article->getId();
             },
             $library->getArticles()
         );
 
-        $parentId = $library->getParent()
-            ? $library->getParent()->getId()
-            : null;
+        $parent = $library->getParent();
+        $parentId = !is_null($parent) ? $parent->getId() : null;
 
         return new self(
             $library->getId(),

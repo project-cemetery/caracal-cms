@@ -8,11 +8,11 @@ use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;
 use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Response\Item\AdResponse;
-use App\Sale\Ad;
-use App\Sale\AdRepository;
-use App\Sale\Managing\AdCreateCommand;
-use App\Sale\Managing\AdDeleteCommand;
-use App\Sale\Managing\AdEditCommand;
+use App\Business\Sale\Ad;
+use App\Business\Sale\AdRepository;
+use App\Business\Sale\Managing\AdCreateCommand;
+use App\Business\Sale\Managing\AdDeleteCommand;
+use App\Business\Sale\Managing\AdEditCommand;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 

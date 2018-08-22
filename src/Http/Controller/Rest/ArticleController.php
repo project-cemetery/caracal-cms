@@ -8,11 +8,11 @@ use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;
 use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Response\Item\ArticleResponse;
-use App\Library\Article;
-use App\Library\ArticleRepository;
-use App\Library\Managing\Article\ArticleCreateCommand;
-use App\Library\Managing\Article\ArticleDeleteCommand;
-use App\Library\Managing\Article\ArticleEditCommand;
+use App\Business\Library\Article;
+use App\Business\Library\ArticleRepository;
+use App\Business\Library\Managing\Article\ArticleCreateCommand;
+use App\Business\Library\Managing\Article\ArticleDeleteCommand;
+use App\Business\Library\Managing\Article\ArticleEditCommand;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 

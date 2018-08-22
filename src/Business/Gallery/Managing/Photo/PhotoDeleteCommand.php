@@ -1,0 +1,9 @@
+<?php
+
+namespace App\Business\Gallery\Managing\Photo;
+
+use App\Command\DeleteCommand;
+
+class PhotoDeleteCommand extends DeleteCommand
+{
+}

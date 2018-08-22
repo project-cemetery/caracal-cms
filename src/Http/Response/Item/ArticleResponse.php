@@ -2,15 +2,14 @@
 
 namespace App\Http\Response\Item;
 
-use App\Library\Article;
+use App\Business\Library\Article;
 
 class ArticleResponse implements ItemResponse
 {
     public static function fromEntity(Article $article): self
     {
-        $galleryId = $article->getLibrary()
-            ? $article->getLibrary()->getId()
-            : null;
+        $library = $article->getLibrary();
+        $libraryId = !is_null($library) ? $library->getId() : null;
 
         return new self(
             $article->getId(),
@@ -18,7 +17,7 @@ class ArticleResponse implements ItemResponse
             $article->getDescription() ?? '',
             $article->getBody() ?? '',
             $article->getCreatedAt(),
-            $galleryId
+            $libraryId
         );
     }
 

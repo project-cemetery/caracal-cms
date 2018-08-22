@@ -2,15 +2,15 @@
 
 namespace App\Http\Controller\Rest;
 
-use App\Gallery\Managing\Photo\PhotoCreateCommand;
-use App\Gallery\Managing\Photo\PhotoDeleteCommand;
-use App\Gallery\Managing\Photo\PhotoEditCommand;
-use App\Gallery\PhotoRepository;
+use App\Business\Gallery\Managing\Photo\PhotoCreateCommand;
+use App\Business\Gallery\Managing\Photo\PhotoDeleteCommand;
+use App\Business\Gallery\Managing\Photo\PhotoEditCommand;
+use App\Business\Gallery\PhotoRepository;
 use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Gallery\Photo;
+use App\Business\Gallery\Photo;
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
 use App\Http\Pagination\Paginator;

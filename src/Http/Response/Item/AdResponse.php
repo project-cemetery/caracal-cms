@@ -2,7 +2,7 @@
 
 namespace App\Http\Response\Item;
 
-use App\Sale\Ad;
+use App\Business\Sale\Ad;
 
 class AdResponse implements ItemResponse
 {
