@@ -3,7 +3,6 @@
 namespace App\Sale;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Util\NanoId;
 
 /**
  * @ORM\Entity
@@ -12,22 +11,23 @@ class Ad
 {
     // Constructors
 
-    public static function createEmpty(): self
+    public static function createEmpty(string $id): self
     {
         $instance = new self();
 
-        $instance->id = NanoId::get();
+        $instance->id = $id;
 
         return $instance;
     }
 
     public static function create(
+        string $id,
         string $name,
         string $body,
         array $images = [],
         \DateTimeImmutable $expireAt = null
     ): self {
-        $instance = self::createEmpty();
+        $instance = self::createEmpty($id);
 
         $instance->name = $name;
         $instance->body = $body;
@@ -70,6 +70,23 @@ class Ad
                 return $i !== $image;
             }
         );
+    }
+
+    public function updateImages(array $newImages): void
+    {
+        $newImages = (function (string ...$newImages): array {
+            return $newImages;
+        })(...$newImages);
+
+        $oldImages = $this->getImages();
+
+        foreach ($oldImages as $image) {
+            $this->removeImage($image);
+        }
+
+        foreach ($newImages as $image) {
+            $this->addImage($image);
+        }
     }
 
     public function changeExpireDate(\DateTimeImmutable $newExpireDate): void

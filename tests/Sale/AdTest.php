@@ -9,7 +9,7 @@ class AdTest extends TestCase
 {
     public function testCreateEmpty()
     {
-        $ad = Ad::createEmpty();
+        $ad = Ad::createEmpty('adId');
 
         $this->assertGreaterThan(1, mb_strlen($ad->getId()));
         $this->assertNull($ad->getName());
@@ -21,7 +21,7 @@ class AdTest extends TestCase
 
     public function testCreateWithoutExpiration()
     {
-        $ad = Ad::create('name', 'body', ['image one']);
+        $ad = Ad::create('adId', 'name', 'body', ['image one']);
 
         $this->assertGreaterThan(1, mb_strlen($ad->getId()));
         $this->assertEquals('name', $ad->getName());
@@ -33,7 +33,7 @@ class AdTest extends TestCase
 
     public function testCreateWitExpiration()
     {
-        $ad = Ad::create('name', 'body', ['image one'], new \DateTimeImmutable());
+        $ad = Ad::create('adId', 'name', 'body', ['image one'], new \DateTimeImmutable());
 
         $this->assertGreaterThan(1, mb_strlen($ad->getId()));
         $this->assertEquals('name', $ad->getName());
@@ -46,12 +46,12 @@ class AdTest extends TestCase
     public function testCreateWithInvalidImages()
     {
         $this->expectException(\TypeError::class);
-        $ad = Ad::create('name', 'body', [new \DateTime(), 'link to second image', 'link to other image']);
+        $ad = Ad::create('adId', 'name', 'body', [new \DateTime(), 'link to second image', 'link to other image']);
     }
 
     public function testRename()
     {
-        $ad = Ad::createEmpty();
+        $ad = Ad::createEmpty('adId');
 
         $ad->rename('new name');
 
@@ -60,7 +60,7 @@ class AdTest extends TestCase
 
     public function testChangeBody()
     {
-        $ad = Ad::createEmpty();
+        $ad = Ad::createEmpty('adId');
 
         $ad->changeBody('new body');
 
@@ -69,7 +69,7 @@ class AdTest extends TestCase
 
     public function testAddImageToEmpty()
     {
-        $ad = Ad::createEmpty();
+        $ad = Ad::createEmpty('adId');
 
         $ad->addImage('new cool image');
 
@@ -78,7 +78,7 @@ class AdTest extends TestCase
 
     public function testAddExistImage()
     {
-        $ad = Ad::create('name', 'body', ['new cool image']);
+        $ad = Ad::create('adId', 'name', 'body', ['new cool image']);
 
         $ad->addImage('new cool image');
 
@@ -87,7 +87,7 @@ class AdTest extends TestCase
 
     public function testRemoveImage()
     {
-        $ad = Ad::create('name', 'body', ['new cool image']);
+        $ad = Ad::create('adId', 'name', 'body', ['new cool image']);
 
         $ad->removeImage('new cool image');
 
@@ -96,7 +96,7 @@ class AdTest extends TestCase
 
     public function testChangeExpireDate()
     {
-        $ad = Ad::createEmpty();
+        $ad = Ad::createEmpty('adId');
 
         $ad->changeExpireDate(new \DateTimeImmutable());
 
@@ -105,7 +105,7 @@ class AdTest extends TestCase
 
     public function testEternalize()
     {
-        $ad = Ad::create('name', 'body', [], new \DateTimeImmutable());
+        $ad = Ad::create('adId', 'name', 'body', [], new \DateTimeImmutable());
 
         $ad->eternalize();
 
@@ -114,7 +114,7 @@ class AdTest extends TestCase
 
     public function testPublish()
     {
-        $ad = Ad::createEmpty();
+        $ad = Ad::createEmpty('adId');
 
         $ad->publish();
 
@@ -123,7 +123,7 @@ class AdTest extends TestCase
 
     public function testUnpublish()
     {
-        $ad = Ad::createEmpty();
+        $ad = Ad::createEmpty('adId');
 
         $ad->publish();
 
