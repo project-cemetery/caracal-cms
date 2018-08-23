@@ -14,7 +14,7 @@
         <env name="APP_DEBUG" value="1" />
         <env name="APP_SECRET" value="s$cretf0rt3st" />
         <env name="SHELL_VERBOSITY" value="-1" />
-        <env name="DATABASE_URL" value="mysql://admin:admin@127.0.0.1:3306/caracal_test"/>
+        <env name="DATABASE_URL" value="mysql://root:@127.0.0.1:3306/caracal_test"/>
     </php>
 
     <testsuites>

@@ -2,6 +2,9 @@ language: php
 php:
   - '7.2'
 
+services:
+  - mysql
+
 before_install:
   - npm install -g yarn
 
@@ -11,6 +14,8 @@ jobs:
       install: composer install -o
       script: php vendor/bin/ecs check {src,tests}
     - stage: test back
+      before_install:
+        - mysql -e 'CREATE DATABASE caracal_test;'
       install: composer install -o
       script: php bin/phpunit
     - stage: analysis back
