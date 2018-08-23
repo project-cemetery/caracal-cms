@@ -93,7 +93,7 @@ class Library
 
     public function updateChildren(iterable $newChildren): void
     {
-        $newChildren = (function (Library ...$newChildren): array {
+        $newChildren = (function (self ...$newChildren): array {
             return $newChildren;
         })(...$newChildren);
 
