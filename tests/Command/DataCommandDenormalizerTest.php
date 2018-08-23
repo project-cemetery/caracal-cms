@@ -2,18 +2,23 @@
 
 namespace App\Tests\Command;
 
+use App\Business\Gallery\Managing\Gallery\GalleryData;
+use App\Business\Gallery\Managing\Photo\PhotoEditCommand;
+use App\Business\Library\Managing\Article\ArticleDeleteCommand;
 use App\Command\CommandDenormalizer;
+use App\Command\DataCommandDenormalizer;
 use App\Command\NotImplementedException;
 use App\Business\Gallery\Managing\Gallery\GalleryCreateCommand;
 use App\Business\Gallery\Managing\Gallery\GalleryEditCommand;
 use App\Business\Gallery\Managing\Photo\PhotoDeleteCommand;
 use PHPUnit\Framework\TestCase;
 
-class CommandDenormalizerTest extends TestCase
+class DataCommandDenormalizerTest extends TestCase
 {
+
     public function testDenormalize()
     {
-        $denormalizer = new CommandDenormalizer();
+        $denormalizer = new DataCommandDenormalizer();
 
         $command = $denormalizer->denormalize(
             [
@@ -23,7 +28,7 @@ class CommandDenormalizerTest extends TestCase
             null,
             [
                 'default_constructor_arguments' => [
-                    GalleryEditCommand::class => [
+                    GalleryData::class => [
                         'id' => '1',
                     ],
                 ],
@@ -37,17 +42,18 @@ class CommandDenormalizerTest extends TestCase
 
     public function testSupportsDenormalization()
     {
-        $denormalizer = new CommandDenormalizer();
+        $denormalizer = new DataCommandDenormalizer();
 
         $passTypes = [
             GalleryEditCommand::class,
             GalleryCreateCommand::class,
-            PhotoDeleteCommand::class,
+            PhotoEditCommand::class,
         ];
 
         $notPassTypes = [
             'not pass type',
             'again',
+            ArticleDeleteCommand::class,
         ];
 
         foreach ($passTypes as $passType) {
@@ -57,20 +63,5 @@ class CommandDenormalizerTest extends TestCase
         foreach ($notPassTypes as $notPassType) {
             $this->assertFalse($denormalizer->supportsDenormalization([], $notPassType));
         }
-    }
-
-    public function testSupportsNormalizations()
-    {
-        $denormalizer = new CommandDenormalizer();
-
-        $this->assertFalse($denormalizer->supportsNormalization([], 'any format'));
-    }
-
-    public function testNormalization()
-    {
-        $denormalizer = new CommandDenormalizer();
-
-        $this->expectException(NotImplementedException::class);
-        $denormalizer->normalize(new \stdClass());
     }
 }

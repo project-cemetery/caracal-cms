@@ -5,7 +5,7 @@ namespace App\Command;
 use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
-class CommandDenormalizer extends AbstractNormalizer
+class CommandDenormalizer extends Denormalizer
 {
     public function denormalize($data, $class, $format = null, array $context = [])
     {
@@ -24,15 +24,5 @@ class CommandDenormalizer extends AbstractNormalizer
     public function supportsDenormalization($data, $type, $format = null)
     {
         return is_subclass_of($type, Command::class);
-    }
-
-    public function normalize($object, $format = null, array $context = [])
-    {
-        throw new NotImplementedException("It's denormalizer, normalization not implemented");
-    }
-
-    public function supportsNormalization($data, $format = null)
-    {
-        return false;
     }
 }
