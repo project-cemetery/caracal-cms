@@ -3,10 +3,12 @@
 namespace App\Tests\Command;
 
 use App\Business\Gallery\Create\GalleryCreateCommand;
+use App\Business\Gallery\Delete\GalleryDeleteCommand;
 use App\Business\Gallery\Edit\GalleryEditCommand;
 use App\Business\Gallery\Edit\PhotoEditCommand;
 use App\Business\Library\Delete\ArticleDeleteCommand;
 use App\Command\DataCommandDenormalizer;
+use App\Command\EditCommand;
 use PHPUnit\Framework\TestCase;
 
 class DataCommandDenormalizerTest extends TestCase
@@ -27,6 +29,21 @@ class DataCommandDenormalizerTest extends TestCase
         $this->assertEquals('1', $command->getData()->getId());
         $this->assertEquals('new name', $command->getData()->getName());
         $this->assertNull($command->getData()->getDescription());
+    }
+
+    public function testFailDenormalize()
+    {
+        $denormalizer = new DataCommandDenormalizer();
+
+        $this->expectException(\InvalidArgumentException::class);
+        $command = $denormalizer->denormalize(
+            ['name' => 'new name'],
+            GalleryDeleteCommand::class,
+            null,
+            ['default_constructor_arguments' => [
+                GalleryDeleteCommand::class => ['id' => '1'],
+            ]]
+        );
     }
 
     public function testSupportsDenormalization()
