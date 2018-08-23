@@ -2,6 +2,6 @@
 
 namespace App\Command;
 
-interface CreateCommand extends Command
+abstract class CreateCommand extends DataCommand
 {
 }

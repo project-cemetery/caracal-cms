@@ -4,22 +4,15 @@ namespace App\Business\Sale\Managing;
 
 use App\Command\EditCommand;
 
-class AdEditCommand implements EditCommand
+class AdEditCommand extends EditCommand
 {
     public static function fromData(AdData $data): self
     {
-        $instance = new self();
-
-        $instance->data = $data;
-
-        return $instance;
+        return new self($data);
     }
 
     public function getData(): AdData
     {
         return $this->data;
     }
-
-    /** @var AdData */
-    private $data;
 }

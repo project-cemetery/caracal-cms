@@ -4,22 +4,15 @@ namespace App\Business\Library\Managing\Library;
 
 use App\Command\EditCommand;
 
-class LibraryEditCommand implements EditCommand
+class LibraryEditCommand extends EditCommand
 {
     public static function fromData(LibraryData $data): self
     {
-        $instance = new self();
-
-        $instance->data = $data;
-
-        return $instance;
+        return new self($data);
     }
 
     public function getData(): LibraryData
     {
         return $this->data;
     }
-
-    /** @var LibraryData */
-    private $data;
 }

@@ -4,22 +4,15 @@ namespace App\Business\Gallery\Managing\Gallery;
 
 use App\Command\EditCommand;
 
-class GalleryEditCommand implements EditCommand
+class GalleryEditCommand extends EditCommand
 {
     public static function fromData(GalleryData $data): self
     {
-        $instance = new self();
-
-        $instance->data = $data;
-
-        return $instance;
+        return new self($data);
     }
 
     public function getData(): GalleryData
     {
         return $this->data;
     }
-
-    /** @var GalleryData */
-    private $data;
 }

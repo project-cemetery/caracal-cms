@@ -4,22 +4,15 @@ namespace App\Business\Library\Managing\Article;
 
 use App\Command\CreateCommand;
 
-class ArticleCreateCommand implements CreateCommand
+class ArticleCreateCommand extends CreateCommand
 {
     public static function fromData(ArticleData $data): self
     {
-        $instance = new self();
-
-        $instance->data = $data;
-
-        return $instance;
+        return new self($data);
     }
 
     public function getData(): ArticleData
     {
         return $this->data;
     }
-
-    /** @var ArticleData */
-    private $data;
 }
