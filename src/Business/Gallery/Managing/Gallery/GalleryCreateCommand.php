@@ -6,9 +6,13 @@ use App\Command\CreateCommand;
 
 class GalleryCreateCommand implements CreateCommand
 {
-    public function __construct(string $id, string $name = null, string $description = null, array $photoIds = null)
+    public static function fromData(GalleryData $data): self
     {
-        $this->data = new GalleryData($id, $name, $description, $photoIds);
+        $instance = new self();
+
+        $instance->data = $data;
+
+        return $instance;
     }
 
     public function getData(): GalleryData

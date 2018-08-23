@@ -2,8 +2,6 @@
 
 namespace App\Command;
 
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
-
 /** @psalm-suppress PropertyNotSetInConstructor */
 class CommandDenormalizer extends Denormalizer
 {

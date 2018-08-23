@@ -6,16 +6,13 @@ use App\Command\CreateCommand;
 
 class AdCreateCommand implements CreateCommand
 {
-    public function __construct(
-        string $id,
-        string $name = null,
-        string $body = null,
-        array $images = null,
-        \DateTimeImmutable $expireAt = null,
-        bool $published = null,
-        bool $eternal = null
-    ) {
-        $this->data = new AdData($id, $name, $body, $images, $expireAt, $published, $eternal);
+    public static function fromData(AdData $data): self
+    {
+        $instance = new self();
+
+        $instance->data = $data;
+
+        return $instance;
     }
 
     public function getData(): AdData

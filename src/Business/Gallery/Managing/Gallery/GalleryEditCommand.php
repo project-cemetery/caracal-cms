@@ -6,9 +6,13 @@ use App\Command\EditCommand;
 
 class GalleryEditCommand implements EditCommand
 {
-    public function __construct(GalleryData $data)
+    public static function fromData(GalleryData $data): self
     {
-        $this->data = $data;
+        $instance = new self();
+
+        $instance->data = $data;
+
+        return $instance;
     }
 
     public function getData(): GalleryData

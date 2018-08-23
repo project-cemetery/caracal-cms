@@ -1,14 +1,11 @@
 <?php
 
-
 namespace App\Tests\Command;
-
 
 use App\Business\Gallery\Managing\Gallery\GalleryCreateCommand;
 use App\Business\Gallery\Managing\Gallery\GalleryDeleteCommand;
 use App\Business\Gallery\Managing\Photo\PhotoDeleteCommand;
 use App\Business\Gallery\Managing\Photo\PhotoEditCommand;
-use App\Command\DeleteCommand;
 use App\Command\DeleteCommandDenormalizer;
 use PHPUnit\Framework\TestCase;
 

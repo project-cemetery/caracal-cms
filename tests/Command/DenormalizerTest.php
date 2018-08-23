@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Command;
-
 
 use App\Command\Denormalizer;
 use App\Command\NotImplementedException;

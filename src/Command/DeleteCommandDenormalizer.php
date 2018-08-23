@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Command;
 
 /** @psalm-suppress PropertyNotSetInConstructor */
@@ -15,7 +14,10 @@ class DeleteCommandDenormalizer extends Denormalizer
 
         $allowedAttributes = $this->getAllowedAttributes($class, $context);
 
-        return $this->instantiateObject($actualData, $class, $context, $reflector, $allowedAttributes);
+        /** @var DeleteCommand $command */
+        $command = $this->instantiateObject($actualData, $class, $context, $reflector, $allowedAttributes);
+
+        return $command;
     }
 
     public function supportsDenormalization($data, $type, $format = null)

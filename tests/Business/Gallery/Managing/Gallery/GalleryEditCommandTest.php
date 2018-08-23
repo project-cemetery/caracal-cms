@@ -10,7 +10,7 @@ class GalleryEditCommandTest extends TestCase
 {
     public function testGetData()
     {
-        $command = new GalleryEditCommand(
+        $command = GalleryEditCommand::fromData(
             new GalleryData('1')
         );
 

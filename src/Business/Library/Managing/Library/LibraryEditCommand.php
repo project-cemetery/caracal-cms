@@ -6,15 +6,13 @@ use App\Command\EditCommand;
 
 class LibraryEditCommand implements EditCommand
 {
-    public function __construct(
-        string $id,
-        string $name = null,
-        string $description = null,
-        string $parentId = null,
-        array $articleIds = null,
-        array $childIds = null
-    ) {
-        $this->data = new LibraryData($id, $name, $description, $parentId, $articleIds, $childIds);
+    public static function fromData(LibraryData $data): self
+    {
+        $instance = new self();
+
+        $instance->data = $data;
+
+        return $instance;
     }
 
     public function getData(): LibraryData

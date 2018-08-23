@@ -2,8 +2,6 @@
 
 namespace App\Command;
 
-use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
-
 /** @psalm-suppress PropertyNotSetInConstructor */
 class DataCommandDenormalizer extends Denormalizer
 {
@@ -11,30 +9,44 @@ class DataCommandDenormalizer extends Denormalizer
     {
         $commandReflector = new \ReflectionClass($class);
 
-        $constructorParameters = $commandReflector->getConstructor()->getParameters();
+        $namedConstructor = $this->arrayToElement(
+            $commandReflector->getMethods(\ReflectionMethod::IS_STATIC)
+        );
 
-        if (count($constructorParameters) > 0) {
-            // throw
-        }
+        $constructorArgument = $this->arrayToElement(
+            $namedConstructor->getParameters()
+        );
 
-        $dataType = array_shift($constructorParameters)->getType()->getName();
+        $dataType = $constructorArgument->getType()->getName();
 
         $dataReflector = new \ReflectionClass($dataType);
 
-        $overwriteData = $context['default_constructor_arguments'][$dataType];
+        $overwriteData = $context['default_constructor_arguments'][$class];
         foreach ($overwriteData as $key => $value) {
             $data[$key] = $value;
         }
 
         $allowedAttributes = $this->getAllowedAttributes($dataType, $context);
 
-        $data = $this->instantiateObject($data, $dataType, $context, $dataReflector, $allowedAttributes);
+        $commandData = $this->instantiateObject($data, $dataType, $context, $dataReflector, $allowedAttributes);
 
-        return new $class($data);
+        return $namedConstructor->invoke(null, $commandData);
     }
 
     public function supportsDenormalization($data, $type, $format = null)
     {
         return is_subclass_of($type, CreateCommand::class) || is_subclass_of($type, EditCommand::class);
+    }
+
+    /** @return mixed */
+    private function arrayToElement(array $arr, string $errorMessage = null)
+    {
+        $arr = array_values($arr);
+
+        if (count($arr) !== 1) {
+            throw new \InvalidArgumentException($errorMessage ?? 'Array must contain exactly one element');
+        }
+
+        return $arr[0];
     }
 }

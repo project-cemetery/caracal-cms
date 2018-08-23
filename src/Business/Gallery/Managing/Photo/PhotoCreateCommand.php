@@ -6,14 +6,13 @@ use App\Command\CreateCommand;
 
 class PhotoCreateCommand implements CreateCommand
 {
-    public function __construct(
-        string $id,
-        string $link,
-        string $name = null,
-        string $description = null,
-        string $galleryId = null
-    ) {
-        $this->data = new PhotoData($id, $name, $description, $link, $galleryId);
+    public static function fromData(PhotoData $data): self
+    {
+        $instance = new self();
+
+        $instance->data = $data;
+
+        return $instance;
     }
 
     public function getData(): PhotoData
