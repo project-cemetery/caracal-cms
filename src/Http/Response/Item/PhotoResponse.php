@@ -2,17 +2,21 @@
 
 namespace App\Http\Response\Item;
 
-use App\Gallery\Photo;
+use App\Business\Gallery\Photo;
 
 class PhotoResponse implements ItemResponse
 {
     public static function fromEntity(Photo $photo): self
     {
+        $gallery = $photo->getGallery();
+        $galleryId = !is_null($gallery) ? $gallery->getId() : null;
+
         return new self(
             $photo->getId(),
             $photo->getName() ?? '',
             $photo->getDescription() ?? '',
-            $photo->toLink()
+            $photo->toLink(),
+            $galleryId
         );
     }
 
@@ -20,12 +24,14 @@ class PhotoResponse implements ItemResponse
         string $id,
         string $name,
         string $description,
-        string $link
+        string $link,
+        ?string $galleryId = null
     ) {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->link = $link;
+        $this->galleryId = $galleryId;
     }
 
     /** @var string */
@@ -39,4 +45,7 @@ class PhotoResponse implements ItemResponse
 
     /** @var string */
     private $link;
+
+    /** @var string|null */
+    private $galleryId;
 }

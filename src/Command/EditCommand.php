@@ -2,6 +2,6 @@
 
 namespace App\Command;
 
-interface EditCommand extends Command
+abstract class EditCommand extends DataCommand
 {
 }

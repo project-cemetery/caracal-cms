@@ -1,0 +1,10 @@
+parameters:
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: true
+
+    App\DataFixtures\:
+        resource: '../src/DataFixtures'

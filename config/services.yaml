@@ -8,7 +8,7 @@ services:
 
     App\:
         resource: '../src/*'
-        exclude: '../src/{Migrations,Util,Kernel.php}'
+        exclude: '../src/{DataFixtures,Migrations,Util,Kernel.php}'
 
     App\Http\Controller\:
         resource: '../src/Http/Controller'
@@ -19,13 +19,18 @@ services:
             tags: ['controller.argument_value_resolver']
         Kamyshev\ResponderBundle\Responder\ResponderInterface:
             tags: ['kamyshev.responder']
+        Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository:
+            tags: ['doctrine.repository_service']
 
     # Serializer
     datetime_normalizer:
         class: Symfony\Component\Serializer\Normalizer\DateTimeNormalizer
         tags:
             - { name: 'serializer.normalizer', priority: 100 }
-    App\Command\CommandDenormalizer:
+    App\Command\DataCommandDenormalizer:
+        tags:
+            - { name: 'serializer.normalizer', priority: 3 }
+    App\Command\DeleteCommandDenormalizer:
         tags:
             - { name: 'serializer.normalizer', priority: 3 }
     property_normalizer:
