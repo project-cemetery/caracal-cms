@@ -4,8 +4,13 @@ namespace App\Business\Gallery;
 
 class PhotoData
 {
-    public function __construct(string $id, ?string $name, ?string $description, ?string $link, ?string $galleryId)
-    {
+    public function __construct(
+        string $id,
+        string $name = null,
+        string $description = null,
+        string $link = null,
+        string $galleryId = null
+    ) {
         $this->id = $id;
 
         $this->name = $name;
