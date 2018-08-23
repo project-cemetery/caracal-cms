@@ -2,11 +2,11 @@
 
 namespace App\Tests\Command;
 
-use App\Business\Gallery\Managing\Photo\PhotoEditCommand;
-use App\Business\Library\Managing\Article\ArticleDeleteCommand;
+use App\Business\Gallery\Create\GalleryCreateCommand;
+use App\Business\Gallery\Edit\GalleryEditCommand;
+use App\Business\Gallery\Edit\PhotoEditCommand;
+use App\Business\Library\Delete\ArticleDeleteCommand;
 use App\Command\DataCommandDenormalizer;
-use App\Business\Gallery\Managing\Gallery\GalleryCreateCommand;
-use App\Business\Gallery\Managing\Gallery\GalleryEditCommand;
 use PHPUnit\Framework\TestCase;
 
 class DataCommandDenormalizerTest extends TestCase

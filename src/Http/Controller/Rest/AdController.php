@@ -2,6 +2,9 @@
 
 namespace App\Http\Controller\Rest;
 
+use App\Business\Sale\Create\AdCreateCommand;
+use App\Business\Sale\Delete\AdDeleteCommand;
+use App\Business\Sale\Edit\AdEditCommand;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
@@ -10,9 +13,6 @@ use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Response\Item\AdResponse;
 use App\Business\Sale\Ad;
 use App\Business\Sale\AdRepository;
-use App\Business\Sale\Managing\AdCreateCommand;
-use App\Business\Sale\Managing\AdDeleteCommand;
-use App\Business\Sale\Managing\AdEditCommand;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 

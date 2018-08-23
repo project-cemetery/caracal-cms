@@ -2,9 +2,9 @@
 
 namespace App\Http\Controller\Rest;
 
-use App\Business\Gallery\Managing\Photo\PhotoCreateCommand;
-use App\Business\Gallery\Managing\Photo\PhotoDeleteCommand;
-use App\Business\Gallery\Managing\Photo\PhotoEditCommand;
+use App\Business\Gallery\Create\PhotoCreateCommand;
+use App\Business\Gallery\Delete\PhotoDeleteCommand;
+use App\Business\Gallery\Edit\PhotoEditCommand;
 use App\Business\Gallery\PhotoRepository;
 use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;

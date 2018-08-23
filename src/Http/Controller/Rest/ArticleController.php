@@ -2,6 +2,9 @@
 
 namespace App\Http\Controller\Rest;
 
+use App\Business\Library\Create\ArticleCreateCommand;
+use App\Business\Library\Delete\ArticleDeleteCommand;
+use App\Business\Library\Edit\ArticleEditCommand;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
@@ -10,9 +13,6 @@ use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Response\Item\ArticleResponse;
 use App\Business\Library\Article;
 use App\Business\Library\ArticleRepository;
-use App\Business\Library\Managing\Article\ArticleCreateCommand;
-use App\Business\Library\Managing\Article\ArticleDeleteCommand;
-use App\Business\Library\Managing\Article\ArticleEditCommand;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 

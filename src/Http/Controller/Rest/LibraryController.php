@@ -2,6 +2,9 @@
 
 namespace App\Http\Controller\Rest;
 
+use App\Business\Library\Create\LibraryCreateCommand;
+use App\Business\Library\Delete\LibraryDeleteCommand;
+use App\Business\Library\Edit\LibraryEditCommand;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
@@ -10,9 +13,6 @@ use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Response\Item\LibraryResponse;
 use App\Business\Library\Library;
 use App\Business\Library\LibraryRepository;
-use App\Business\Library\Managing\Library\LibraryCreateCommand;
-use App\Business\Library\Managing\Library\LibraryDeleteCommand;
-use App\Business\Library\Managing\Library\LibraryEditCommand;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Annotation\Route;
 

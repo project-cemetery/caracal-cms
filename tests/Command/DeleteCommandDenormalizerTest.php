@@ -2,10 +2,10 @@
 
 namespace App\Tests\Command;
 
-use App\Business\Gallery\Managing\Gallery\GalleryCreateCommand;
-use App\Business\Gallery\Managing\Gallery\GalleryDeleteCommand;
-use App\Business\Gallery\Managing\Photo\PhotoDeleteCommand;
-use App\Business\Gallery\Managing\Photo\PhotoEditCommand;
+use App\Business\Gallery\Create\GalleryCreateCommand;
+use App\Business\Gallery\Delete\GalleryDeleteCommand;
+use App\Business\Gallery\Delete\PhotoDeleteCommand;
+use App\Business\Gallery\Edit\PhotoEditCommand;
 use App\Command\DeleteCommandDenormalizer;
 use PHPUnit\Framework\TestCase;
 
