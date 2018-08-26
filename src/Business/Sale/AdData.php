@@ -78,6 +78,11 @@ class AdData
             $ad->updateImages($newImages);
         }
 
+        $this->updateAdPublicationStatus($ad);
+    }
+
+    private function updateAdPublicationStatus(Ad $ad): void
+    {
         $newExpireAt = $this->getExpireAt();
         if (!is_null($newExpireAt)) {
             $ad->changeExpireDate($newExpireAt);
