@@ -1,0 +1,4 @@
+lexik_jwt_authentication:
+    secret_key: '%env(resolve:APP_SECRET)%'
+    encoder:
+        signature_algorithm: HS256
