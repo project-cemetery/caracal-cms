@@ -6,6 +6,7 @@ use App\Business\Gallery\Create\PhotoCreateCommand;
 use App\Business\Gallery\Delete\PhotoDeleteCommand;
 use App\Business\Gallery\Edit\PhotoEditCommand;
 use App\Business\Gallery\PhotoRepository;
+use App\Http\Annotation\AdminAccess\AdminAccess;
 use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -40,7 +41,10 @@ class PhotoController
         return PhotoResponse::fromEntity($photo);
     }
 
-    /** @Route("/{id}", methods={"PUT"}) */
+    /**
+     * @Route("/{id}", methods={"PUT"})
+     * @AdminAccess()
+     */
     public function put(PhotoEditCommand $command, MessageBusInterface $bus, PhotoRepository $repo): PhotoResponse
     {
         $bus->dispatch($command);
@@ -55,6 +59,7 @@ class PhotoController
     /**
      * @Route("/", methods={"POST"})
      * @HttpCodeCreated()
+     * @AdminAccess()
      */
     public function post(PhotoCreateCommand $command, MessageBusInterface $bus, PhotoRepository $repo): PhotoResponse
     {
@@ -67,7 +72,10 @@ class PhotoController
         );
     }
 
-    /** @Route("/{id}", methods={"DELETE"}) */
+    /**
+     * @Route("/{id}", methods={"DELETE"})
+     * @AdminAccess()
+     */
     public function delete(PhotoDeleteCommand $command, MessageBusInterface $bus): EmptySuccessResponse
     {
         $bus->dispatch($command);

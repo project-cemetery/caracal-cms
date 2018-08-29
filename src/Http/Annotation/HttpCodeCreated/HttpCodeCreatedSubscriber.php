@@ -38,7 +38,11 @@ class HttpCodeCreatedSubscriber implements EventSubscriberInterface
     {
         $requestIdentity = $this->requestIdentityString($event->getRequest());
 
-        if ($this->annotated[$requestIdentity] && $event->getResponse()->getStatusCode() === Response::HTTP_OK) {
+        if (
+            isset($this->annotated[$requestIdentity]) &&
+            $this->annotated[$requestIdentity] &&
+            $event->getResponse()->getStatusCode() === Response::HTTP_OK
+        ) {
             $event
                 ->getResponse()
                 ->setStatusCode(Response::HTTP_CREATED);

@@ -5,6 +5,7 @@ namespace App\Http\Controller\Rest;
 use App\Business\Gallery\Create\GalleryCreateCommand;
 use App\Business\Gallery\Delete\GalleryDeleteCommand;
 use App\Business\Gallery\Edit\GalleryEditCommand;
+use App\Http\Annotation\AdminAccess\AdminAccess;
 use App\Http\Response\EmptySuccess\EmptySuccessResponse;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use Symfony\Component\Messenger\MessageBusInterface;
@@ -58,6 +59,7 @@ class GalleryController
     /**
      * @Route("/", methods={"POST"})
      * @HttpCodeCreated()
+     * @AdminAccess()
      */
     public function post(
         GalleryCreateCommand $command,
@@ -73,7 +75,10 @@ class GalleryController
         );
     }
 
-    /** @Route("/{id}", methods={"DELETE"}) */
+    /**
+     * @Route("/{id}", methods={"DELETE"})
+     * @AdminAccess()
+     */
     public function delete(GalleryDeleteCommand $command, MessageBusInterface $bus): EmptySuccessResponse
     {
         $bus->dispatch($command);

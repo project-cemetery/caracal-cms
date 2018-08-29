@@ -5,7 +5,7 @@ namespace App\Business\Sale;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Business\Sale\AdRepository")
  */
 class Ad
 {

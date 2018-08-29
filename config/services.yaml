@@ -8,7 +8,7 @@ services:
 
     App\:
         resource: '../src/*'
-        exclude: '../src/{DataFixtures,Migrations,Util,Kernel.php}'
+        exclude: '../src/{Migrations,Util,Kernel.php}'
 
     App\Http\Controller\:
         resource: '../src/Http/Controller'
@@ -46,3 +46,8 @@ services:
 
     App\IdGenerator\NanoIdGenerator: ~
     App\IdGenerator\IdGenerator: '@App\IdGenerator\NanoIdGenerator'
+
+    # Default password encoder
+    Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface:
+        class: Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder
+        arguments: [12]
