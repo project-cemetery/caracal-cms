@@ -3,7 +3,7 @@
 namespace App\Http\Annotation\AdminAccess;
 
 use App\Http\Annotation\AnnotationProcessor;
-use App\Security\AdminVoter;
+use App\Http\Security\AdminVoter;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
