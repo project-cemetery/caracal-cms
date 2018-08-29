@@ -3,7 +3,6 @@
 namespace App\Http\Security;
 
 use App\Business\User\LoginCredentials;
-use App\Business\User\User;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\Security\Core\User\UserInterface;
 

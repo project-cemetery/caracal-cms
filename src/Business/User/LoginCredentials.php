@@ -39,15 +39,6 @@ class LoginCredentials
         $this->password = $encoder->encodePassword($plainPassword, '');
     }
 
-    public function checkPassword(string $plainPassword, PasswordEncoderInterface $encoder): bool
-    {
-        return $encoder->isPasswordValid(
-            $this->getPassword() ?? '',
-            $plainPassword,
-            ''
-        );
-    }
-
     // Data
 
     public function getLogin(): ?string

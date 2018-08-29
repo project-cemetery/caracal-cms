@@ -3,9 +3,8 @@ security:
         jwt:
             id: App\Http\Security\JWTIdentityProvider
     encoders:
-        App\Security\JWTIdentity:
-            algorithm: bcrypt
-            cost: 12
+        App\Http\Security\JWTIdentity:
+            id: Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface
     firewalls:
 
         login:
