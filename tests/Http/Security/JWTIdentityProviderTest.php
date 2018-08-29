@@ -1,9 +1,6 @@
 <?php
 
-
 namespace App\Tests\Http\Security;
-
-
 
 use App\Business\User\User;
 use App\Business\User\UserRepository;

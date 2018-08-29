@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Business\User;
-
 
 use App\Business\User\LoginCredentials;
 use PHPUnit\Framework\TestCase;

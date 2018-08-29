@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Http\Security;
-
 
 use App\Business\User\LoginCredentials;
 use App\Http\Security\JWTIdentity;

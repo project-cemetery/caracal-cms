@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Business\User;
-
 
 use App\Business\User\User;
 use PHPUnit\Framework\TestCase;

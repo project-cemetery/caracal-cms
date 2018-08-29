@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Tests\Http\Security;
-
 
 use App\Http\Security\AdminVoter;
 use App\Http\Security\JWTIdentity;
