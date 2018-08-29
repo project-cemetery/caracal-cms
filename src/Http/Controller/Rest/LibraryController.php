@@ -5,6 +5,7 @@ namespace App\Http\Controller\Rest;
 use App\Business\Library\Create\LibraryCreateCommand;
 use App\Business\Library\Delete\LibraryDeleteCommand;
 use App\Business\Library\Edit\LibraryEditCommand;
+use App\Http\Annotation\AdminAccess\AdminAccess;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
@@ -40,7 +41,10 @@ class LibraryController
         return LibraryResponse::fromEntity($article);
     }
 
-    /** @Route("/{id}", methods={"PUT"}) */
+    /**
+     * @Route("/{id}", methods={"PUT"})
+     * @AdminAccess()
+     */
     public function put(
         LibraryEditCommand $command,
         MessageBusInterface $bus,
@@ -58,6 +62,7 @@ class LibraryController
     /**
      * @Route("/", methods={"POST"})
      * @HttpCodeCreated()
+     * @AdminAccess()
      */
     public function post(
         LibraryCreateCommand $command,
@@ -73,7 +78,10 @@ class LibraryController
         );
     }
 
-    /** @Route("/{id}", methods={"DELETE"}) */
+    /**
+     * @Route("/{id}", methods={"DELETE"})
+     * @AdminAccess()
+     */
     public function delete(LibraryDeleteCommand $command, MessageBusInterface $bus): EmptySuccessResponse
     {
         $bus->dispatch($command);

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Business\User;
-
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;

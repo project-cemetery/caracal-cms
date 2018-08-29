@@ -1,7 +1,6 @@
 <?php
 
-
-namespace App\Security;
+namespace App\Http\Security;
 
 use App\Business\User\UserRepository;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -20,9 +19,7 @@ class JWTIdentityProvider implements UserProviderInterface
     {
         $user = $this->userRepo->getByLogin($username);
 
-        $jwtUser = new JWTIdentity($user);
-
-        return $jwtUser;
+        return JWTIdentity::fromUser($user);
     }
 
     public function refreshUser(UserInterface $user): UserInterface

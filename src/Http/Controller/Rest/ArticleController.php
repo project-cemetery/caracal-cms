@@ -5,6 +5,7 @@ namespace App\Http\Controller\Rest;
 use App\Business\Library\Create\ArticleCreateCommand;
 use App\Business\Library\Delete\ArticleDeleteCommand;
 use App\Business\Library\Edit\ArticleEditCommand;
+use App\Http\Annotation\AdminAccess\AdminAccess;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
@@ -40,7 +41,10 @@ class ArticleController
         return ArticleResponse::fromEntity($article);
     }
 
-    /** @Route("/{id}", methods={"PUT"}) */
+    /**
+     * @Route("/{id}", methods={"PUT"})
+     * @AdminAccess()
+     */
     public function put(
         ArticleEditCommand $command,
         MessageBusInterface $bus,
@@ -58,6 +62,7 @@ class ArticleController
     /**
      * @Route("/", methods={"POST"})
      * @HttpCodeCreated()
+     * @AdminAccess()
      */
     public function post(
         ArticleCreateCommand $command,
@@ -73,7 +78,10 @@ class ArticleController
         );
     }
 
-    /** @Route("/{id}", methods={"DELETE"}) */
+    /**
+     * @Route("/{id}", methods={"DELETE"})
+     * @AdminAccess()
+     */
     public function delete(ArticleDeleteCommand $command, MessageBusInterface $bus): EmptySuccessResponse
     {
         $bus->dispatch($command);

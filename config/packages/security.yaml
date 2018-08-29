@@ -1,8 +1,7 @@
 security:
-    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
         jwt:
-            id: App\Security\JWTIdentityProvider
+            id: App\Http\Security\JWTIdentityProvider
     encoders:
         App\Security\JWTIdentity:
             algorithm: bcrypt
@@ -21,7 +20,8 @@ security:
         rest:
             pattern:   ^/rest
             stateless: true
+            anonymous: ~
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
-                provider: jwt # optional
+                provider: jwt

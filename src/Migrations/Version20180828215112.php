@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace DoctrineMigrations;
 
@@ -10,7 +12,7 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20180828215112 extends AbstractMigration
 {
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
@@ -18,7 +20,7 @@ final class Version20180828215112 extends AbstractMigration
         $this->addSql('CREATE TABLE user (id VARCHAR(32) NOT NULL, login_credentials_login VARCHAR(127) DEFAULT NULL, login_credentials_password VARCHAR(127) DEFAULT NULL, UNIQUE INDEX UNIQ_8D93D64961E588F (login_credentials_login), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');

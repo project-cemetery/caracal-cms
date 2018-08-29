@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2f98d11a5e50224d14fde6fd642c6f88",
+    "content-hash": "f5c1c93d742be4d1b1489bf2427313fc",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2524,6 +2524,56 @@
                 }
             ],
             "description": "Symfony EventDispatcher Component",
+            "homepage": "https://symfony.com",
+            "time": "2018-07-26T09:10:45+00:00"
+        },
+        {
+            "name": "symfony/expression-language",
+            "version": "v4.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/expression-language.git",
+                "reference": "065bba63c61c96fd2d4fbd01b28de058e6f8779a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/expression-language/zipball/065bba63c61c96fd2d4fbd01b28de058e6f8779a",
+                "reference": "065bba63c61c96fd2d4fbd01b28de058e6f8779a",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1.3",
+                "symfony/cache": "~3.4|~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\ExpressionLanguage\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony ExpressionLanguage Component",
             "homepage": "https://symfony.com",
             "time": "2018-07-26T09:10:45+00:00"
         },

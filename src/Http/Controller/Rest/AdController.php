@@ -5,6 +5,7 @@ namespace App\Http\Controller\Rest;
 use App\Business\Sale\Create\AdCreateCommand;
 use App\Business\Sale\Delete\AdDeleteCommand;
 use App\Business\Sale\Edit\AdEditCommand;
+use App\Http\Annotation\AdminAccess\AdminAccess;
 use App\Http\Annotation\HttpCodeCreated\HttpCodeCreated;
 use App\Http\Pagination\Page;
 use App\Http\Pagination\Pagination;
@@ -40,7 +41,10 @@ class AdController
         return AdResponse::fromEntity($ad);
     }
 
-    /** @Route("/{id}", methods={"PUT"}) */
+    /**
+     * @Route("/{id}", methods={"PUT"})
+     * @AdminAccess()
+     */
     public function put(AdEditCommand $command, MessageBusInterface $bus, AdRepository $repo): AdResponse
     {
         $bus->dispatch($command);
@@ -55,6 +59,7 @@ class AdController
     /**
      * @Route("/", methods={"POST"})
      * @HttpCodeCreated()
+     * @AdminAccess()
      */
     public function post(AdCreateCommand $command, MessageBusInterface $bus, AdRepository $repo): AdResponse
     {
@@ -67,7 +72,10 @@ class AdController
         );
     }
 
-    /** @Route("/{id}", methods={"DELETE"}) */
+    /**
+     * @Route("/{id}", methods={"DELETE"})
+     * @AdminAccess()
+     */
     public function delete(AdDeleteCommand $command, MessageBusInterface $bus): EmptySuccessResponse
     {
         $bus->dispatch($command);
