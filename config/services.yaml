@@ -42,10 +42,16 @@ services:
         tags:
             - { name: 'serializer.normalizer', priority: 1 }
 
-    # Id Generator
+    # Http
+    App\Http\FileUploader\RemoteFileUploader: ~
+    App\Http\FileUploader\FileUploader: '@App\Http\FileUploader\RemoteFileUploader'
 
+    # Common
     App\IdGenerator\NanoIdGenerator: ~
     App\IdGenerator\IdGenerator: '@App\IdGenerator\NanoIdGenerator'
+
+    App\ObjectStorageClient\DigitalOceanSpacesClient: ~
+    App\ObjectStorageClient\ObjectStorageClient: '@App\ObjectStorageClient\DigitalOceanSpacesClient'
 
     # Default password encoder
     Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface:
