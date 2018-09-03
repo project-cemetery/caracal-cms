@@ -4114,16 +4114,16 @@
         },
         {
             "name": "composer/xdebug-handler",
-            "version": "1.2.0",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "e1809da56ce1bd1b547a752936817341ac244d8e"
+                "reference": "b8e9745fb9b06ea6664d8872c4505fb16df4611c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/e1809da56ce1bd1b547a752936817341ac244d8e",
-                "reference": "e1809da56ce1bd1b547a752936817341ac244d8e",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/b8e9745fb9b06ea6664d8872c4505fb16df4611c",
+                "reference": "b8e9745fb9b06ea6664d8872c4505fb16df4611c",
                 "shasum": ""
             },
             "require": {
@@ -4154,7 +4154,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2018-08-16T10:54:23+00:00"
+            "time": "2018-08-31T19:07:57+00:00"
         },
         {
             "name": "doctrine/data-fixtures",
@@ -5797,16 +5797,16 @@
         },
         {
             "name": "vimeo/psalm",
-            "version": "2.0.10",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "366f625c83000a701ce0a69b8a05b387c7bf4bce"
+                "reference": "3e69a333c9683596ad4a4325e0039374516295a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/366f625c83000a701ce0a69b8a05b387c7bf4bce",
-                "reference": "366f625c83000a701ce0a69b8a05b387c7bf4bce",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/3e69a333c9683596ad4a4325e0039374516295a0",
+                "reference": "3e69a333c9683596ad4a4325e0039374516295a0",
                 "shasum": ""
             },
             "require": {
@@ -5860,7 +5860,7 @@
                 "inspection",
                 "php"
             ],
-            "time": "2018-08-14T15:51:17+00:00"
+            "time": "2018-08-30T00:54:48+00:00"
         }
     ],
     "aliases": [],
