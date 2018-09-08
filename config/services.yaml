@@ -47,11 +47,12 @@ services:
     App\Http\FileUploader\FileUploader: '@App\Http\FileUploader\RemoteFileUploader'
 
     # Common
-    App\IdGenerator\NanoIdGenerator: ~
-    App\IdGenerator\IdGenerator: '@App\IdGenerator\NanoIdGenerator'
+    App\Service\IdGenerator\NanoIdGenerator: ~
+    App\Service\IdGenerator\IdGenerator: '@App\Service\IdGenerator\NanoIdGenerator'
 
-    App\ObjectStorageClient\DigitalOceanSpacesClient: ~
-    App\ObjectStorageClient\ObjectStorageClient: '@App\ObjectStorageClient\DigitalOceanSpacesClient'
+    App\Service\ObjectStorageClient\DigitalOceanSpacesClient:
+        arguments: ['bucket', 'region']
+    App\Service\ObjectStorageClient\ObjectStorageClient: '@App\Service\ObjectStorageClient\DigitalOceanSpacesClient'
 
     # Default password encoder
     Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface:
