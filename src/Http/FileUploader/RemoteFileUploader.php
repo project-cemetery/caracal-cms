@@ -1,14 +1,13 @@
 <?php
 
-
 namespace App\Http\FileUploader;
-
 
 use App\Service\ObjectStorageClient\ObjectStorageClient;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class RemoteFileUploader implements FileUploader
 {
+    /** @var ObjectStorageClient */
     private $storageClient;
 
     public function __construct(ObjectStorageClient $storageClient)
@@ -18,6 +17,9 @@ class RemoteFileUploader implements FileUploader
 
     public function upload(UploadedFile $file): string
     {
-        return '';
+        return $this->storageClient->upload(
+            $file->getRealPath(),
+            $file->guessExtension() ?? $file->getExtension()
+        );
     }
 }

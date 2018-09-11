@@ -5,6 +5,16 @@ services:
         autowire: true
         autoconfigure: true
         public: false
+        bind:
+           $projectDir: '%kernel.project_dir%'
+
+    _instanceof:
+      Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface:
+        tags: ['controller.argument_value_resolver']
+      Kamyshev\ResponderBundle\Responder\ResponderInterface:
+        tags: ['kamyshev.responder']
+      Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository:
+        tags: ['doctrine.repository_service']
 
     App\:
         resource: '../src/*'
@@ -13,14 +23,6 @@ services:
     App\Http\Controller\:
         resource: '../src/Http/Controller'
         tags: ['controller.service_arguments']
-
-    _instanceof:
-        Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface:
-            tags: ['controller.argument_value_resolver']
-        Kamyshev\ResponderBundle\Responder\ResponderInterface:
-            tags: ['kamyshev.responder']
-        Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository:
-            tags: ['doctrine.repository_service']
 
     # Serializer
     datetime_normalizer:
@@ -51,7 +53,7 @@ services:
     App\Service\IdGenerator\IdGenerator: '@App\Service\IdGenerator\NanoIdGenerator'
 
     App\Service\ObjectStorageClient\DigitalOceanSpacesClient:
-        arguments: ['bucket', 'region']
+        arguments: ['%env(DO_BUCKET)%', '%env(DO_REGION)%', '%env(DO_API_KEY)%', '%env(DO_SECRET_KEY)%']
     App\Service\ObjectStorageClient\ObjectStorageClient: '@App\Service\ObjectStorageClient\DigitalOceanSpacesClient'
 
     # Default password encoder
