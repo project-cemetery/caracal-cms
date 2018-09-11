@@ -51,7 +51,7 @@ class DigitalOceanSpacesClient implements ObjectStorageClient
             $this->bucket,
             "{$fileName}.{$extension}",
             $file,
-            $visibility
+            $this->transformVisibility($visibility)
         );
 
         if (!isset($response['ObjectURL'])) {
@@ -65,5 +65,13 @@ class DigitalOceanSpacesClient implements ObjectStorageClient
         }
 
         return $objectUrl;
+    }
+
+    private function transformVisibility(string $visibility): string
+    {
+        return [
+            self::VISIBILITY_PRIVATE => self::VISIBILITY_PRIVATE,
+            self::VISIBILITY_PUBLIC => 'public-read',
+        ][$visibility];
     }
 }
