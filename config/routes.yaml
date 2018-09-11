@@ -3,4 +3,4 @@ controllers:
     type: annotation
 
 rest_login_check:
-    path: /rest/login
+    path: /login
