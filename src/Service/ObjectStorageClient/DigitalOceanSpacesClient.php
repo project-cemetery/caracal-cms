@@ -71,7 +71,7 @@ class DigitalOceanSpacesClient implements ObjectStorageClient
     {
         return [
             self::VISIBILITY_PRIVATE => self::VISIBILITY_PRIVATE,
-            self::VISIBILITY_PUBLIC => 'public-read',
+            self::VISIBILITY_PUBLIC  => 'public-read',
         ][$visibility];
     }
 }
