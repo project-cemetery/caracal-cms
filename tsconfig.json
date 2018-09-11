@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "target": "es5",
+    "lib": ["dom", "es2017"],
+    "types": ["node", "jest"],
+    "baseUrl": "./assets",
+    "paths": {
+      "@caracal/*": ["*"]
+    }
+  },
+  "include": ["assets/**/*.tsx", "assets/**/*.ts"],
+  "exclude": ["node_modules/*"],
+  "files": ["./types.d.ts"],
+  "jsx": "react"
+}

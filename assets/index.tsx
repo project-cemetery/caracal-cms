@@ -1,10 +1,22 @@
-import * as preact from 'preact'
+import * as hyper from 'hyperapp'
 
 import styles from './index.css'
 
-preact.render((
-  <div class={styles.root}>
-    <span>Hello, world!</span>
-    <button onClick={ (e) => alert('hi!') }>Click Me</button>
+const initialState = {
+  count: 0,
+}
+
+const baseActions = {
+  down: (value) => (state) => ({ count: state.count - value }),
+  up: (value) => (state) => ({ count: state.count + value }),
+}
+
+const view = (state, actions) => (
+  <div className={styles.root}>
+    <h1>{state.count}</h1>
+    <button onclick={() => actions.down(1)}>-</button>
+    <button onclick={() => actions.up(1)}>+</button>
   </div>
-), document.body)
+)
+
+hyper.app(initialState, baseActions, view, document.body)
