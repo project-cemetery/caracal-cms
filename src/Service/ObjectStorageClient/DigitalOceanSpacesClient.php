@@ -42,7 +42,7 @@ class DigitalOceanSpacesClient implements ObjectStorageClient
         ]);
     }
 
-    public function upload(string $filePath, string $extension): string
+    public function upload(string $filePath, string $extension, string $visibility = self::VISIBILITY_PRIVATE): string
     {
         $file = file_get_contents($filePath);
         $fileName = md5($file);
@@ -50,7 +50,8 @@ class DigitalOceanSpacesClient implements ObjectStorageClient
         $response = $this->s3client->upload(
             $this->bucket,
             "{$fileName}.{$extension}",
-            $file
+            $file,
+            $visibility
         );
 
         if (!isset($response['ObjectURL'])) {

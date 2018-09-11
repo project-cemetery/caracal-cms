@@ -19,7 +19,8 @@ class RemoteFileUploader implements FileUploader
     {
         return $this->storageClient->upload(
             $file->getRealPath(),
-            $file->guessExtension() ?? $file->getExtension()
+            $file->guessExtension() ?? $file->getExtension(),
+            ObjectStorageClient::VISIBILITY_PUBLIC
         );
     }
 }
