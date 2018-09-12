@@ -8,9 +8,9 @@ services:
 addons:
   apt:
     sources:
-    - mysql-5.7-trusty
+      - mysql-5.7-trusty
     packages:
-    - mysql-server
+      - mysql-server
 
 dist: trusty
 
@@ -36,6 +36,3 @@ jobs:
     - stage: lint front
       install: yarn
       script: yarn lint
-    - stage: check front size
-      install: yarn
-      script: yarn size
