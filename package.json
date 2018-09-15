@@ -23,7 +23,7 @@
     "postcss-preset-env": "^5.3.0",
     "stylelint": "^9.5.0",
     "stylelint-config-recommended": "^2.1.0",
-    "stylelint-processor-html": "^1.0.0",
+    "stylelint-processor-arbitrary-tags": "^0.1.0",
     "vue-hot-reload-api": "^2.3.0",
     "vue-template-compiler": "^2.5.16"
   },
