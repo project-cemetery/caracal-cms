@@ -8,16 +8,19 @@ services:
 addons:
   apt:
     sources:
-    - mysql-5.7-trusty
+      - mysql-5.7-trusty
     packages:
-    - mysql-server
+      - mysql-server
 
 dist: trusty
 
 sudo: required
 
 before_install:
-  - npm install -g yarn
+  - sudo rm -rf ~/.nvm
+  - curl -sL "https://deb.nodesource.com/setup_8.x" | sudo -E bash -
+  - sudo apt-get install -y nodejs
+  - sudo npm install -g yarn
 
 jobs:
   include:
@@ -36,6 +39,3 @@ jobs:
     - stage: lint front
       install: yarn
       script: yarn lint
-    - stage: check front size
-      install: yarn
-      script: yarn size

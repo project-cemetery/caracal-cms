@@ -1,7 +1,0 @@
-:root {
-  --mainColor: red;
-}
-
-.root {
-  color: var(--mainColor);
-}
