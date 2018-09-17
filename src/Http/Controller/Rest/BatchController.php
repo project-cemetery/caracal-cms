@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Http\Controller\Rest;
 
 use App\Http\Annotation\AdminAccess\AdminAccess;
@@ -14,36 +13,39 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\Routing\Matcher\UrlMatcherInterface;
 use Symfony\Component\Routing\RequestContext;
-use Symfony\Component\Routing\Route as ControllerRoute;
-use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Serializer\Encoder\DecoderInterface;
 
-/** @Route("/rest/batch") */
+/**
+ * @Route("/rest/batch")
+ * @psalm-suppress PropertyNotSetInConstructor
+ */
 class BatchController extends AbstractController
 {
+    /** @var UrlMatcherInterface */
     private $urlMatcher;
+    /** @var DecoderInterface */
+    private $decoder;
 
-    public function __construct(UrlMatcherInterface $urlMatcher)
+    public function __construct(UrlMatcherInterface $urlMatcher, DecoderInterface $decoder)
     {
         $this->urlMatcher = $urlMatcher;
+        $this->decoder = $decoder;
     }
 
     /**
      * @Route("/", methods={"POST"})
      * @AdminAccess()
      */
-    public function __invoke(
-        Request $request,
-        DecoderInterface $decoder
-    ): Response {
+    public function __invoke(Request $request): Response {
         $requests = array_map(
             function (string $path): array {
                 return [
+                    'path'  => $path,
                     'route' => $this->getRouteByPath($path),
                     'query' => $this->getQueryByPath($path),
                 ];
             },
-            $decoder->decode($request->getContent(), 'json')
+            $this->decoder->decode((string) $request->getContent(), 'json')
         );
 
         $content = [];
@@ -56,8 +58,10 @@ class BatchController extends AbstractController
                 $request['query']
             );
 
+            // add target url to requests and execute it later
             if ($response->isRedirect()) {
-                $url = parse_url($response->headers->get('location'));
+                $rawUrl = $response->headers->get('location') ?? '';
+                $url = parse_url(is_array($rawUrl) ? array_shift($rawUrl) : $rawUrl);
 
                 $requests[] = [
                     'route' => $this->getRouteByPath($url['path']),
@@ -70,11 +74,11 @@ class BatchController extends AbstractController
             if (!$response->isSuccessful()) {
                 throw new HttpException(
                     $response->getStatusCode(),
-                    'One or more sub-requests failed'
+                    sprintf("Request to `%s` failed", $request['path'])
                 );
             }
 
-            $content[] = $decoder->decode($response->getContent(), 'json');
+            $content[] = $this->decoder->decode($response->getContent(), 'json');
         }
 
         return new JsonResponse($content);
