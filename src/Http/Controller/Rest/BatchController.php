@@ -36,7 +36,8 @@ class BatchController extends AbstractController
      * @Route("/", methods={"POST"})
      * @AdminAccess()
      */
-    public function __invoke(Request $request): Response {
+    public function __invoke(Request $request): Response
+    {
         $requests = array_map(
             function (string $path): array {
                 return [
@@ -75,7 +76,7 @@ class BatchController extends AbstractController
             if (!$response->isSuccessful()) {
                 throw new HttpException(
                     $response->getStatusCode(),
-                    sprintf("Request to `%s` failed", $request['path'])
+                    sprintf("Request to '%s' failed", $request['path'])
                 );
             }
 
