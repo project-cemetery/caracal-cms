@@ -40,9 +40,9 @@ class BatchController extends AbstractController
         $requests = array_map(
             function (string $path): array {
                 return [
-                    'path'  => $path,
                     'route' => $this->getRouteByPath($path),
                     'query' => $this->getQueryByPath($path),
+                    'path'  => $path,
                 ];
             },
             $this->decoder->decode((string) $request->getContent(), 'json')
@@ -66,6 +66,7 @@ class BatchController extends AbstractController
                 $requests[] = [
                     'route' => $this->getRouteByPath($url['path']),
                     'query' => $request['query'],
+                    'path'  => $request['path'],
                 ];
 
                 continue;
