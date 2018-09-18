@@ -1,5 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import Vuex from 'vuex';
+import AtComponents from 'at-ui';
+import 'at-ui-style';
 
 import App from './App.vue';
 
@@ -7,6 +10,8 @@ import Home from './features/home';
 import Login from './features/login';
 
 Vue.use(VueRouter);
+Vue.use(Vuex);
+Vue.use(AtComponents);
 
 const routes = [
   {
