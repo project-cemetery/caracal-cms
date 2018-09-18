@@ -16,7 +16,6 @@
         "symfony/filesystem": "^4.1",
         "symfony/flex": "^1.0",
         "symfony/framework-bundle": "^4.1",
-        "symfony/lts": "^4@dev",
         "symfony/messenger": "^4.1",
         "symfony/orm-pack": "^1.0",
         "symfony/property-access": "^4.1",
@@ -31,7 +30,7 @@
         "symfony/phpunit-bridge": "^4.1",
         "symfony/test-pack": "^1.0",
         "symfony/web-server-bundle": "^4.1",
-        "symplify/easy-coding-standard": "^4.5",
+        "symplify/easy-coding-standard": "^5.0",
         "vimeo/psalm": "^2.0"
     },
     "config": {

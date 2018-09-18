@@ -10,7 +10,8 @@
     "watch": "parcel watch assets/index.js --out-dir public/build",
     "lint-code": "eslint ./assets/ --fix",
     "lint-styles": "stylelint './assets/**/*.vue' --syntax scss",
-    "lint": "yarn lint-code && yarn lint-styles"
+    "lint": "yarn lint-code && yarn lint-styles",
+    "code": "yarn lint"
   },
   "devDependencies": {
     "@vue/component-compiler-utils": "^1.3.1",
