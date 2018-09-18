@@ -28,3 +28,4 @@ Oversimplified CMS, provide API and admin-interface
 
 + `yarn lint-code` for fix code-style
 + `yarn lint-styles` for check style-style
++ `yarn code` for run all checks
