@@ -4,6 +4,7 @@ php:
 
 services:
   - mysql
+  - docker
 
 addons:
   apt:
@@ -27,11 +28,13 @@ jobs:
     - stage: lint back
       install: composer install -o
       script: php vendor/bin/ecs check {src,tests}
+
     - stage: test back
       before_install:
         - mysql -e 'CREATE DATABASE caracal_test;'
       install: composer install -o
       script: php bin/phpunit
+
     - stage: analysis back
       install: composer install -o
       script: php vendor/bin/psalm
@@ -39,3 +42,6 @@ jobs:
     - stage: lint front
       install: yarn
       script: yarn lint
+
+    - stage: build docker
+      script: docker build -t igorkamyshev/caracal .
