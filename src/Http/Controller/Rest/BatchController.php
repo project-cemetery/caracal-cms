@@ -80,7 +80,7 @@ class BatchController extends AbstractController
                 );
             }
 
-            $content[] = $this->decoder->decode($response->getContent(), 'json');
+            $content[$request['path']] = $this->decoder->decode($response->getContent(), 'json');
         }
 
         return new JsonResponse($content);
