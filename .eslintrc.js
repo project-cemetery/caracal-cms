@@ -1,4 +1,9 @@
 module.exports = {
-  "extends": ["plugin:vue/essential"],
-  "rules": {}
-}
+  extends: ['eslint:recommended', 'plugin:vue/recommended'],
+  rules: {},
+  plugins: ['babel'],
+  parserOptions: {
+    parser: 'babel-eslint',
+    sourceType: 'module',
+  },
+};
