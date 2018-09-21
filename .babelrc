@@ -1,4 +1,15 @@
 {
   "presets": ["env", "vue"],
-  "plugins": ["transform-class-properties"]
+  "plugins": [
+    "transform-class-properties",
+    [
+      "module-resolver",
+      {
+        "root": ["./assets"],
+        "alias": {
+          "@site": "./"
+        }
+      }
+    ]
+  ]
 }
