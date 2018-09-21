@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="app">
     <at-menu mode="horizontal" active-name="1">
-      <router-link to="/">Home</router-link>
-      <router-link to="/login">Login</router-link>
+     <at-menu-item name="1"><router-link to="/"><i class="icon icon-home"></i>Home</router-link></at-menu-item>
+     <at-menu-item name="2"><router-link to="/login"><i class="icon icon-user"></i>Login</router-link></at-menu-item>
     </at-menu>
     <div>
     </div>
@@ -19,22 +19,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-html,
-body {
-  height: 100%;
-}
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-}
-
 .app {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-}
-
-h1 {
-  font-weight: 300;
 }
 </style>

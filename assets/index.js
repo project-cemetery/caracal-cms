@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Vuex from 'vuex';
 import AtComponents from 'at-ui';
 import 'at-ui-style';
+import './index.css'
 
 import App from './App.vue';
 
