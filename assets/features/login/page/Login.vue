@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import LoginForm from "../organisms/loginForm/LoginForm";
+import LoginForm from "../organisms/LoginForm";
 
 export default {
   name: 'login',
