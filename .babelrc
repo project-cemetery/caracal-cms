@@ -7,7 +7,7 @@
       {
         "root": ["./assets"],
         "alias": {
-          "@site": "./"
+          "@site": ""
         }
       }
     ]
