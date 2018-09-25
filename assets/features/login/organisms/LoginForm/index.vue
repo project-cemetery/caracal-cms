@@ -1,8 +1,7 @@
 <template lang="html">
-  <form @submit="login" action="">
-    <at-input class="input" v-model="username" placeholder="Username" required></at-input>
-    <at-input class="input" v-model="password" type="password" placeholder="Password" required></at-input>
-    <at-button @click="login" type="primary">Login</at-button>
+  <form v-model="valid">
+
+    <input></input>
   </form>
 </template>
 
@@ -10,26 +9,31 @@
 import ApiClient from "@site/apiClient";
 
 export default {
-  name: 'loginForm',
-  data: () => ({
-    password: '',
-    username: ''
-  }),
-  methods: {
-    login: function() {
-        const userCredentials = new FormData()
-        userCredentials.append('username', this.username)
-        userCredentials.append('password', this.password)
-
-        ApiClient.login(userCredentials)
-
-    }
+    data: () => ({
+      valid: false,
+      username: '',
+      usernameRules: [
+        v => !!v || 'username is required',
+      ],
+      password: '',
+      emailRules: [
+        v => !!v || 'password is required',
+      ]
+    })
   }
-}
 </script>
 
 <style lang="css" scoped>
 .input {
   margin-bottom: 1rem;
+  padding: 0.4em 1em;
+  border-radius: 3px;
+  border: 1px solid #6190e8;
+  display: block;
+}
+
+.button {
+  /* background-color: #6190E8;
+  border: */
 }
 </style>

@@ -1,1 +1,1 @@
-export const baseUrl = 'localhost:8080';
+export const BACK_URL = "";

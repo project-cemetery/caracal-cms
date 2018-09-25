@@ -1,9 +1,15 @@
 module.exports = {
-  extends: ['eslint:recommended', 'plugin:vue/recommended'],
-  rules: {},
-  plugins: ['babel'],
+  root: true,
   parserOptions: {
-    parser: 'babel-eslint',
     sourceType: 'module',
+    parser: 'babel-eslint',
+  },
+  env: {
+    browser: true,
+  },
+  extends: ['prettier', 'prettier/standard', 'plugin:vue/recommended'],
+  plugins: ['vue', 'prettier'],
+  rules: {
+    'prettier/prettier': 'error',
   },
 };

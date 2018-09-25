@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 class AxiosApiClient {
   constructor(baseUrl) {
@@ -8,7 +8,7 @@ class AxiosApiClient {
   login(userCredentials) {
     return axios
       .post(`${this.baseUrl}/login`, userCredentials, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+        headers: { "Content-Type": "application/json" }
       })
       .then(response => response.data);
   }

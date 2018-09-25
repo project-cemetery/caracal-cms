@@ -1,1 +1,1 @@
-export {default as default} from './organisms/Header'
+export { default } from "./organisms/Header";

@@ -3,12 +3,14 @@
     <Header></Header>
     <template v-if="$route.matched.length">
       <router-view></router-view>
+
     </template>
   </div>
 </template>
 
 <script>
 import Header from "@site/features/header";
+
 export default {
   name: 'app',
   components: {Header}

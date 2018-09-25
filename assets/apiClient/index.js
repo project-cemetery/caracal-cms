@@ -1,4 +1,4 @@
-import AxiosApiClient from './AxiosApiClient';
-import { baseUrl } from '@site/config';
+import AxiosApiClient from "./AxiosApiClient";
+import { BACK_URL } from "@site/config";
 
-export default new AxiosApiClient(baseUrl);
+export default new AxiosApiClient(BACK_URL);
