@@ -1,39 +1,63 @@
 <template lang="html">
-  <form v-model="valid">
+  <b-form
+    class="form"
+    @submit.prevent="onSubmit"
+  >
+    <b-form-group
+      id="Username group"
+      label="Username:"
+      label-for="username"
+    >
+      <b-form-input
+        id="username"
+        v-model="form.username"
+        type="text"
+        required
+      />
+    </b-form-group>
+    <b-form-group
+      id="Password group"
+      label="Password:"
+      label-for="password"
+    >
+      <b-form-input
+        id="password"
+        v-model="form.password"
+        type="password"
+        required
+      />
+    </b-form-group>
 
-    <input></input>
-  </form>
+    <b-button
+
+      type="submit"
+      variant="primary"
+    >Submit</b-button>
+  </b-form>
 </template>
 
 <script>
 import ApiClient from "@site/apiClient";
 
 export default {
-    data: () => ({
-      valid: false,
-      username: '',
-      usernameRules: [
-        v => !!v || 'username is required',
-      ],
-      password: '',
-      emailRules: [
-        v => !!v || 'password is required',
-      ]
-    })
+  data: () => ({
+    form: {
+      username: "",
+      password: ""
+    }
+  }),
+  methods: {
+    onSubmit: function(e) {
+      ApiClient.login(JSON.stringify(this.form));
+    }
   }
+};
 </script>
 
 <style lang="css" scoped>
-.input {
-  margin-bottom: 1rem;
-  padding: 0.4em 1em;
-  border-radius: 3px;
-  border: 1px solid #6190e8;
-  display: block;
-}
-
-.button {
-  /* background-color: #6190E8;
-  border: */
+.form {
+  padding: 2em;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
 }
 </style>

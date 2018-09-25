@@ -10,7 +10,10 @@ class AxiosApiClient {
       .post(`${this.baseUrl}/login`, userCredentials, {
         headers: { "Content-Type": "application/json" }
       })
-      .then(response => response.data);
+      .then(response => response.data)
+      .catch(e => {
+        window ? alert(e.message) : console.error(e.message);
+      });
   }
 }
 

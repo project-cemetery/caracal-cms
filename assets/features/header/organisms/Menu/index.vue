@@ -1,18 +1,33 @@
 <template lang="html">
-  <div>
-    <router-link to="/"><i class="icon icon-home"></i>Home</router-link>
-    <router-link to="/auth"><i class="icon icon-user"></i>Login</router-link>
-  </div>
+  <b-navbar-nav class="ml-auto">
+    <b-nav-item><router-link
+      class="link"
+      to="/"
+    >Home</router-link></b-nav-item>
+    <b-nav-item><router-link
+      class="link"
+      to="/auth"
+    >Login</router-link></b-nav-item>
+  </b-navbar-nav>
 </template>
 
 <script>
 export default {
-  name: 'appMenu'
-}
+  name: "AppMenu"
+};
 </script>
 
 <style lang="css" scoped>
-  .menu {
-    margin-bottom: -1px;
+.menu {
+  margin-bottom: -1px;
+}
+
+.link {
+  color: #ffffff;
+  text-decoration: none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
   }
+}
 </style>

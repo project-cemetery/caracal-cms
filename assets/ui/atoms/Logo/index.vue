@@ -1,17 +1,24 @@
 <template lang="html">
-  <span class="logo">Caracal CMS</span>
+  <b-navbar-brand>
+    <router-link
+      class="logo"
+      to="/"
+    >
+      Caracal CMS
+    </router-link>
+  </b-navbar-brand>
 </template>
 
 <script>
 export default {
-  name: 'logo'
-}
+  name: "Logo"
+};
 </script>
 
 <style lang="css" scoped>
   .logo {
     display: block;
-    color: #79a1eb;
+    color: #ffffff;
     font-size: 18px;
     margin-right: 1.5rem;
   }
