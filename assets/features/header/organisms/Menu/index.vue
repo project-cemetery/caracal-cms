@@ -19,7 +19,6 @@ export default {
 
 <style lang="css" scoped>
 .menu {
-  margin-bottom: -1px;
 }
 
 .link {

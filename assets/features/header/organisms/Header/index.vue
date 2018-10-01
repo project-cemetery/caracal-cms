@@ -37,11 +37,12 @@ export default {
 .header {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #e2ecf4;
+  justify-content: center;
 }
 
 .navBar {
   width: 100%;
   max-width: 1600px;
+  border-bottom: 1px solid #e2ecf4;
 }
 </style>
