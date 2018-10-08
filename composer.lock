@@ -1433,16 +1433,16 @@
         },
         {
             "name": "hidehalo/nanoid-php",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hidehalo/nanoid-php.git",
-                "reference": "620a2592a7ca3d1a3485373f1b3d16c2effdaf4c"
+                "reference": "0f4ffdd3b56200e2a927501b01bae31b62a35df7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hidehalo/nanoid-php/zipball/620a2592a7ca3d1a3485373f1b3d16c2effdaf4c",
-                "reference": "620a2592a7ca3d1a3485373f1b3d16c2effdaf4c",
+                "url": "https://api.github.com/repos/hidehalo/nanoid-php/zipball/0f4ffdd3b56200e2a927501b01bae31b62a35df7",
+                "reference": "0f4ffdd3b56200e2a927501b01bae31b62a35df7",
                 "shasum": ""
             },
             "require": {
@@ -1482,7 +1482,7 @@
                 "hidehalo",
                 "nanoid-php"
             ],
-            "time": "2018-09-04T02:37:27+00:00"
+            "time": "2018-10-03T02:53:38+00:00"
         },
         {
             "name": "jdorn/sql-formatter",
