@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends Controller
 {
-    /** @Route("/") */
     public function index(): Response
     {
         return $this->render('admin.html.twig');
