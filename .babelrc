@@ -1,13 +1,19 @@
 {
-  "presets": ["env", "vue"],
+  "presets": [
+    "env",
+    "vue"
+  ],
   "plugins": [
+    "transform-runtime",
     "transform-class-properties",
     [
       "module-resolver",
       {
-        "root": ["./assets"],
+        "root": [
+          "."
+        ],
         "alias": {
-          "@site": ""
+          "@site": "assets"
         }
       }
     ]

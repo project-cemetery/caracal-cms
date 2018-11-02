@@ -4,7 +4,7 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
     "paths": {
-      "@site/*": ["./assets/*"]
+      "@/*": ["./assets/*"]
     }
   },
   "exclude": ["node_modules"]

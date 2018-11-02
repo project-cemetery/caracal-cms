@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <header class="header">
     <b-navbar
       toggleable="md"
@@ -24,12 +24,13 @@
 </template>
 
 <script>
-import Menu from "../Menu";
-import Logo from "@site/ui/atoms/Logo";
+import Menu from '../Menu';
+import Logo from '@/ui/atoms/Logo/index.vue';
+
 
 export default {
-  name: "AppHeader",
-  components: { Menu, Logo }
+  name: 'AppHeader',
+  components: { Menu, Logo },
 };
 </script>
 

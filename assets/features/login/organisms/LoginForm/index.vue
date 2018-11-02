@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <b-form
     class="form"
     @submit.prevent="onSubmit"
@@ -37,20 +37,20 @@
 </template>
 
 <script>
-import ApiClient from "@site/apiClient";
+import ApiClient from '@site/apiClient';
 
 export default {
   data: () => ({
     form: {
-      username: "",
-      password: ""
-    }
+      username: '',
+      password: '',
+    },
   }),
   methods: {
-    onSubmit: function(e) {
+    onSubmit() {
       ApiClient.login(JSON.stringify(this.form));
-    }
-  }
+    },
+  },
 };
 </script>
 

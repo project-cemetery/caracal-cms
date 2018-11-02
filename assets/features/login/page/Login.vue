@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="login">
     <div class="loginFormWrapper">
       <LoginForm />
@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import LoginForm from "../organisms/LoginForm";
+import LoginForm from '../organisms/LoginForm';
 
 export default {
-  name: "Login",
-  components: { LoginForm }
+  name: 'Login',
+  components: { LoginForm },
 };
 </script>
 

@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <b-navbar-nav class="ml-auto">
     <b-nav-item><router-link
       class="link"
@@ -13,17 +13,14 @@
 
 <script>
 export default {
-  name: "AppMenu"
+  name: 'AppMenu',
 };
 </script>
 
 <style lang="css" scoped>
-.menu {
-}
-
 .link {
-  color: #ffffff;
   text-decoration: none;
+  color: #ffffff;
   &:hover,
   &:focus {
     text-decoration: underline;

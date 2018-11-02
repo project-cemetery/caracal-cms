@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div>
     <h1>Home</h1>
   </div>
@@ -6,8 +6,8 @@
 
 <script>
 export default {
-  name: 'home'
-}
+  name: 'Home',
+};
 </script>
 
 <style lang="css" scoped>

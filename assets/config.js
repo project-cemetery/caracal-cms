@@ -1,1 +1,1 @@
-export const BACK_URL = "";
+export const BACK_URL = '';

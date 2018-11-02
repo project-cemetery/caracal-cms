@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <div class="app">
     <Header />
     <template v-if="$route.matched.length">
@@ -9,13 +9,12 @@
 </template>
 
 <script>
-import Header from "@site/features/header";
+import Header from '@site/features/header';
 
 export default {
-  name: "App",
-  components: { Header }
+  name: 'App',
+  components: { Header },
 };
-const a = "b";
 </script>
 
 <style lang="css" scoped>

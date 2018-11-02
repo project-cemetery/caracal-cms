@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <b-navbar-brand>
     <router-link
       class="logo"
@@ -11,15 +11,15 @@
 
 <script>
 export default {
-  name: "Logo"
+  name: 'Logo',
 };
 </script>
 
 <style lang="css" scoped>
-  .logo {
-    display: block;
-    color: #ffffff;
-    font-size: 18px;
-    margin-right: 1.5rem;
-  }
+.logo {
+  display: block;
+  color: #ffffff;
+  font-size: 18px;
+  margin-right: 1.5rem;
+}
 </style>
