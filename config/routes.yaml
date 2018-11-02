@@ -3,4 +3,10 @@ controllers:
     type: annotation
 
 rest_login_check:
-    path: /login
+    path: /api/login
+
+admin_app:
+  path: /{path}
+  requirements:
+    path: .*
+  defaults: { _controller: App\Http\Controller\AdminController:index }
