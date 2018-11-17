@@ -1538,29 +1538,32 @@
             "time": "2014-01-12T16:20:24+00:00"
         },
         {
-            "name": "kamyshev/array_find",
-            "version": "v1.0",
+            "name": "kamyshev/array_actions",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/TheNovel/array_find.git",
-                "reference": "7edae4f0643d768a8f3c56414d7c6e8d8a2575e1"
+                "url": "https://github.com/igorkamyshev/array_actions.git",
+                "reference": "cb22715e8d46825a16a9baf11050a29ebff612a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/TheNovel/array_find/zipball/7edae4f0643d768a8f3c56414d7c6e8d8a2575e1",
-                "reference": "7edae4f0643d768a8f3c56414d7c6e8d8a2575e1",
+                "url": "https://api.github.com/repos/igorkamyshev/array_actions/zipball/cb22715e8d46825a16a9baf11050a29ebff612a0",
+                "reference": "cb22715e8d46825a16a9baf11050a29ebff612a0",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0"
+                "php": ">=7.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.5"
+                "phpunit/phpunit": "^7.0",
+                "symplify/easy-coding-standard": "^5.1",
+                "vimeo/psalm": "^2.0"
             },
             "type": "library",
             "autoload": {
                 "files": [
-                    "src/array_find.php"
+                    "src/array_find.php",
+                    "src/array_head.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1570,42 +1573,41 @@
             "authors": [
                 {
                     "name": "Igor Kamyshev",
-                    "email": "garik.novel@gmail.com"
+                    "email": "igor@kamyshev.me"
                 }
             ],
-            "description": "A PHP function that find element in an array by a callback.",
-            "homepage": "https://github.com/TheNovel/array_find",
+            "description": "Set of simple actions with arrays",
+            "homepage": "https://github.com/igorkamyshev/array_actions",
             "keywords": [
                 "array",
-                "array_find",
-                "find"
+                "utils"
             ],
-            "abandoned": "kamyshev/array_actions",
-            "time": "2018-02-15T12:36:11+00:00"
+            "time": "2018-10-25T11:34:34+00:00"
         },
         {
             "name": "kamyshev/responder-bundle",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/igorkamyshev/ResponderBundle.git",
-                "reference": "939a256846aa31d4a0bb3fed85933c9c15236f21"
+                "reference": "8641d381bf5ec0deb188e5b3fad85b26f08825f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/igorkamyshev/ResponderBundle/zipball/939a256846aa31d4a0bb3fed85933c9c15236f21",
-                "reference": "939a256846aa31d4a0bb3fed85933c9c15236f21",
+                "url": "https://api.github.com/repos/igorkamyshev/ResponderBundle/zipball/8641d381bf5ec0deb188e5b3fad85b26f08825f9",
+                "reference": "8641d381bf5ec0deb188e5b3fad85b26f08825f9",
                 "shasum": ""
             },
             "require": {
-                "kamyshev/array_find": "^1.0",
+                "kamyshev/array_actions": "^1.1",
                 "php": "^7.1",
                 "symfony/framework-bundle": "^4.1",
                 "symfony/http-foundation": "^4.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^7.0",
-                "symplify/easy-coding-standard": "^4.6"
+                "symplify/easy-coding-standard": "^4.6",
+                "vimeo/psalm": "^2.0"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -1623,7 +1625,7 @@
                 "response",
                 "symfony"
             ],
-            "time": "2018-08-10T14:52:45+00:00"
+            "time": "2018-11-16T07:04:47+00:00"
         },
         {
             "name": "lcobucci/jwt",
