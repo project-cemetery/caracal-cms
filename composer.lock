@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.72.0",
+            "version": "3.74.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "990fc104600d0da59b0229e04c008abd16c5d0ee"
+                "reference": "96c8eb175b3e1641237659e08ea869e4ba4b5765"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/990fc104600d0da59b0229e04c008abd16c5d0ee",
-                "reference": "990fc104600d0da59b0229e04c008abd16c5d0ee",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/96c8eb175b3e1641237659e08ea869e4ba4b5765",
+                "reference": "96c8eb175b3e1641237659e08ea869e4ba4b5765",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-11-15T23:57:11+00:00"
+            "time": "2018-11-20T21:04:36+00:00"
         },
         {
             "name": "doctrine/annotations",
