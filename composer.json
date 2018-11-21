@@ -31,7 +31,7 @@
         "symfony/test-pack": "^1.0",
         "symfony/web-server-bundle": "^4.1",
         "symplify/easy-coding-standard": "^5.0",
-        "vimeo/psalm": "^2.0"
+        "vimeo/psalm": "^3.0"
     },
     "config": {
         "preferred-install": {
