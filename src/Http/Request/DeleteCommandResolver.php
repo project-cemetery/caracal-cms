@@ -16,6 +16,7 @@ class DeleteCommandResolver implements ArgumentValueResolverInterface
 
     public function resolve(Request $request, ArgumentMetadata $argument)
     {
+        /** @psalm-suppress InvalidStringClass */
         $class = $argument->getType();
 
         yield new $class($request->get('id'));
