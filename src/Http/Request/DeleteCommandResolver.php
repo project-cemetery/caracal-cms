@@ -14,9 +14,9 @@ class DeleteCommandResolver implements ArgumentValueResolverInterface
         return is_subclass_of($argument->getType(), DeleteCommand::class);
     }
 
+    /** @psalm-suppress InvalidStringClass */
     public function resolve(Request $request, ArgumentMetadata $argument)
     {
-        /** @psalm-suppress InvalidStringClass */
         $class = $argument->getType();
 
         yield new $class($request->get('id'));
