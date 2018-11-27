@@ -1632,16 +1632,16 @@
         },
         {
             "name": "lcobucci/jwt",
-            "version": "3.2.4",
+            "version": "3.2.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lcobucci/jwt.git",
-                "reference": "c9704b751315d21735dc98d78d4f37bd73596da7"
+                "reference": "82be04b4753f8b7693b62852b7eab30f97524f9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/c9704b751315d21735dc98d78d4f37bd73596da7",
-                "reference": "c9704b751315d21735dc98d78d4f37bd73596da7",
+                "url": "https://api.github.com/repos/lcobucci/jwt/zipball/82be04b4753f8b7693b62852b7eab30f97524f9b",
+                "reference": "82be04b4753f8b7693b62852b7eab30f97524f9b",
                 "shasum": ""
             },
             "require": {
@@ -1686,20 +1686,20 @@
                 "JWS",
                 "jwt"
             ],
-            "time": "2018-08-03T11:23:50+00:00"
+            "time": "2018-11-11T12:22:26+00:00"
         },
         {
             "name": "lexik/jwt-authentication-bundle",
-            "version": "v2.6.0",
+            "version": "v2.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/lexik/LexikJWTAuthenticationBundle.git",
-                "reference": "dc10bb43a8c9fef24edbc9d6fab8cf40d575a903"
+                "reference": "ba179c2f876b96e5cffe5ee75cac883cfe3f8847"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lexik/LexikJWTAuthenticationBundle/zipball/dc10bb43a8c9fef24edbc9d6fab8cf40d575a903",
-                "reference": "dc10bb43a8c9fef24edbc9d6fab8cf40d575a903",
+                "url": "https://api.github.com/repos/lexik/LexikJWTAuthenticationBundle/zipball/ba179c2f876b96e5cffe5ee75cac883cfe3f8847",
+                "reference": "ba179c2f876b96e5cffe5ee75cac883cfe3f8847",
                 "shasum": ""
             },
             "require": {
@@ -1783,7 +1783,7 @@
                 "rest",
                 "symfony"
             ],
-            "time": "2018-11-01T14:48:31+00:00"
+            "time": "2018-11-18T21:13:33+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
