@@ -3956,16 +3956,16 @@
         },
         {
             "name": "symfony/serializer",
-            "version": "v4.1.8",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/serializer.git",
-                "reference": "7206a1cafd65cb7e0e72587f72cdb631be985feb"
+                "reference": "830a3add86777766b4fc6490e3f5e72d693704c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/serializer/zipball/7206a1cafd65cb7e0e72587f72cdb631be985feb",
-                "reference": "7206a1cafd65cb7e0e72587f72cdb631be985feb",
+                "url": "https://api.github.com/repos/symfony/serializer/zipball/830a3add86777766b4fc6490e3f5e72d693704c2",
+                "reference": "830a3add86777766b4fc6490e3f5e72d693704c2",
                 "shasum": ""
             },
             "require": {
@@ -4005,7 +4005,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -4032,7 +4032,7 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2018-11-11T19:51:29+00:00"
+            "time": "2018-11-11T19:52:12+00:00"
         },
         {
             "name": "symfony/twig-bridge",
