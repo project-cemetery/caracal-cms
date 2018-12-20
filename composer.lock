@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.81.5",
+            "version": "3.82.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "7eade892796d613c1b09703260b99c001a2fba03"
+                "reference": "f3c38c0d74fba49fdaa1ce856412ea1017513002"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/7eade892796d613c1b09703260b99c001a2fba03",
-                "reference": "7eade892796d613c1b09703260b99c001a2fba03",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/f3c38c0d74fba49fdaa1ce856412ea1017513002",
+                "reference": "f3c38c0d74fba49fdaa1ce856412ea1017513002",
                 "shasum": ""
             },
             "require": {
@@ -87,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-12-13T22:18:37+00:00"
+            "time": "2018-12-19T22:35:44+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -1682,7 +1682,7 @@
                 {
                     "name": "Luís Otávio Cobucci Oblonczyk",
                     "email": "lcobucci@gmail.com",
-                    "role": "Developer"
+                    "role": "developer"
                 }
             ],
             "description": "A simple library to work with JSON Web Token and JSON Web Signature",
