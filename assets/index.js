@@ -1,9 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Vuex from 'vuex';
-import AtComponents from 'at-ui';
-import 'at-ui-style';
-import './index.css'
+import BootstrapVue from 'bootstrap-vue';
+
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+
+import './index.css';
 
 import App from './App.vue';
 
@@ -12,7 +15,7 @@ import Login from './features/login';
 
 Vue.use(VueRouter);
 Vue.use(Vuex);
-Vue.use(AtComponents);
+Vue.use(BootstrapVue);
 
 const routes = [
   {
@@ -20,7 +23,7 @@ const routes = [
     component: Home,
   },
   {
-    path: '/login',
+    path: '/auth',
     component: Login,
   },
 ];

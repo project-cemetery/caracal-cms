@@ -1,18 +1,18 @@
-<template lang="html">
+<template>
   <div class="login">
     <div class="loginFormWrapper">
-      <LoginForm/>
+      <LoginForm />
     </div>
   </div>
 </template>
 
 <script>
-import LoginForm from "../organisms/loginForm/LoginForm";
+import LoginForm from '../organisms/LoginForm';
 
 export default {
-  name: 'login',
-  components: {LoginForm}
-}
+  name: 'Login',
+  components: { LoginForm },
+};
 </script>
 
 <style lang="css" scoped>

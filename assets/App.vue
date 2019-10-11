@@ -1,21 +1,20 @@
-<template lang="html">
+<template>
   <div class="app">
-    <at-menu mode="horizontal" active-name="1">
-     <at-menu-item name="1"><router-link to="/"><i class="icon icon-home"></i>Home</router-link></at-menu-item>
-     <at-menu-item name="2"><router-link to="/login"><i class="icon icon-user"></i>Login</router-link></at-menu-item>
-    </at-menu>
-    <div>
-    </div>
+    <Header />
     <template v-if="$route.matched.length">
-      <router-view></router-view>
+      <router-view />
+
     </template>
   </div>
 </template>
 
 <script>
+import Header from '@site/features/header';
+
 export default {
-  name: 'app'
-}
+  name: 'App',
+  components: { Header },
+};
 </script>
 
 <style lang="css" scoped>
